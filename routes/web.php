@@ -14,3 +14,9 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+//Catálogo
+
+Route::get('catalog', function(){
+    return view('catalog');
+});
