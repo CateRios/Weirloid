@@ -4,14 +4,13 @@
 
 .catalog-nav-bar{
     background-color: #F5F1F1;
-    padding: 20px;
+    padding: 15px;
     font-style: normal;
     font-weight: normal;
 }
 
 .catalog-nav-bar ul{
     display: inline;
-    margin: 0 auto;
     margin-inline-start: 5em;
 }
 
@@ -21,7 +20,39 @@
 }
 
 .catalog-nav-bar a{
+    text-decoration: none;
     color: #EC008C;
+}
+
+.catalog-nav-bar a:link{
+    text-decoration: none;
+    color: #EC008C;
+    padding: 17px 13px;
+}
+
+.catalog-nav-bar a:visited{
+    text-decoration: none;
+    color: #EC008C;
+}
+
+.catalog-nav-bar a.pops:active{
+    background-color: #ED1C24;
+    color: white;
+}
+
+.catalog-nav-bar a.manga:active{
+    background-color: #F99D1C;
+    color: white;
+}
+
+.catalog-nav-bar a.electronics:active{
+    background-color: #008FD5;
+    color: white;
+}
+
+.catalog-nav-bar a.clothes:active{
+    background-color: #802A90;
+    color: white;
 }
 
 .catalog-nav-bar form{
@@ -31,7 +62,6 @@
 
 .catalog-nav-bar input[type=search]{
     font-size: 15px;
-    border: 1px solid gray;
     border-radius: 10px;
     color: gray;
     opacity: 45%;

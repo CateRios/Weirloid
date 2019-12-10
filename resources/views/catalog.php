@@ -9,10 +9,11 @@
 <header>
     <nav class='catalog-nav-bar'>
         <ul>
-            <li><a>Figuras y Pop's</a></li>
-            <li><a>Manga y cómics</a></li>
-            <li><a>Electrónica</a></li>
-            <li><a>Ropa</a></li>
+            <?php //mantener link como acivo -> jquery?>
+            <li><a href='' class='pops'>Figuras y Pop's</a></li>
+            <li><a href='' class='manga'>Manga y cómics</a></li>
+            <li><a a href='' class='electronics'>Electrónica</a></li>
+            <li><a a href='' class='clothes'>Ropa</a></li>
         </ul>
 
         <ul>
