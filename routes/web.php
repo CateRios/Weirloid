@@ -17,6 +17,12 @@ Route::get('/', function () {
 
 //Catálogo
 
-Route::get('catalog', function(){
-    return view('catalog');
+Route::get('popsCatalog', function(){
+    return view('popsCatalog');
+});
+
+//Carrito
+
+Route::get('shoppingCart', function(){
+    return view('shoppingCart');
 });
