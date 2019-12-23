@@ -1,0 +1,179 @@
+@import "app.css";
+
+/* =============== NAV =============== */
+
+.catalog-nav-bar{
+    background-color: var(--ivory);
+    padding: 15px;
+    font-style: normal;
+    font-weight: normal;
+}
+
+.catalog-nav-bar ul{
+    display: inline;
+    margin-inline-start: 5em;
+}
+
+.catalog-nav-bar li {
+    display: inline;
+    margin-left: 10px;
+}
+
+.catalog-nav-bar a{
+    text-decoration: none;
+    color: var(--pink);
+}
+
+.catalog-nav-bar a:link{
+    text-decoration: none;
+    color: var(--pink);
+    padding: 17px 13px;
+}
+
+.catalog-nav-bar a:visited{
+    text-decoration: none;
+    color: var(--pink);
+}
+
+.catalog-nav-bar a.pops:active{
+    background-color: var(--red);
+    color: var(--white);
+}
+
+.catalog-nav-bar a.manga:active{
+    background-color: var(--orange);
+    color: var(--white);
+}
+
+.catalog-nav-bar a.electronics:active{
+    background-color: var(--blue);
+    color: var(--white);
+}
+
+.catalog-nav-bar a.clothes:active{
+    background-color: var(--purple);
+    color: var(--white);
+}
+
+.catalog-nav-bar form{
+    display: inline;
+    margin-inline-start: 2em;
+}
+
+.catalog-nav-bar input[type=search]{
+    font-size: 15px;
+    border-radius: 10px;
+    color: gray;
+    opacity: 45%;
+}
+
+/* =============== Filters =============== */
+.filters{
+    margin: 3% 0 3% 0;
+    height: fit-content;
+    background-color: #F5F1F1;
+    width: 100%;
+}
+
+.filters section{
+    margin-inline-start: 15px;
+    margin-inline-end: 5px;
+    padding-bottom: 15px;
+    border-bottom: 1.5px solid var(--white);
+    padding: 10px 10px 20px 30px;
+}
+
+.filters section p{
+    color: var(--pink);
+    font-size: 14px;
+}
+
+.filters #title{
+    background-color: var(--white);
+    width: 12em;
+    text-align: center;
+    margin-top: 1em;
+    color: var(--pink);
+    padding-top: 1%;
+    border-radius: 0px 15px 15px 0px;
+}
+
+.filters h4{
+    font-family: 'Monserrat', sans-serif;
+    font-size: 100%;
+}
+
+/* =============== Radio buttons =============== */
+.radio{
+    display: block;
+    position: relative;
+    padding-left: 20px;
+    cursor: pointer;
+    font-size: 13px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.radio input{
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.checkmark{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 16px;
+    width: 16px;
+    background-color: var(--white);
+    border: 1px solid #DADADA;
+}
+
+.radio:hover input ~ .checkmark {
+    background-color: #DADADA;
+}
+
+.radio input:checked ~ .checkmark {
+    background-color: var(--pink);
+}
+
+/* =============== Slider =============== */
+#slider-range{
+    background-color: #747D88;
+    width: 80%;
+    height: 5px;
+    margin-inline-start: 8px;
+    margin-top: 30px;
+}
+
+#slider-range .ui-slider-handle{
+   background-color: var(--black) ; 
+   border-radius: 3px;
+   width: 2px;
+   margin: 0%;
+}
+
+#slider-range .ui-slider-range {
+    background: var(--rainbow);
+    top: 0;
+    height: 100%;
+}
+
+#min, #max {
+    width: 50px;
+    text-align: center;
+    margin-top: 15px;
+}
+
+/* =============== Products section =============== */
+.catalog-products-section{
+    margin: 3% 0% 3% 0%;
+    width: 100%;
+}
+
+.catalog-products-section #section-div{
+    margin-top: 15px;
+}
