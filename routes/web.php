@@ -33,6 +33,13 @@ Route::get('clothesCatalog', function(){
     return view('clothesCatalog');
 });
 
+//Detalle producto
+
+Route::get('popDetail', function(){
+    return view('popDetail');
+});
+
+
 
 //Carrito
 
