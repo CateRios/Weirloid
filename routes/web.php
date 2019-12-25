@@ -21,6 +21,19 @@ Route::get('popsCatalog', function(){
     return view('popsCatalog');
 });
 
+Route::get('mangaCatalog', function(){
+    return view('mangaCatalog');
+});
+
+Route::get('electronicsCatalog', function(){
+    return view('electronicsCatalog');
+});
+
+Route::get('clothesCatalog', function(){
+    return view('clothesCatalog');
+});
+
+
 //Carrito
 
 Route::get('shoppingCart', function(){

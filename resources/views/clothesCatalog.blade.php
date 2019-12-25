@@ -56,14 +56,11 @@
 
         });
   </script>
-  <script>
- 
-  </script>
     
 </head>
 
-
 <body>
+
     <!-- Header -->
     @include('general.header')
     
@@ -71,7 +68,7 @@
     <nav class="catalog-nav-bar">
         <ul>
             <?php //mantener link como acivo -> jquery?>
-            <li><a href="popsCatalog" class="pops" name="navpops">Figuras y Pop's</a></li>
+            <li><a href="popsCatalog" class="pops">Figuras y Pop's</a></li>
             <li><a href="mangaCatalog" class="manga">Manga y cómics</a></li>
             <li><a a href="electronicsCatalog" class="electronics">Electrónica</a></li>
             <li><a a href="clothesCatalog" class="clothes">Ropa</a></li>
@@ -98,9 +95,9 @@
         <!-- Type -->
          <section>   
             <p>Tipo</p>
-            <label class="radio">Pops<input type="radio" name="type" value="pop"><span class="checkmark"></span></label><br>
-            <label class="radio">Figuras<input type="radio" name="type" value="figure"><span class="checkmark"></span></label><br>
-            <label class="radio">Amiibo<input type="radio" name="type" value="amiibo"><span class="checkmark"></span></label><br>
+            <label class="radio">Camisetas<input type="radio" name="type" value="tshirt"><span class="checkmark"></span></label><br>
+            <label class="radio">Sudaderas<input type="radio" name="type" value="hoodie"><span class="checkmark"></span></label><br>
+            <label class="radio">Accesorios<input type="radio" name="type" value="accesories"><span class="checkmark"></span></label><br>
         </section>
 
         <!-- Category -->

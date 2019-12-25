@@ -40,7 +40,22 @@
     color: var(--white);
 }
 
+.catalog-nav-bar a.pops:hover{
+    background-color: var(--red);
+    color: var(--white);
+}
+
+.active{
+    background-color: var(--red);
+    color: var(--white);
+}
+
 .catalog-nav-bar a.manga:active{
+    background-color: var(--orange);
+    color: var(--white);
+}
+
+.catalog-nav-bar a.manga:hover{
     background-color: var(--orange);
     color: var(--white);
 }
@@ -50,7 +65,17 @@
     color: var(--white);
 }
 
+.catalog-nav-bar a.electronics:hover{
+    background-color: var(--blue);
+    color: var(--white);
+}
+
 .catalog-nav-bar a.clothes:active{
+    background-color: var(--purple);
+    color: var(--white);
+}
+
+.catalog-nav-bar a.clothes:hover{
     background-color: var(--purple);
     color: var(--white);
 }

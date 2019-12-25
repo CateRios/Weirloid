@@ -56,14 +56,11 @@
 
         });
   </script>
-  <script>
- 
-  </script>
     
 </head>
 
-
 <body>
+
     <!-- Header -->
     @include('general.header')
     
@@ -71,7 +68,7 @@
     <nav class="catalog-nav-bar">
         <ul>
             <?php //mantener link como acivo -> jquery?>
-            <li><a href="popsCatalog" class="pops" name="navpops">Figuras y Pop's</a></li>
+            <li><a href="popsCatalog" class="pops">Figuras y Pop's</a></li>
             <li><a href="mangaCatalog" class="manga">Manga y cómics</a></li>
             <li><a a href="electronicsCatalog" class="electronics">Electrónica</a></li>
             <li><a a href="clothesCatalog" class="clothes">Ropa</a></li>
@@ -98,19 +95,9 @@
         <!-- Type -->
          <section>   
             <p>Tipo</p>
-            <label class="radio">Pops<input type="radio" name="type" value="pop"><span class="checkmark"></span></label><br>
-            <label class="radio">Figuras<input type="radio" name="type" value="figure"><span class="checkmark"></span></label><br>
-            <label class="radio">Amiibo<input type="radio" name="type" value="amiibo"><span class="checkmark"></span></label><br>
-        </section>
-
-        <!-- Category -->
-        <section>
-            <p>Categoría</p>
-            <label class="radio">Disney<input type="radio" name="category" value="disney"><span class="checkmark"></span></label><br>
-            <label class="radio">Marvel<input type="radio" name="category" value="marvel"><span class="checkmark"></span></label><br>
-            <label class="radio">DC cómics<input type="radio" name="category" value="dc"><span class="checkmark"></span></label><br>
-            <label class="radio">Anime y manga<input type="radio" name="category" value="anime"><span class="checkmark"></span></label><br>
-            <label class="radio">Series y películas<input type="radio" name="category" value="series"><span class="checkmark"></span></label><br>
+            <label class="radio">Manga<input type="radio" name="type" value="manga"><span class="checkmark"></span></label><br>
+            <label class="radio">Cómics<input type="radio" name="type" value="comic"><span class="checkmark"></span></label><br>
+            <label class="radio">Novela gráfica<input type="radio" name="type" value="novel"><span class="checkmark"></span></label><br>
         </section>
 
         <!-- Price range -->
