@@ -92,7 +92,7 @@
 
     <div class="row">
     <!-- Filters -->
-    <section class="filters container-fluid col-md-3">
+    <section class="filters col-md-3">
         <div id="title"><h4>Filtrar por</h4></div>
         <form>
         <!-- Type -->
@@ -134,7 +134,7 @@
     </section>
 
     <!-- -Products -->
-    <section class="catalog-products-section container-fluid col-md-8">
+    <section class="catalog-products-section col-md-8 offset-md-1">
         <!-- New Products -->
         <div class="section">
 
