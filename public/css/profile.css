@@ -42,7 +42,6 @@
     height: 60px;
     top: 10px;
 
-    font-family: Mogra;
     font-size: 48px;
     line-height: 58px;
     display: flex;
@@ -68,7 +67,6 @@
     height: 40px;
 }
 #personalData h1{
-    font-family: Montserrat;
     font-style: normal;
     font-weight: normal;
     font-size: 18px;
@@ -82,7 +80,6 @@
 
 #info h1{
     width: 20%;
-    font-family: Montserrat;
     font-style: normal;
     font-weight: 300;
     font-size: 18px;
@@ -95,7 +92,6 @@
     border-radius: 15px;
 }
 #info h2{
-    font-family: Montserrat;
     font-style: normal;
     font-weight: 300;
     font-size: 18px;
@@ -111,7 +107,6 @@
 }
 #direction h1{
     width: 20%;
-    font-family: Montserrat;
     font-style: normal;
     font-weight: 300;
     font-size: 18px;
@@ -124,7 +119,6 @@
     border-radius: 15px;
 }
 #direction h2{
-    font-family: Montserrat;
     font-style: normal;
     font-weight: 300;
     font-size: 18px;
@@ -144,7 +138,7 @@
     width: 50px;
     margin-left: 50px;
     margin-top: 20px;
-    margin-right: 0px;
+    margin-right: 0;
 }
 .buttons{
     margin-top: 100px;
@@ -163,7 +157,6 @@
     border-radius: 15px;
 }
 .profileButton label{
-    font-family: Montserrat;
     font-style: normal;
     font-size: 18px;
     line-height: 22px;
