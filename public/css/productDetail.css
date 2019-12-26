@@ -9,6 +9,8 @@
 .data-section{
     background-color: var(--ivory);
     padding-top: 15px;
+    padding-bottom: 15px;
+    margin-bottom: 5%;
     width: 100%;
 }
 
@@ -26,6 +28,23 @@
     padding-left: 15px;
     padding-right: 15px;
     font-size: 14px;
+}
+
+.quantity-input{
+    background-color: var(--white);
+    border: none;
+    color: var(--pink);
+    width: 25%;
+    padding: 5px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 11px;
+    margin-inline-start: 35%;
+}
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+    opacity: 1;
 }
 
 .button-submit{

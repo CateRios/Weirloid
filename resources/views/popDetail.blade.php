@@ -88,8 +88,7 @@
                 </article>
                 <article>
                     <h1>Cantidad</h1>
-                    <input type="button" onclick="more()" value="Añadir" id="more" class="button-submit"></button>
-                    <label id="quantity">1</label>
+                    <input type="number" value="1" id="quantity" min="1" class="quantity-input"></button>
                 </article>
             </section>
             <button type="submit" class="button-submit">
