@@ -1,0 +1,177 @@
+@import "app.css";
+.editProfileButton{
+    float: right;
+    background: #EC008C;
+    backdrop-filter: blur(4px);
+    height: 49px;
+    width: 160px;
+    border-radius: 20px;
+    margin-top: 2%;
+    margin-right: 10%;
+}
+.editProfileButton label{
+    color: white;
+    text-transform: uppercase;
+}
+.profile{
+    background: white;
+    height: 400px;
+}
+#userImg {
+    width: 300px;
+    height: 300px;
+    border-radius: 200px;
+    margin: 1.5%;
+}
+#border{
+    position: absolute;
+    width: 308px;
+    height: 308px;
+    border-radius: 200px;
+    margin-top: 5%;
+    margin-left: 38%;
+    background: linear-gradient(89.93deg, #EC008C -0.03%, #ED1C24 23.19%, #F99D1C 49.05%, #008FD5 74.38%, #802A90 101.3%);
+}
+.userInfo{
+    background: white;
+}
+#name{
+    margin-left: 35%;
+
+    width: 373px;
+    height: 60px;
+    top: 10px;
+
+    font-family: Mogra;
+    font-size: 48px;
+    line-height: 58px;
+    display: flex;
+    align-items: center;
+    text-align: right;
+    text-transform: uppercase;
+
+    color: #EC008C;
+}
+#personalData{
+    background: #F5F1F1;
+    border-radius: 15px;
+    margin-left: 100px;
+    width: 50%;
+    height: 190px;
+    margin-bottom: 30px;
+}
+#personalData li{
+    display: block;
+    background: white;
+    border-radius: 15px;
+    width: 220px;
+    height: 40px;
+}
+#personalData h1{
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 22px;
+
+    text-transform: uppercase;
+
+    color: #EC008C;
+    padding: 10px;
+}
+
+#info h1{
+    width: 20%;
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 22px;
+
+    text-transform: capitalize;
+
+    color: #EC008C;
+
+    border-radius: 15px;
+}
+#info h2{
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 22px;
+    width: 70%;
+    margin-left: 30%;
+
+    text-transform: lowercase;
+
+    color: #000000;
+
+    border-radius: 15px;
+}
+#direction h1{
+    width: 20%;
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 22px;
+
+    text-transform: capitalize;
+
+    color: #EC008C;
+
+    border-radius: 15px;
+}
+#direction h2{
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 22px;
+    width: 70%;
+    margin-left: 30%;
+
+    text-transform: capitalize;
+
+    color: #000000;
+
+    border-radius: 15px;
+}
+#direction i{
+    color: #EC008C;
+    height: 50px;
+    width: 50px;
+    margin-left: 50px;
+    margin-top: 20px;
+    margin-right: 0px;
+}
+.buttons{
+    margin-top: 100px;
+    margin-right: 10%;
+    float: right;
+    background: #EC008C;
+    border-radius: 15px;
+}
+.buttons li{
+    display: grid;
+}
+.profileButton{
+    background: white;
+    width: 288px;
+    margin: 8px;
+    border-radius: 15px;
+}
+.profileButton label{
+    font-family: Montserrat;
+    font-style: normal;
+    font-size: 18px;
+    line-height: 22px;
+    color: #000000;
+    border-radius: 15px;
+    margin-left: 30px;
+}
+.profileButton i{
+    color: #EC008C;
+    margin-left: 10px;
+}

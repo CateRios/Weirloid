@@ -46,3 +46,8 @@ Route::get('popDetail', function(){
 Route::get('shoppingCart', function(){
     return view('shoppingCart');
 });
+
+//Perfil
+Route::get('profile',function (){
+    return view('profile');
+});
