@@ -3,7 +3,6 @@
 /* =============== RELATED PRODUTCS =============== */
 .detail{
     margin: 3% 15% 3% 15%;
-    
     width: 100%;
 }
 
@@ -29,7 +28,7 @@
     font-size: 14px;
 }
 
-form[type=submit]{
+.button-submit{
     background-color: var(--pink);
     border: none;
     color: var(--white);
@@ -38,7 +37,8 @@ form[type=submit]{
     text-decoration: none;
     font-size: 11px;
     border-radius: 8px;
-    margin-inline-start: 10%;
+    margin-inline-start: 5%;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 3px 10px 0 rgba(0,0,0,0.19);
     display: inline;
 }
+

@@ -15,49 +15,11 @@
     @include('general.scripts')
 
     <script>
-        $( function() {
-            $( "#slider-range" ).slider({
-            range: true,
-            min: 0,
-            max: 320,
-            step: 5,
-            values: [20, 300],
-            slide: function( event, ui ) {
-            var delay = function() {
-                var handleIndex = $(ui.handle).index();
-                var label = handleIndex == 1 ? "#min" : "#max";
-                $(label).html(ui.value + "€").position({
-                    my: "center top",
-                    at: "center bottom",
-                    of: ui.handle,
-                    offset: "0, 0"
-                    });
-                };
-                    
-                    // wait for the ui.handle to set its position
-                    setTimeout(delay, 5);
-            }
-            });
-
-        $("#min").html($("#slider-range").slider("values", 0) + "€").position({
-            my: "center top",
-            at: "center bottom",
-            of: $("#slider-range span:eq(0)"),
-            offset: "0, 10"
-        });
-
-        $("#max").html($("#slider-range").slider("values", 1) + "€").position({
-            my: "center top",
-            at: "center bottom",
-            of: $("#slider-range span:eq(1)"),
-            offset: "0, 10"
-        });
-
-        });
+        $('#more').change(function(){
+        $('#quantity').text("2");
+    });
   </script>
-  <script>
- 
-  </script>
+
     
 </head>
 
@@ -126,12 +88,16 @@
                 </article>
                 <article>
                     <h1>Cantidad</h1>
+                    <input type="button" onclick="more()" value="Añadir" id="more" class="button-submit"></button>
+                    <label id="quantity">1</label>
                 </article>
             </section>
-            <form>
-                <input type="submit" name="wishList" value="Lista de deseos">
-                <input type="submit" name="addToCart" value="Añadir al carrito">
-            </form>
+            <button type="submit" class="button-submit">
+                Lista de deseos <i class="fas fa-heart"></i> 
+            </button>
+            <button type="submit" class="button-submit">
+                Añadir al carrito <i class="fas fa-shopping-cart"></i> 
+            </button>
         </div>
     </section>
 
@@ -168,6 +134,8 @@
             </div>
     </section>
 
-  
+<!-- Footer -->
+@include('general.footer')
+
 </body>
 </html>
