@@ -83,7 +83,8 @@
         </ul>
 
         <form>
-            <input type="search" name="search" value="  Escribe aquí...">
+            <input type="search" name="search" placeholder="  Escribe aquí...">
+            <span class="search-icon"><i class="fas fa-search"></i></span>
         </form>
 
 
