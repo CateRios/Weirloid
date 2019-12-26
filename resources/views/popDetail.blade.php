@@ -102,7 +102,7 @@
 
 
     <!-- -Products -->
-    <section class="sub">
+    <section class="product-section">
         <!-- New Products -->
         <div class="section">
 
