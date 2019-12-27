@@ -81,14 +81,16 @@
             <li><a href="">Ofertas</a></li>
             <li><a href="">Top Ventas</a></li>
         </ul>
-
+        
         <form>
             <input type="search" name="search" placeholder="  Escribe aquí...">
             <span class="search-icon"><i class="fas fa-search"></i></span>
         </form>
 
-
-        <?php //el carrito de las narices ?>
+        <ul class="cart"><a href="shoppingCart">
+            <li id="count"><i class="fas fa-shopping-cart"></i> 2 ITEMS:</li>
+            <li>245€</li>
+        </a></ul>
     </nav>
 
     <div class="row">
