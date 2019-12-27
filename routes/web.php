@@ -39,7 +39,19 @@ Route::get('popDetail', function(){
     return view('popDetail');
 });
 
+//Detalle producto
 
+Route::get('mangaDetail', function(){
+    return view('mangaDetail');
+});
+
+Route::get('electronicsDetail', function(){
+    return view('electronicsDetail');
+});
+
+Route::get('clothesDetail', function(){
+    return view('clothesDetail');
+});
 
 //Carrito
 
