@@ -51,6 +51,7 @@
     text-transform: uppercase;
 
     color: #EC008C;
+    border: none;
 }
 #personalData{
     background: #F5F1F1;
@@ -94,7 +95,7 @@
 
     border-radius: 15px;
 }
-#info h2{
+#info #data{
     font-family: 'Montserrat', sans-serif;
     font-style: normal;
     font-weight: 300;
@@ -109,21 +110,7 @@
 
     border-radius: 15px;
 }
-#direction h1{
-    width: 20%;
-    font-family: 'Montserrat', sans-serif;
-    font-style: normal;
-    font-weight: 300;
-    font-size: 18px;
-    line-height: 22px;
-
-    text-transform: capitalize;
-
-    color: #EC008C;
-
-    border-radius: 15px;
-}
-#direction h2{
+#direction #data{
     font-family: 'Monserrat', sans-serif;
     font-style: normal;
     font-weight: 300;
@@ -157,7 +144,7 @@
 }
 .profileButton{
     background: white;
-    width: 288px;
+    width: 280px;
     margin: 8px;
     border-radius: 15px;
 }
@@ -174,3 +161,16 @@
     color: #EC008C;
     margin-left: 10px;
 }
+.editButton{
+    float: right;
+    background: #EC008C;
+    backdrop-filter: blur(4px);
+    height: 49px;
+    width: 160px;
+    border-radius: 20px;
+    margin-top: 2%;
+    margin-right: 10%;
+    color: white;
+    text-transform: uppercase;
+}
+

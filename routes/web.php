@@ -51,3 +51,7 @@ Route::get('shoppingCart', function(){
 Route::get('profile',function (){
     return view('profile');
 });
+
+Route::get('editProfile',function (){
+    return view('editProfile');
+});

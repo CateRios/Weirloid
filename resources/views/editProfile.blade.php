@@ -16,48 +16,43 @@
 
 <!-- Header -->
 @include("general.header")
-
-<button class="editProfileButton"><label><i class="fas fa-pencil-alt"></i> EDITAR PERFIL </label></button>
 <article class="profile">
     <a id="border"><img id="userImg" src="{{asset('img/sheldon.jpg')}}"></a>
 </article>
-<article class="buttons">
-    <li>
-        <button class="profileButton"><i class="fas fa-shopping-basket"></i><label>MIS PEDIDOS </label></button>
-        <button class="profileButton"><i class="far fa-comment-alt"></i><label>MENSAJES </label></button>
-        <button class="profileButton"><i class="fas fa-heart"></i><label>FAVORITOS </label></button>
-    </li>
-</article>
+<form name="post">
 <article class="userInfo">
-    <h1 id="name">Sheldon Cooper</h1>
+    <input id= name type="text" value="Sheldon Cooper">
     <article id="personalData">
         <li><h1>Datos Personales</h1></li>
+
         <div id="info">
             <table>
                 <tr>
                     <td><h1>Email:</h1></td>
-                    <td><h2 id="data">diversionconbanderas@mail.com</h2></td>
+                    <td><input id="data" type="text" value="diversionconbanderas@mail.com"></td>
                 </tr>
                 <tr>
                     <td><h1>Contacto:</h1></td>
-                    <td><h2 id="data">+73 314159269</h2></td>
+                    <td><input id="data" type="text" value="+73 314159269"></td>
                 </tr>
             </table>
-
         </div>
     </article>
+    <input class="editButton" type="submit" value="TERMINAR">
     <article id="personalData">
         <li><h1>Direcciones</h1></li>
         <div id="direction">
             <table>
                 <tr>
                     <td><i class="fas fa-home"></i></td>
-                    <td><h2 id="data">South Madison Avenue, 215, 4ºA</h2></td>
+                    <td><input id="data" type="text" value="South Madison Avenue, 215, 4ºA"></td>
                 </tr>
             </table>
         </div>
     </article>
 </article>
+
+</form>
 <!-- Footer -->
 @include('general.footer')
 
