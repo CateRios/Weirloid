@@ -90,7 +90,7 @@ class RegisterController extends Controller
 
             // Comprobamos que el usuario no esté registrado
             if(User::query()->where('email',$data['email'])->exists()){
-                session(['error_code' => 1]);
+                session(['error_code' => 2]);
                 session(['sign_error' => 'Ya existe un usuario con ese email.']);
                 return redirect()->back();
             } else {
