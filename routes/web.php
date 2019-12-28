@@ -60,3 +60,7 @@ Route::get('editProfile',function (){
 Route::get('messagesList',function (){
     return view('messagesList');
 });
+
+Route::get('messageDetail',function (){
+    return view('messageDetail');
+});

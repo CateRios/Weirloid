@@ -1,7 +1,7 @@
 @import "app.css";
 .editProfileButton{
     float: right;
-    background: #EC008C;
+    background: var(--pink);
     backdrop-filter: blur(4px);
     height: 49px;
     width: 160px;
@@ -30,10 +30,10 @@
     border-radius: 200px;
     margin-top: 5%;
     margin-left: 38%;
-    background: linear-gradient(89.93deg, #EC008C -0.03%, #ED1C24 23.19%, #F99D1C 49.05%, #008FD5 74.38%, #802A90 101.3%);
+    background: var(--rainbow);
 }
 .userInfo{
-    background: white;
+    background: var(--white);
 }
 #name{
     margin-left: 35%;
@@ -50,11 +50,11 @@
     text-align: right;
     text-transform: uppercase;
 
-    color: #EC008C;
+    color: var(--pink);
     border: none;
 }
 #personalData{
-    background: #F5F1F1;
+    background: var(--ivory);
     border-radius: 15px;
     margin-left: 100px;
     width: 50%;
@@ -77,7 +77,7 @@
 
     text-transform: uppercase;
 
-    color: #EC008C;
+    color: var(--pink);
     padding: 10px;
 }
 
@@ -91,7 +91,7 @@
 
     text-transform: capitalize;
 
-    color: #EC008C;
+    color: var(--pink);
 
     border-radius: 15px;
 }
@@ -126,7 +126,7 @@
     border-radius: 15px;
 }
 #direction i{
-    color: #EC008C;
+    color: var(--pink);
     height: 50px;
     width: 50px;
     margin-left: 50px;
@@ -136,7 +136,7 @@
     margin-top: 100px;
     margin-right: 10%;
     float: right;
-    background: #EC008C;
+    background: var(--pink);
     border-radius: 15px;
 }
 .buttons li{
@@ -158,19 +158,19 @@
     margin-left: 30px;
 }
 .profileButton i{
-    color: #EC008C;
+    color: var(--pink);
     margin-left: 10px;
 }
 .editButton{
     float: right;
-    background: #EC008C;
+    background: var(--pink);
     backdrop-filter: blur(4px);
     height: 49px;
     width: 160px;
     border-radius: 20px;
     margin-top: 2%;
     margin-right: 10%;
-    color: white;
+    color: var(--white);
     text-transform: uppercase;
 }
 
