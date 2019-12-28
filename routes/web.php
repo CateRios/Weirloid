@@ -55,3 +55,8 @@ Route::get('profile',function (){
 Route::get('editProfile',function (){
     return view('editProfile');
 });
+
+//Mensajes
+Route::get('messagesList',function (){
+    return view('messagesList');
+});

@@ -1,0 +1,65 @@
+.messagesList{
+    margin: 50px;
+}
+#message{
+    height: 500px;
+}
+#message article{
+    background-color: white;
+    border: 2px solid #EC008C;
+    border-radius: 10px;
+    padding: 5px;
+    margin-top: 20px;
+    padding: 20px;
+}
+.messagesList h1{
+    font-family: 'Montserrat', sans-serif;
+    font-style: normal;
+    font-size: 30px;
+    line-height: 22px;
+    color: #000000;
+    border-radius: 15px;
+    margin-left: 30px;
+}
+.messagesList h2{
+    font-family: 'Montserrat', sans-serif;
+    font-style: normal;
+    font-size: 24px;
+    line-height: 22px;
+    color: #000000;
+    border-radius: 15px;
+    margin-top: 20px;
+    margin-left: 30px;
+}
+/* Paginacion*/
+.paginacion {
+    margin: 30px 0;
+}
+
+.paginacion ul {
+    list-style: none;
+    text-align: center;
+}
+
+.paginacion ul li {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.paginacion ul li a {
+    display: block;
+    padding: 10px 20px;
+    color: #FFFFFF;
+    background: #EC008C;
+    text-decoration: none;
+}
+
+.paginacion ul li a:hover {
+    background: #FFFFFF;
+    color: #EC008C;;
+}
+
+.paginacion ul li .active {
+    background: #037E8C;
+    font-weight: bold;
+}
