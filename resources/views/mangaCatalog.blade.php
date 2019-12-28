@@ -103,6 +103,17 @@
             <label class="radio">Novela gráfica<input type="radio" name="type" value="novel"><span class="checkmark"></span></label><br>
         </section>
 
+        <!-- Genre -->
+        <section>   
+            <p>Género</p>
+            <label class="radio">Acción<input type="radio" name="genre" value="action"><span class="checkmark"></span></label><br>
+            <label class="radio">Comedia<input type="radio" name="genre" value="comedy"><span class="checkmark"></span></label><br>
+            <label class="radio">Drama<input type="radio" name="genre" value="drama"><span class="checkmark"></span></label><br>
+            <label class="radio">Fantasía<input type="radio" name="genre" value="fantasy"><span class="checkmark"></span></label><br>
+            <label class="radio">Misterio<input type="radio" name="genre" value="mistery"><span class="checkmark"></span></label><br>
+            <label class="radio">Romance<input type="radio" name="genre" value="romance"><span class="checkmark"></span></label><br>
+        </section>
+
         <!-- Price range -->
         <section>
         <p>Precio</p>

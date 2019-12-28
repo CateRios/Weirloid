@@ -39,8 +39,6 @@ Route::get('popDetail', function(){
     return view('popDetail');
 });
 
-//Detalle producto
-
 Route::get('mangaDetail', function(){
     return view('mangaDetail');
 });
