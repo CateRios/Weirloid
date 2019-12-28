@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
@@ -28,7 +29,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/clothesCatalog';
 
     /**
      * Create a new controller instance.
@@ -49,7 +50,6 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
@@ -63,10 +63,47 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => Hash::make($data['password']),
-        ]);
+
+        // Creamos el usuario
+        $user = new User;
+        $user->name = rand(1000000000,9999999999);
+        $user->email = $data['email'];
+        $user->password = Hash::make($data['password']);
+        $user->save();
+
+        return $user;
+    }
+
+    public function register(Request $request)
+    {
+        // Validamos los datos obtenidos
+        $input = validator($request->all());
+
+        if ($input->fails()) {
+            session(['error_code' => 1]);
+            session(['sign_error' => 'Los datos introducidos estaban mal.']);
+            return redirect()->back();
+        } else {
+
+            //Obtenemos los datos
+            $data = $request->all();
+
+            // Comprobamos que el usuario no esté registrado
+            if(User::query()->where('email',$data['email'])->exists()){
+                session(['error_code' => 1]);
+                session(['sign_error' => 'Ya existe un usuario con ese email.']);
+                return redirect()->back();
+            } else {
+
+                //Creamos el usuario
+                $user = $this->create($data);
+
+                // Autenticamos al usuario
+                auth()->login($user);
+
+                return redirect()->to('/');
+
+            }
+        }
     }
 }

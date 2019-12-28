@@ -4,6 +4,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+
     <title>Weirloid</title>
 
     <!-- Style -->
@@ -12,12 +15,33 @@
     <!-- Scripts -->
     @include('general.scripts')
 
+    <script>
+
+        function signFormSend() {
+            var action = $("input[name=options]:checked").val()
+
+            if(action == 0) {
+                $('#signForm').attr('action', 'login');
+            } else {
+                $('#signForm').attr('action', 'register');
+            }
+
+            document.signForm.submit();
+        }
+
+    </script>
+
 </head>
 
 <body>
 
 <!-- Header -->
  @include('general.header')
+
+@if((session()->exists('error_code')))
+    <script>document.getElementById('cliente').click();</script>
+    <?php session()->forget('error_code');?>
+@endif
 
 <!-- Carousel -->
 <div id="homeCarousel" class="carousel slide carousel-fade homeCarousel" data-ride="carousel">

@@ -46,3 +46,9 @@ Route::get('popDetail', function(){
 Route::get('shoppingCart', function(){
     return view('shoppingCart');
 });
+
+
+Auth::routes();
+
+
+

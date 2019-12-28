@@ -34,14 +34,28 @@
                 <li class="nav-item cel">
                     <a class="nav-link header-nav" href="#">Contacto</a>
                 </li>
-                <li class="nav-item cel">
 
-                    <a class="nav-link header-nav" data-toggle="modal" data-target="#myModal">¿Cliente?</a>
+                @if(Auth::check())
 
-                    <!-- Sign In/Up Modal -->
-                    @include('partials.signModal')
+                    <li class='nav-item cel' style="position: absolute; right: 0">
 
-                </li>
+                        <p>{{ Auth::user()->name }}</p>
+
+                    </li>
+
+                @else
+
+                    <li class='nav-item cel'>
+
+                        <a class='nav-link header-nav' id="cliente" data-toggle='modal' data-target='#myModal'>¿Cliente?</a>
+
+                        <!-- Sign In/Up Modal -->
+                        @include('partials.signModal')
+
+                    </li>
+
+                @endif
+
             </ul>
         </div>
 

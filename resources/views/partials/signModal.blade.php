@@ -11,15 +11,6 @@
                 <br><br>
 
                 <!-- Mensaje alerta -->
-                @if ($message = session()->get('sign_success'))
-                    <div class="alert alert-success alert-dismissible fade show" role="alert">
-                        {!! $message !!}
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <?php session()->forget('sign_success');?>
-                @endif
                 @if ($message = session()->get('sign_error'))
                     <div class="alert alert-danger alert-dismissible fade show" role="alert">
                         {!! $message !!}
@@ -31,16 +22,16 @@
                 @endif
 
                 <!-- Formulario -->
-                <form class="signForm" name="signForm" action="#" method="POST">
-                    @csrf
+                <form class="signForm" name="signForm" id="signForm" action="#" method="POST">
+                {{ csrf_field() }}
 
                     <!-- Sign In / Sign Up options -->
                         <div class="btn-group btn-group-toggle" data-toggle="buttons">
                             <label class="btn btn-signform active">
-                                <input type="radio" name="options" id="option1" autocomplete="off" checked> INICIAR SESIÓN
+                                <input type="radio" name="options" id="option1" autocomplete="off" value="0"  checked> INICIAR SESIÓN
                             </label>
                             <label class="btn btn-signform">
-                                <input type="radio" name="options" id="option2" autocomplete="off"> REGÍSTRATE
+                                <input type="radio" name="options" id="option2" autocomplete="off" value="1"> REGÍSTRATE
                             </label>
                         </div>
 
@@ -50,7 +41,7 @@
                     <input type="email" class="form-control input-signform" id="email" name="email" placeholder="name@example.com" pattern="^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$" required>
                     <input type="password" class="form-control input-signform" id="password" name="password" placeholder="Contraseña" minlength="8" maxlength="15" pattern="^(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{8,16}$+" required>
                     <br>
-                    <button class="signform-button" type="submit">Enviar</button>
+                    <button class="signform-button" type="button" onclick="signFormSend()">Enviar</button>
 
                 </form>
 
