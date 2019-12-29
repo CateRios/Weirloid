@@ -61,3 +61,19 @@ Route::get('profile',function (){
 Route::get('editProfile',function (){
     return view('editProfile');
 });
+
+//Mensajes
+Route::get('messagesList',function (){
+    return view('messagesList');
+});
+
+Route::get('messageDetail',function (){
+    return view('messageDetail');
+});
+//Pedidos
+Route::get('ordersList',function (){
+    return view('ordersList');
+});
+Route::get('orderDetail',function (){
+    return view('orderDetail');
+});
