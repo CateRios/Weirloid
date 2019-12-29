@@ -17,9 +17,7 @@ Route::get('/', function () {
 
 //Catálogo
 
-Route::get('popsCatalog', function(){
-    return view('popsCatalog');
-});
+Route::get('popsCatalog', 'popsCatalogController@popsCatalog');
 
 Route::get('mangaCatalog', function(){
     return view('mangaCatalog');
@@ -35,9 +33,7 @@ Route::get('clothesCatalog', function(){
 
 //Detalle producto
 
-Route::get('popDetail', function(){
-    return view('popDetail');
-});
+Route::get('popDetail/{id}', 'popDetailController@showDetails');
 
 Route::get('mangaDetail', function(){
     return view('mangaDetail');
