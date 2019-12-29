@@ -10,6 +10,8 @@
     <link rel="stylesheet" href="{{ asset('css/orders.css') }}"/>
     <link rel="stylesheet" href="{{ asset('css/index.css') }}"/>
 
+    <!-- Scripts -->
+    @include('general.scripts')
 </head>
 <body>
 <?php

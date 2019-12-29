@@ -10,6 +10,8 @@
     <link rel="stylesheet" href="{{ asset('css/messages.css') }}"/>
     <link rel="stylesheet" href="{{ asset('css/index.css') }}"/>
 
+    <!-- Scripts -->
+    @include('general.scripts')
 </head>
 <body>
 

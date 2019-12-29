@@ -68,3 +68,6 @@ Route::get('messageDetail',function (){
 Route::get('ordersList',function (){
     return view('ordersList');
 });
+Route::get('orderDetail',function (){
+    return view('orderDetail');
+});
