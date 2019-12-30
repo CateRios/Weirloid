@@ -93,6 +93,14 @@
     color: var(--pink);
 }
 
+@media (max-width: 34em) {
+    .catalog-nav-bar input[type=search], .search-icon {
+        width: 0%;
+        height: 0%;
+        opacity: 0;
+    }
+}
+
 .catalog-nav-bar .cart #count{
     font-weight: bold;
 }

@@ -145,11 +145,124 @@
 }
 
 /* -------- Form -------- */
-.signForm {
+.myform {
     width: 80%;
     display: inline-block;
-
     text-align: center;
 }
 
+.btn-myform {
+    padding-bottom: 0.2%;
+    font-family: 'Mogra', sans-serif;
+    color:lightgray;
+    background-color:whitesmoke;
+    border-color:lightgray;
+}
+
+.btn-myform:hover {
+    color: var(--pink);
+    background-color:whitesmoke;
+}
+
+.btn-myform.focus,.btn-myform:focus {
+    box-shadow:0 0 0 .2rem rgba(130,138,145,.5);
+}
+
+.btn-myform.disabled,.btn-myform:disabled {
+    color:#fff;
+    background-color:#6c757d;
+    border-color:#6c757d;
+}
+
+.btn-myform:not(:disabled):not(.disabled).active,.btn-myform:not(:disabled):not(.disabled):active,.show>.btn-myform.dropdown-toggle {
+    color:#fff;
+    background-image:var(--rainbow);
+    border-color:#4e555b;
+}
+
+.btn-myform:not(:disabled):not(.disabled).active:focus,.btn-myform:not(:disabled):not(.disabled):active:focus,.show>.btn-myform.dropdown-toggle:focus {
+    box-shadow:0 0 0 .2rem rgba(130,138,145,.5);
+}
+
+.input-myform {
+    margin-top: 2%;
+    font-family: 'Monserrat', sans-serif;
+    border: 1.5px solid var(--pink);
+}
+
+.input-myform:focus {
+    border: 1.5px solid var(--pink);
+    box-shadow:0 0 0 .2rem rgba(236, 0, 140, 0.34);
+}
+
+.myform-button {
+    color: var(--white);
+    font-family: 'Monserrat', sans-serif;
+    font-style: normal;
+    font-size: 90%;
+    text-transform: uppercase;
+    padding: 2% 6% ;
+    border-radius: 50px;
+    border: none;
+    background-color: var(--pink);
+}
+
+.myform-button:hover {
+    background-image: var(--rainbow);
+}
+
+/* -------- Forgot password -------- */
+
+.forgotPassword{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 80%;
+    color: lightgray;
+    float: right;
+    margin-top: 2%;
+}
+
+/* -------- Otros accesos rápidos -------- */
+.otherAccess {
+    width: 100%;
+    font-family: 'Montserrat', sans-serif;
+    text-align: left;
+}
+
+.otherAccess > p {
+    color: var(--pink);
+    font-size: 80%;
+    margin-left: 2%;
+}
+
+.otherAccess > .social-navbar {
+    font-size: 170%;
+}
+
+.social-navbar > a {
+    margin-left: 3%;
+}
+
+.social-navbar > a:hover {
+    color: var(--black);
+}
+
+.google {
+    color: #DB4437;
+}
+
+.facebook {
+    color: #3b5998;
+}
+
+.instragram {
+    color: #c32aa3;
+}
+
+.twitter {
+    color: #1da1f2;
+}
+
+.pinterest {
+    color: #bd081c;
+}
 
