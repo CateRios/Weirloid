@@ -35,7 +35,7 @@ Route::get('clothesCatalog', function(){
 
 //Detalle producto
 
-Route::get('popDetail/{id}', 'popDetailController@showDetails');
+Route::get('popDetail{id}', 'popDetailController@showDetails');
 
 Route::get('mangaDetail', function(){
     return view('mangaDetail');

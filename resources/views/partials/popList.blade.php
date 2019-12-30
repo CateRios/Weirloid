@@ -19,7 +19,7 @@ foreach($products as $item){
     ?>
         <!-- Product Card -->
         <div class="card productCard">
-            <a href=''><img class="card-img-top productCard-image" src="{{base64_encode(<?=$item->image?>)}}" alt="<?=$name?>" onclick="showDetail({{<?=$id?>}});"></a>
+            <a href='popDetail<?=$id?>'><img class="card-img-top productCard-image" src="{{base64_encode(<?=$item->image?>)}}" alt="<?=$name?>"></a>
             <div class="productCard-price">
                 <h4 class="card-title"><?=$price?>€</h4>
             </div>
