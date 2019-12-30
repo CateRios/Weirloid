@@ -1,0 +1,176 @@
+@import "app.css";
+.editProfileButton{
+    float: right;
+    background: var(--pink);
+    backdrop-filter: blur(4px);
+    height: 49px;
+    width: 160px;
+    border-radius: 20px;
+    margin-top: 2%;
+    margin-right: 10%;
+}
+.editProfileButton label{
+    color: white;
+    text-transform: uppercase;
+}
+.profile{
+    background: white;
+    height: 400px;
+}
+#userImg {
+    width: 300px;
+    height: 300px;
+    border-radius: 200px;
+    margin: 1.5%;
+}
+#border{
+    position: absolute;
+    width: 308px;
+    height: 308px;
+    border-radius: 200px;
+    margin-top: 5%;
+    margin-left: 38%;
+    background: var(--rainbow);
+}
+.userInfo{
+    background: var(--white);
+}
+#name{
+    margin-left: 35%;
+
+    width: 373px;
+    height: 60px;
+    top: 10px;
+
+    font-family: 'Mogra', sans-serif;
+    font-size: 48px;
+    line-height: 58px;
+    display: flex;
+    align-items: center;
+    text-align: right;
+    text-transform: uppercase;
+
+    color: var(--pink);
+    border: none;
+}
+#personalData{
+    background: var(--ivory);
+    border-radius: 15px;
+    margin-left: 100px;
+    width: 50%;
+    height: 190px;
+    margin-bottom: 30px;
+}
+#personalData li{
+    display: block;
+    background: white;
+    border-radius: 15px;
+    width: 220px;
+    height: 40px;
+}
+#personalData h1{
+    font-family: 'Montserrat', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 22px;
+
+    text-transform: uppercase;
+
+    color: var(--pink);
+    padding: 10px;
+}
+
+#info h1{
+    width: 20%;
+    font-family: 'Montserrat', sans-serif;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 22px;
+
+    text-transform: capitalize;
+
+    color: var(--pink);
+
+    border-radius: 15px;
+}
+#info #data{
+    font-family: 'Montserrat', sans-serif;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 22px;
+    width: 70%;
+    margin-left: 30%;
+
+    text-transform: lowercase;
+
+    color: #000000;
+
+    border-radius: 15px;
+}
+#direction #data{
+    font-family: 'Montserrat', sans-serif;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 22px;
+    width: 70%;
+    margin-left: 30%;
+
+    text-transform: capitalize;
+
+    color: #000000;
+
+    border-radius: 15px;
+}
+#direction i{
+    color: var(--pink);
+    height: 50px;
+    width: 50px;
+    margin-left: 50px;
+    margin-top: 20px;
+}
+.buttons{
+    margin-top: 100px;
+    margin-right: 10%;
+    float: right;
+    background: var(--pink);
+    border-radius: 15px;
+}
+.buttons li{
+    display: grid;
+}
+.profileButton{
+    background: white;
+    width: 280px;
+    margin: 8px;
+    border-radius: 15px;
+}
+.profileButton label{
+    font-family: 'Montserrat', sans-serif;
+    font-style: normal;
+    font-size: 18px;
+    line-height: 22px;
+    color: #000000;
+    border-radius: 15px;
+    margin-left: 30px;
+}
+.profileButton i{
+    color: var(--pink);
+    margin-left: 10px;
+}
+.editButton{
+    float: right;
+    background: var(--pink);
+    backdrop-filter: blur(4px);
+    height: 49px;
+    width: 160px;
+    border-radius: 20px;
+    margin-top: 2%;
+    margin-right: 10%;
+    color: var(--white);
+    text-transform: uppercase;
+}
+

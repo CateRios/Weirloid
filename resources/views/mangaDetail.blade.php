@@ -56,42 +56,21 @@
     <section class="detail row">
         <!-- Image-->
         <div class="section col-md-3 offset-md-3">
-
-        <?php
-
-            use Intervention\Image\ImageManagerStatic as Image;
-
-            $id =$item->id;
-            $name = $item->name;
-            $price = $item->price;
-            $category = $item->class;
-            $img = $item->image;
-            $score = $item->score;
-            $description = $item->description;
-            $stock = $item->stock;
-        ?>
-
             <!-- Product Card -->
             <div class="card productCard">
-                <img class="card-img-top productCard-image" src="{{base64_decode(<?=$item->image?>)}}" alt="<?=$name?>">
+                <img class="card-img-top productCard-image" src="{{asset('img/featured_product.jpg')}}" alt="Card image">
                 <div class="productCard-price">
-                    <h4 class="card-title"><?=$price?>€</h4>
+                    <h4 class="card-title">--- €</h4>
                 </div>
                 <div class="card-body">
-                    <h6 class="card-subtitle mb-2 productCard-category"><?=$category?></h6>
-                    <h5 class="card-title productCard-name"><?=$name?></h5>
+                    <h6 class="card-subtitle mb-2 productCard-category">[Categoría]</h6>
+                    <h5 class="card-title productCard-name">[Nombre del producto]</h5>
 
-                <!--Stars-->
-                    <?php
-                        $i=1;
-                        for($i=1; $i <= $score; $i++){
-                            echo "<span class='fa fa-star checked'></span>";
-                        }
-                        while($i <=5){
-                            echo "<span class='fa fa-star'></span>";
-                            $i++;
-                        }
-                    ?>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star"></span>
+                    <span class="fa fa-star"></span>
                 </div>
             </div>
         </div>
@@ -103,11 +82,13 @@
             <section class="data-section">
                 <article>
                     <h1>Descripción</h1>
-                    <p><?=$description?></p>
+                    <p>Lorem ipsum dolor sit amet, consectetur 
+                        adipiscing elit, sed do eiusmod tempor 
+                        incididunt ut labore et dolore magna aliqua.</p>
                 </article>
                 <article>
                     <h1>Cantidad</h1>
-                    <input type="number" value="1" id="quantity" min="1" max="<?=$stock?>" class="quantity-input"></button>
+                    <input type="number" value="1" id="quantity" min="1" class="quantity-input"></button>
                 </article>
             </section>
             <button type="submit" class="button-submit">

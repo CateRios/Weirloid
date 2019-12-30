@@ -30,6 +30,16 @@
     font-size: 14px;
 }
 
+.data-section #model{
+    display: inline;
+    margin-left: 5%;
+}
+
+.data-section #size{
+    display: inline;
+    margin-left: 7%;
+}
+
 .quantity-input{
     background-color: var(--white);
     border: none;
@@ -62,7 +72,8 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 .product-section{
-    max-height: 300px;
     margin-bottom: 3%;
 }
+
+
 

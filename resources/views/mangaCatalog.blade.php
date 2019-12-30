@@ -80,11 +80,14 @@
         </ul>
 
         <form>
-            <input type="search" name="search" value="  Escribe aquí...">
+            <input type="search" name="search" placeholder="  Escribe aquí...">
+            <span class="search-icon"><i class="fas fa-search"></i></span>
         </form>
 
-
-        <?php //el carrito de las narices ?>
+        <ul class="cart"><a href="shoppingCart">
+            <li id="count"><i class="fas fa-shopping-cart"></i> 2 ITEMS:</li>
+            <li>245€</li>
+        </a></ul>
     </nav>
 
     <div class="row">
@@ -98,6 +101,17 @@
             <label class="radio">Manga<input type="radio" name="type" value="manga"><span class="checkmark"></span></label><br>
             <label class="radio">Cómics<input type="radio" name="type" value="comic"><span class="checkmark"></span></label><br>
             <label class="radio">Novela gráfica<input type="radio" name="type" value="novel"><span class="checkmark"></span></label><br>
+        </section>
+
+        <!-- Genre -->
+        <section>   
+            <p>Género</p>
+            <label class="radio">Acción<input type="radio" name="genre" value="action"><span class="checkmark"></span></label><br>
+            <label class="radio">Comedia<input type="radio" name="genre" value="comedy"><span class="checkmark"></span></label><br>
+            <label class="radio">Drama<input type="radio" name="genre" value="drama"><span class="checkmark"></span></label><br>
+            <label class="radio">Fantasía<input type="radio" name="genre" value="fantasy"><span class="checkmark"></span></label><br>
+            <label class="radio">Misterio<input type="radio" name="genre" value="mistery"><span class="checkmark"></span></label><br>
+            <label class="radio">Romance<input type="radio" name="genre" value="romance"><span class="checkmark"></span></label><br>
         </section>
 
         <!-- Price range -->

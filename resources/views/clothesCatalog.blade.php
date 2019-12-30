@@ -80,11 +80,15 @@
         </ul>
 
         <form>
-            <input type="search" name="search" value="  Escribe aquí...">
+            <input type="search" name="search" placeholder="  Escribe aquí...">
+            <span class="search-icon"><i class="fas fa-search"></i></span>
         </form>
 
+        <ul class="cart"><a href="shoppingCart">
+            <li id="count"><i class="fas fa-shopping-cart"></i> 2 ITEMS:</li>
+            <li>245€</li>
+        </a></ul>
 
-        <?php //el carrito de las narices ?>
     </nav>
 
     <div class="row">
