@@ -17,10 +17,9 @@ foreach($products as $item){
     $score = $item->score;
 
     ?>
-    <div class="card-columns productList">
         <!-- Product Card -->
         <div class="card productCard">
-            <a href='popDetail/<?=$id?>'><img class="card-img-top productCard-image" src="{{base64_encode(<?=$item->image?>)}}" alt="<?=$name?>"></a>
+            <a href=''><img class="card-img-top productCard-image" src="{{base64_encode(<?=$item->image?>)}}" alt="<?=$name?>" onclick="showDetail({{<?=$id?>}});"></a>
             <div class="productCard-price">
                 <h4 class="card-title"><?=$price?>€</h4>
             </div>
@@ -43,7 +42,6 @@ foreach($products as $item){
 
             </div>
         </div>
-    </div>
 <?php
 }
 ?>

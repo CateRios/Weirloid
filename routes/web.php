@@ -17,7 +17,9 @@ Route::get('/', function () {
 
 //Catálogo
 
-Route::get('popsCatalog', 'popsCatalogController@popsCatalog');
+Route::get('/popsCatalog', 'popsCatalogController@popsCatalog');
+
+Route::get('popDetail/popsCatalog','popsCatalogController@redirect');
 
 Route::get('mangaCatalog', function(){
     return view('mangaCatalog');

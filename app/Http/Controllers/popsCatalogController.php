@@ -11,7 +11,12 @@ class popsCatalogController extends Controller
     public function popsCatalog(){
         return view('popsCatalog');
     }
+    
+    public function redirect(){
+        return redirect('/popsCatalog');
+    }
 
+    
 
 }
 

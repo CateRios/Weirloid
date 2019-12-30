@@ -57,6 +57,9 @@
         });
   </script>
   <script>
+    function showDetail(id){
+        window.location.href = "/popDetail/";
+    }
  
   </script>
     
@@ -185,7 +188,9 @@
 
                     <!-- List of products -->
                     <div class="productsBackground">
-                        @include('partials.popList');
+                        <div class="card-columns productList">
+                            @include('partials.popList');
+                        </div>
                     </div>
             </div>
         </div>
