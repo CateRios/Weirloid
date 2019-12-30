@@ -70,10 +70,16 @@ Route::get('messagesList',function (){
 Route::get('messageDetail',function (){
     return view('messageDetail');
 });
+
 //Pedidos
 Route::get('ordersList',function (){
     return view('ordersList');
 });
 Route::get('orderDetail',function (){
     return view('orderDetail');
+});
+
+//Pago
+Route::get('paymentPlatform',function (){
+    return view('paymentPlatform');
 });
