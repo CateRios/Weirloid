@@ -15,6 +15,18 @@ Route::get('/', function () {
     return view('index');
 });
 
+Auth::routes();
+
+Route::get('/login/{social}','Auth\LoginController@socialLogin')->where('social','twitter|facebook|linkedin|google|github|bitbucket');
+Route::get('/login/{social}/callback','Auth\LoginController@handleProviderCallback')->where('social','twitter|facebook|linkedin|google|github|bitbucket');
+
+Route::post('password/update', 'Auth\ResetPasswordController@reset')->name('password.update');
+
+// Routas a las que sólo pueden entrar los usuarios autenticados
+Route::group(['middleware' => 'auth'], function () {
+
+});
+
 //Recuperar contraseña
 Route::get('forgotPassword', function(){
     return view('auth.forgotPassword');
@@ -45,20 +57,11 @@ Route::get('popDetail', function(){
     return view('popDetail');
 });
 
-
-
 //Carrito
 
 Route::get('shoppingCart', function(){
     return view('shoppingCart');
 });
 
-
-Auth::routes();
-
-Route::get('/login/{social}','Auth\LoginController@socialLogin')->where('social','twitter|facebook|linkedin|google|github|bitbucket');
-Route::get('/login/{social}/callback','Auth\LoginController@handleProviderCallback')->where('social','twitter|facebook|linkedin|google|github|bitbucket');
-
-Route::post('password/update', 'Auth\ResetPasswordController@reset')->name('password.update');
 
 
