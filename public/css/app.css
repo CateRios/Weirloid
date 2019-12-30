@@ -145,13 +145,13 @@
 }
 
 /* -------- Form -------- */
-.signForm {
+.myform {
     width: 80%;
     display: inline-block;
     text-align: center;
 }
 
-.btn-signform {
+.btn-myform {
     padding-bottom: 0.2%;
     font-family: 'Mogra', sans-serif;
     color:lightgray;
@@ -159,43 +159,43 @@
     border-color:lightgray;
 }
 
-.btn-signform:hover {
+.btn-myform:hover {
     color: var(--pink);
     background-color:whitesmoke;
 }
 
-.btn-signform.focus,.btn-signform:focus {
+.btn-myform.focus,.btn-myform:focus {
     box-shadow:0 0 0 .2rem rgba(130,138,145,.5);
 }
 
-.btn-signform.disabled,.btn-signform:disabled {
+.btn-myform.disabled,.btn-myform:disabled {
     color:#fff;
     background-color:#6c757d;
     border-color:#6c757d;
 }
 
-.btn-signform:not(:disabled):not(.disabled).active,.btn-signform:not(:disabled):not(.disabled):active,.show>.btn-signform.dropdown-toggle {
+.btn-myform:not(:disabled):not(.disabled).active,.btn-myform:not(:disabled):not(.disabled):active,.show>.btn-myform.dropdown-toggle {
     color:#fff;
     background-image:var(--rainbow);
     border-color:#4e555b;
 }
 
-.btn-signform:not(:disabled):not(.disabled).active:focus,.btn-signform:not(:disabled):not(.disabled):active:focus,.show>.btn-signform.dropdown-toggle:focus {
+.btn-myform:not(:disabled):not(.disabled).active:focus,.btn-myform:not(:disabled):not(.disabled):active:focus,.show>.btn-myform.dropdown-toggle:focus {
     box-shadow:0 0 0 .2rem rgba(130,138,145,.5);
 }
 
-.input-signform {
+.input-myform {
     margin-top: 2%;
     font-family: 'Monserrat', sans-serif;
     border: 1.5px solid var(--pink);
 }
 
-.input-signform:focus {
+.input-myform:focus {
     border: 1.5px solid var(--pink);
     box-shadow:0 0 0 .2rem rgba(236, 0, 140, 0.34);
 }
 
-.signform-button {
+.myform-button {
     color: var(--white);
     font-family: 'Monserrat', sans-serif;
     font-style: normal;
@@ -207,7 +207,7 @@
     background-color: var(--pink);
 }
 
-.signform-button:hover {
+.myform-button:hover {
     background-image: var(--rainbow);
 }
 
@@ -265,3 +265,4 @@
 .pinterest {
     color: #bd081c;
 }
+

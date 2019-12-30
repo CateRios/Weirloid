@@ -47,7 +47,7 @@
 
                     <li class='nav-item cel'>
 
-                        <a class='nav-link header-nav' id="cliente" data-toggle='modal' data-target='#myModal'>¿Cliente?</a>
+                        <a class='nav-link header-nav' id="cliente" data-toggle='modal' data-target='#signModal'>¿Cliente?</a>
 
                         <!-- Sign In/Up Modal -->
                         @include('partials.signModal')
