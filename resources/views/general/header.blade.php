@@ -37,9 +37,13 @@
 
                 @if(Auth::check())
 
-                    <li class='nav-item cel' style="position: absolute; right: 0">
+                    <li class='nav-item cel' style="position: absolute; right: 4%">
 
-                        <p>{{ Auth::user()->name }}</p>
+                        <!-- Nombre del usuario -->
+                        <a class="user_shortName" id='name' href="/">{{ Auth::user()->name }}</a>
+
+                        <!-- Imagen del usuario -->
+                        <img class='user_shortPhoto' id='user_photo' src='{{URL::asset('img/dummy_user_picture.jpg')}}'>
 
                     </li>
 
