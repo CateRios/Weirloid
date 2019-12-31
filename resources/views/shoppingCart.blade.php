@@ -11,6 +11,9 @@
     <link rel="stylesheet" href="{{ asset('css/index.css') }}" />
     <link rel="stylesheet" href="{{ asset('css/catalog.css') }}" />
 
+    <!-- Scripts -->
+    @include('general.scripts')
+
 </head>
 
 <body>
@@ -21,7 +24,7 @@
     <!--Nav bar -->
     @include('general.catalognav')
 
-<section class="cart">
+<section class="shoppingCart">
     <h1>MI CARRITO</h1>
     <table>
     <tr id="column-name">
@@ -50,7 +53,17 @@
         <td>245€</td>
     </tr>
     </table>
-    <button><label>PAGAR AHORA</label></button>
+
+    @if(Auth::check())
+        <a href='paymentPlatform'><button><label>PAGAR AHORA</label></button></a>
+    @else
+        <div>
+            <a data-toggle='modal' data-target='#signModal'><button><label>PAGAR AHORA</label></button></a>
+            <!-- Sign In/Up Modal -->
+            @include('partials.signModal')
+        </div>
+    @endif
+    
 </section>
 
 <!-- Footer -->

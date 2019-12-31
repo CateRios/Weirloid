@@ -13,13 +13,6 @@
 
     <!-- Scripts -->
     @include('general.scripts')
-
-    <script>
-        $('#more').change(function(){
-        $('#quantity').text("2");
-    });
-  </script>
-
     
 </head>
 
@@ -45,15 +38,17 @@
             $name = $item->name;
             $price = $item->price;
             $category = $item->class;
-            $img = $item->image;
             $score = $item->score;
             $description = $item->description;
             $stock = $item->stock;
+            //$img= $item->image;
+
+            $img = Image::make($item->image)->resize(300, 200);
         ?>
 
             <!-- Product Card -->
             <div class="card productCard">
-                <img class="card-img-top productCard-image" src="{{base64_decode(<?=$item->image?>)}}" alt="<?=$name?>">
+                <img class="card-img-top productCard-image" id="<?=$id?>" src="{{base64_decode(<?=$img?>)}}" alt="<?=$name?>">
                 <div class="productCard-price">
                     <h4 class="card-title"><?=$price?>€</h4>
                 </div>
@@ -131,6 +126,16 @@
                 </div>
             </div>
     </section>
+
+    @if(Auth::check())
+        <a href='paymentPlatform'><button><label>PAGAR AHORA</label></button></a>
+    @else
+        <div>
+            <a data-toggle='modal' data-target='#signModal'><button><label>PAGAR AHORA</label></button></a>
+            <!-- Sign In/Up Modal -->
+            @include('partials.signModal')
+        </div>
+    @endif
 
 <!-- Footer -->
 @include('general.footer')
