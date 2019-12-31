@@ -32,18 +32,18 @@
     </li>
 </article>
 <article class="userInfo">
-    <h1 id="name">{{\App\Http\Controllers\profileController::getName()}}</h1>
+    <h1 id="name">{{\App\Http\Controllers\ProfileController::getName()}}</h1>
     <article id="personalData">
         <li><h1>Datos Personales</h1></li>
         <div id="info">
             <table>
                 <tr>
                     <td><h1>Email:</h1></td>
-                    <td><h2 id="data">{{\App\Http\Controllers\profileController::getEmail()}}</h2></td>
+                    <td><h2 id="data">{{\App\Http\Controllers\ProfileController::getEmail()}}</h2></td>
                 </tr>
                 <tr>
                     <td><h1>Contacto:</h1></td>
-                    <td><h2 id="data">{{\App\Http\Controllers\profileController::getPhone()}}</h2></td>
+                    <td><h2 id="data">{{\App\Http\Controllers\ProfileController::getPhone()}}</h2></td>
                 </tr>
             </table>
 
@@ -55,7 +55,7 @@
             <table>
                 <tr>
                     <td><i class="fas fa-home"></i></td>
-                    <td><h2 id="data">{{\App\Http\Controllers\profileController::getAddress()}}</h2></td>
+                    <td><h2 id="data">{{\App\Http\Controllers\ProfileController::getAddress()}}</h2></td>
                 </tr>
             </table>
         </div>

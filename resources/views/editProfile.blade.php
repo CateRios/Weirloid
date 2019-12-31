@@ -19,13 +19,14 @@
 <!-- Header -->
 @include("general.header")
 
-<form name="post">
+<form method="post" action='setProfile'>
+    {{ csrf_field() }}
     <article class="profile">
         <a id="border">
-            <input type="file" id="userImg" name="photo" value="{{\App\Http\Controllers\profileController::getPhoto()}}"></a>
+            <input type="file" id="userImg" name="photo" value=""></a>
     </article>
     <article class="userInfo">
-        <input id=name type="text" name="name" value="{{\App\Http\Controllers\profileController::getName()}}">
+        <input id=name type="text" name="name" value="{{\App\Http\Controllers\ProfileController::getName()}}">
         <article id="personalData">
             <li><h1>Datos Personales</h1></li>
 
@@ -34,12 +35,12 @@
                     <tr>
                         <td><h1>Email:</h1></td>
                         <td><input id="data" type="text" name="email"
-                                   value="{{\App\Http\Controllers\profileController::getEmail()}}"></td>
+                                   value="{{\App\Http\Controllers\ProfileController::getEmail()}}"></td>
                     </tr>
                     <tr>
                         <td><h1>Contacto:</h1></td>
                         <td><input id="data" type="text" name="phone"
-                                   value="{{\App\Http\Controllers\profileController::getPhone()}}"></td>
+                                   value="{{\App\Http\Controllers\ProfileController::getPhone()}}"></td>
                     </tr>
                 </table>
             </div>
@@ -52,7 +53,7 @@
                     <tr>
                         <td><i class="fas fa-home"></i></td>
                         <td><input id="data" type="text" name="address"
-                                   value="{{\App\Http\Controllers\profileController::getAddress()}}"></td>
+                                   value="{{\App\Http\Controllers\ProfileController::getAddress()}}"></td>
                     </tr>
                 </table>
             </div>

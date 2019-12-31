@@ -466,6 +466,7 @@ class ComposerStaticInitd06d2c9e31fc7075834c150350c384b2
         'App\\Http\\Controllers\\Index_controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Index_controller.php',
         'App\\Http\\Controllers\\popDetailController' => __DIR__ . '/../..' . '/app/Http/Controllers/popDetailController.php',
         'App\\Http\\Controllers\\popsCatalogController' => __DIR__ . '/../..' . '/app/Http/Controllers/popsCatalogController.php',
+        'App\\Http\\Controllers\\profileController' => __DIR__ . '/../..' . '/app/Http/Controllers/ProfileController.php',
         'App\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',
         'App\\Http\\Middleware\\Authenticate' => __DIR__ . '/../..' . '/app/Http/Middleware/Authenticate.php',
         'App\\Http\\Middleware\\CheckForMaintenanceMode' => __DIR__ . '/../..' . '/app/Http/Middleware/CheckForMaintenanceMode.php',

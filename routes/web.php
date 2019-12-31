@@ -33,6 +33,8 @@ Route::group(['middleware' => 'auth'], function () {
         return view('editProfile');
     });
 
+    Route::post('setProfile','ProfileController@setProfile');
+
 //Mensajes
     Route::get('messagesList',function (){
         return view('messagesList');

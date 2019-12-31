@@ -18,6 +18,7 @@ return array(
     'App\\Http\\Controllers\\Index_controller' => $baseDir . '/app/Http/Controllers/Index_controller.php',
     'App\\Http\\Controllers\\popDetailController' => $baseDir . '/app/Http/Controllers/popDetailController.php',
     'App\\Http\\Controllers\\popsCatalogController' => $baseDir . '/app/Http/Controllers/popsCatalogController.php',
+    'App\\Http\\Controllers\\profileController' => $baseDir . '/app/Http/Controllers/ProfileController.php',
     'App\\Http\\Kernel' => $baseDir . '/app/Http/Kernel.php',
     'App\\Http\\Middleware\\Authenticate' => $baseDir . '/app/Http/Middleware/Authenticate.php',
     'App\\Http\\Middleware\\CheckForMaintenanceMode' => $baseDir . '/app/Http/Middleware/CheckForMaintenanceMode.php',
