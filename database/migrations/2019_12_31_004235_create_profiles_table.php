@@ -14,13 +14,18 @@ class CreateProfilesTable extends Migration
     public function up()
     {
         Schema::create('profiles', function (Blueprint $table) {
+            $table->engine = 'InnoDB';
             $table->bigIncrements('id');
-            $table->integer('user_id');
-            $table->string('name');
-            $table->string('phone');
-            $table->longText('photo');
-            $table->string('address');
+            $table->unsignedBigInteger('user_id');
+            $table->string('name')->nullable();
+            $table->string('phone')->nullable();
+            $table->longText('photo')->nullable();
+            $table->string('address')->nullable();
             $table->timestamps();
+        });
+
+        Schema::table('profiles', function(Blueprint $table) {
+            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 

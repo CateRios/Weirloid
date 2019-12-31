@@ -16,6 +16,11 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
 {
     use Authenticatable, Authorizable, CanResetPassword,Notifiable;
 
+    /**
+     * The table associated with the model.
+     *
+     * @var string
+     */
     protected $table = 'users';
 
     /**

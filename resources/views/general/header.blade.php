@@ -39,11 +39,7 @@
 
                     <li class='nav-item cel' style="position: absolute; right: 4%">
 
-                        <!-- Nombre del usuario -->
-                        <a class="user_shortName" id='name' href="/">{{ Auth::user()->name }}</a>
-
-                        <!-- Imagen del usuario -->
-                        <img class='user_shortPhoto' id='user_photo' src='{{URL::asset('img/dummy_user_picture.jpg')}}'>
+                         {{\App\Http\Controllers\Index_controller::getProfile()}}
 
                     </li>
 
