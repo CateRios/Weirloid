@@ -24,7 +24,36 @@ Route::post('password/update', 'Auth\ResetPasswordController@reset')->name('pass
 
 // Routas a las que sólo pueden entrar los usuarios autenticados
 Route::group(['middleware' => 'auth'], function () {
+    //Perfil
+    Route::get('profile',function (){
+        return view('profile');
+    });
 
+    Route::get('editProfile',function (){
+        return view('editProfile');
+    });
+
+//Mensajes
+    Route::get('messagesList',function (){
+        return view('messagesList');
+    });
+
+    Route::get('messageDetail',function (){
+        return view('messageDetail');
+    });
+
+//Pedidos
+    Route::get('ordersList',function (){
+        return view('ordersList');
+    });
+    Route::get('orderDetail',function (){
+        return view('orderDetail');
+    });
+
+//Pago
+    Route::get('paymentPlatform',function (){
+        return view('paymentPlatform');
+    });
 });
 
 //Catálogo
@@ -65,33 +94,4 @@ Route::get('shoppingCart', function(){
     return view('shoppingCart');
 });
 
-//Perfil
-Route::get('profile',function (){
-    return view('profile');
-});
 
-Route::get('editProfile',function (){
-    return view('editProfile');
-});
-
-//Mensajes
-Route::get('messagesList',function (){
-    return view('messagesList');
-});
-
-Route::get('messageDetail',function (){
-    return view('messageDetail');
-});
-
-//Pedidos
-Route::get('ordersList',function (){
-    return view('ordersList');
-});
-Route::get('orderDetail',function (){
-    return view('orderDetail');
-});
-
-//Pago
-Route::get('paymentPlatform',function (){
-    return view('paymentPlatform');
-});

@@ -18,41 +18,46 @@
 
 <!-- Header -->
 @include("general.header")
-<article class="profile">
-    <a id="border"><img id="userImg" src="{{asset('img/sheldon.jpg')}}"></a>
-</article>
-<form name="post">
-<article class="userInfo">
-    <input id= name type="text" value="Sheldon Cooper">
-    <article id="personalData">
-        <li><h1>Datos Personales</h1></li>
 
-        <div id="info">
-            <table>
-                <tr>
-                    <td><h1>Email:</h1></td>
-                    <td><input id="data" type="text" value="diversionconbanderas@mail.com"></td>
-                </tr>
-                <tr>
-                    <td><h1>Contacto:</h1></td>
-                    <td><input id="data" type="text" value="+73 314159269"></td>
-                </tr>
-            </table>
-        </div>
+<form name="post">
+    <article class="profile">
+        <a id="border">
+            <input type="file" id="userImg" name="photo" value="{{\App\Http\Controllers\profileController::getPhoto()}}"></a>
     </article>
-    <input class="editButton" type="submit" value="TERMINAR">
-    <article id="personalData">
-        <li><h1>Direcciones</h1></li>
-        <div id="direction">
-            <table>
-                <tr>
-                    <td><i class="fas fa-home"></i></td>
-                    <td><input id="data" type="text" value="South Madison Avenue, 215, 4ºA"></td>
-                </tr>
-            </table>
-        </div>
+    <article class="userInfo">
+        <input id=name type="text" name="name" value="{{\App\Http\Controllers\profileController::getName()}}">
+        <article id="personalData">
+            <li><h1>Datos Personales</h1></li>
+
+            <div id="info">
+                <table>
+                    <tr>
+                        <td><h1>Email:</h1></td>
+                        <td><input id="data" type="text" name="email"
+                                   value="{{\App\Http\Controllers\profileController::getEmail()}}"></td>
+                    </tr>
+                    <tr>
+                        <td><h1>Contacto:</h1></td>
+                        <td><input id="data" type="text" name="phone"
+                                   value="{{\App\Http\Controllers\profileController::getPhone()}}"></td>
+                    </tr>
+                </table>
+            </div>
+        </article>
+        <input class="editButton" type="submit" value="TERMINAR">
+        <article id="personalData">
+            <li><h1>Direcciones</h1></li>
+            <div id="direction">
+                <table>
+                    <tr>
+                        <td><i class="fas fa-home"></i></td>
+                        <td><input id="data" type="text" name="address"
+                                   value="{{\App\Http\Controllers\profileController::getAddress()}}"></td>
+                    </tr>
+                </table>
+            </div>
+        </article>
     </article>
-</article>
 
 </form>
 <!-- Footer -->

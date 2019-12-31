@@ -19,9 +19,10 @@
 <!-- Header -->
 @include("general.header")
 
-<button class="editProfileButton"><label><i class="fas fa-pencil-alt"></i> EDITAR PERFIL </label></button>
+<a href="editProfile"> <button class="editProfileButton">
+        <label><i class="fas fa-pencil-alt"></i> EDITAR PERFIL </label></button></a>
 <article class="profile">
-    <a id="border"><img id="userImg" src="{{asset('img/sheldon.jpg')}}"></a>
+    <a id="border"><img id="userImg" src="{{\App\Http\Controllers\profileController::getPhoto()}}"></a>
 </article>
 <article class="buttons">
     <li>
@@ -31,18 +32,18 @@
     </li>
 </article>
 <article class="userInfo">
-    <h1 id="name">Sheldon Cooper</h1>
+    <h1 id="name">{{\App\Http\Controllers\profileController::getName()}}</h1>
     <article id="personalData">
         <li><h1>Datos Personales</h1></li>
         <div id="info">
             <table>
                 <tr>
                     <td><h1>Email:</h1></td>
-                    <td><h2 id="data">diversionconbanderas@mail.com</h2></td>
+                    <td><h2 id="data">{{\App\Http\Controllers\profileController::getEmail()}}</h2></td>
                 </tr>
                 <tr>
                     <td><h1>Contacto:</h1></td>
-                    <td><h2 id="data">+73 314159269</h2></td>
+                    <td><h2 id="data">{{\App\Http\Controllers\profileController::getPhone()}}</h2></td>
                 </tr>
             </table>
 
@@ -54,7 +55,7 @@
             <table>
                 <tr>
                     <td><i class="fas fa-home"></i></td>
-                    <td><h2 id="data">South Madison Avenue, 215, 4ºA</h2></td>
+                    <td><h2 id="data">{{\App\Http\Controllers\profileController::getAddress()}}</h2></td>
                 </tr>
             </table>
         </div>
