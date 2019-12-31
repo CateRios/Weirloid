@@ -64,31 +64,8 @@
     <!-- Header -->
     @include('general.header')
     
-    <!-- Categories navbar-->    
-    <nav class="catalog-nav-bar">
-        <ul>
-            <?php //mantener link como acivo -> jquery?>
-            <li><a href="popsCatalog" class="pops">Figuras y Pop's</a></li>
-            <li><a href="mangaCatalog" class="manga">Manga y cómics</a></li>
-            <li><a a href="electronicsCatalog" class="electronics">Electrónica</a></li>
-            <li><a a href="clothesCatalog" class="clothes">Ropa</a></li>
-        </ul>
-
-        <ul>
-            <li><a href="">Ofertas</a></li>
-            <li><a href="">Top Ventas</a></li>
-        </ul>
-
-        <form>
-            <input type="search" name="search" placeholder="  Escribe aquí...">
-            <span class="search-icon"><i class="fas fa-search"></i></span>
-        </form>
-
-        <ul class="cart"><a href="shoppingCart">
-            <li id="count"><i class="fas fa-shopping-cart"></i> 2 ITEMS:</li>
-            <li>245€</li>
-        </a></ul>
-    </nav>
+    <!--Nav bar -->
+    @include('general.catalognav')
 
     <div class="row">
     <!-- Filters -->

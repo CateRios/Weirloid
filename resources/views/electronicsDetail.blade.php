@@ -29,28 +29,8 @@
     <!-- Header -->
     @include('general.header')
     
-    <!-- Categories navbar-->    
-    <nav class="catalog-nav-bar">
-        <ul>
-            <?php //mantener link como acivo -> jquery?>
-            <li><a href="popsCatalog" class="pops" name="navpops">Figuras y Pop's</a></li>
-            <li><a href="mangaCatalog" class="manga">Manga y cómics</a></li>
-            <li><a a href="electronicsCatalog" class="electronics">Electrónica</a></li>
-            <li><a a href="clothesCatalog" class="clothes">Ropa</a></li>
-        </ul>
-
-        <ul>
-            <li><a href="">Ofertas</a></li>
-            <li><a href="">Top Ventas</a></li>
-        </ul>
-
-        <form>
-            <input type="search" name="search" value="  Escribe aquí...">
-        </form>
-
-
-        <?php //el carrito de las narices ?>
-    </nav>
+    <!--Nav bar -->
+    @include('general.catalognav')
 
     <!-- -Detail -->
     <section class="detail row">
