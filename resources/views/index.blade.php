@@ -49,15 +49,15 @@
     <!--Slides-->
     <div class="carousel-inner" role="listbox">
         <div class="carousel-item active">
-            <img class="d-block w-100 carouselImg" src="https://mdbootstrap.com/img/Photos/Slides/img%20(130).jpg"
+            <img class="d-block w-100 carouselImg" src="http://k31.kn3.net/taringa/E/2/E/7/8/9/jammfusy/F58.png"
                  alt="First slide">
         </div>
         <div class="carousel-item">
-            <img class="d-block w-100 carouselImg" src="https://mdbootstrap.com/img/Photos/Slides/img%20(129).jpg"
+            <img class="d-block w-100 carouselImg" src="https://cdn.hobbyconsolas.com/sites/navi.axelspringer.es/public/styles/main_element/public/media/image/2019/08/funko-pops-exclusivos-son-casi-imposibles-conseguir.jpg?itok=rnSM1yOt"
                  alt="Second slide">
         </div>
         <div class="carousel-item">
-            <img class="d-block w-100 carouselImg" src="https://mdbootstrap.com/img/Photos/Slides/img%20(70).jpg"
+            <img class="d-block w-100 carouselImg" src="http://cdn5.upsocl.com/wp-content/uploads/2017/02/portada-257.jpg"
                  alt="Third slide">
         </div>
     </div>

@@ -26,7 +26,7 @@
 <div class="container">
     <h1>WEIRLOID ENTERPRISE</h1>
     <p class="texto">"Un Weirloid para gobernarlos a todos. Un Weirloid para encontrarlos, un Weirloid para atraerlos a todos y atarlos en el lado oscuro de lo friki." Este proyecto es un página de venta de mechandising online, pero no cualquiera está preparado para este código que nunca tiene fallos, simplemente desarrolla características aleatorias. Aquí podrás encontrar cómics, mangas, figuras, coleccionables y ropa entre otros para que siempre seas tú mismo... A menos que puedas ser Batman, es mejor ser Batman.</p>
-    <p class="texto">Weirloid surgió de tres estudiantes que <em>CASI</em> igual que los caballos del hipódromo van a lograr terminar la carrera. Una asignatura y una idea. Canarias, tenemos un problema. Dos meses... certeza de muerte,mínima esperanza de éxito… ¿a qué esperamos?</p>
+    <p class="texto">Weirloid surgió de tres estudiantes que <em>CASI</em> igual que los caballos del hipódromo van a lograr terminar la carrera. Una asignatura y una idea. Canarias, tenemos un problema. Menos de dos meses... Certeza de muerte, mínima esperanza de éxito, ¿a qué esperamos?</p>
 </div>
 
 <!-- Tarjetas con las fundadoras -->
