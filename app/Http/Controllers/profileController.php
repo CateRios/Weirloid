@@ -65,8 +65,11 @@ class profileController extends Controller
         $phone=$request->phone;
         $address=$request->address;
         $photo=$request->file('photo');
-        Image::make($photo)->resize(350,350);
-        $image=base64_encode(file_get_contents($photo));
+        if($photo==null){
+            echo " es null";
+        }
+        $imageResize=Image::make($photo)->resize(300,300);
+        $image=base64_encode($imageResize->encode('data-url')->encoded);
         $user = Auth::user();
         $user->name= $name;
         $user->email=$email;
