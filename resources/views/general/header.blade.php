@@ -11,13 +11,13 @@
         <div class="navbar-collapse collapse dual-nav order-2 order-md-1 justify-content-end">
             <ul class="navbar-nav">
                 <li class="nav-item cel">
-                    <a class="nav-link active" href="#">Home</a>
+                    <a class="nav-link" id="headerLink1" href="/">Home</a>
                 </li>
                 <li class="nav-item cel">
-                    <a class="nav-link" href="#">Catálogo</a>
+                    <a class="nav-link" id="headerLink2" href="#">Catálogo</a>
                 </li>
                 <li class="nav-item cel">
-                    <a class="nav-link" href="#">Servicios</a>
+                    <a class="nav-link" id="headerLink3" href="services">Servicios</a>
                 </li>
             </ul>
         </div>
@@ -29,10 +29,10 @@
         <div class="navbar-collapse collapse dual-nav order-3 order-md-3">
             <ul class="navbar-nav">
                 <li class="nav-item cel">
-                    <a class="nav-link header-nav" href="#">Sobre nosotros</a>
+                    <a class="nav-link header-nav" id="headerLink4" href="aboutUs">Sobre nosotros</a>
                 </li>
                 <li class="nav-item cel">
-                    <a class="nav-link header-nav" href="#">Contacto</a>
+                    <a class="nav-link header-nav" id="headerLink5" href="contact">Contacto</a>
                 </li>
 
                 @if(Auth::check())
@@ -60,6 +60,8 @@
         </div>
 
     </nav>
+
+    <script>activeLink()</script>
 
 </header>
 

@@ -96,4 +96,19 @@ Route::get('shoppingCart', function(){
     return view('shoppingCart');
 });
 
+// Servicios
+Route::get('services', function(){
+    return view('services');
+});
+
+// Sobre nosotros
+Route::get('aboutUs', function(){
+    return view('aboutUs');
+});
+
+// Servicios
+Route::get('contact', function(){
+    return view('contact');
+});
+
 
