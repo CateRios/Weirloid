@@ -32,7 +32,7 @@
     </li>
 </article>
 <article class="userInfo">
-    <h1 id="name">{{\App\Http\Controllers\ProfileController::getName()}}</h1>
+    <h1 id="nameP">{{\App\Http\Controllers\ProfileController::getName()}}</h1>
     <article id="personalData">
         <li><h1>Datos Personales</h1></li>
         <div id="info">

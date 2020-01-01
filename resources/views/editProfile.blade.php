@@ -26,7 +26,7 @@
             <input type="file" id="userImg" name="photo" value=""></a>
     </article>
     <article class="userInfo">
-        <input id=name type="text" name="name" value="{{\App\Http\Controllers\ProfileController::getName()}}">
+        <input id=nameP type="text" name="name" value="{{\App\Http\Controllers\ProfileController::getName()}}">
         <article id="personalData">
             <li><h1>Datos Personales</h1></li>
 
