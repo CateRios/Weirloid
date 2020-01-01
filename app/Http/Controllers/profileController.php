@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Profile;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Intervention\Image\ImageManagerStatic as Image;
 
 class profileController extends Controller
 {
@@ -57,6 +58,26 @@ class profileController extends Controller
         }
 
         return $photo;
+    }
+    public function setProfile(Request $request){
+        $name=$request->name;
+        $email=$request->email;
+        $phone=$request->phone;
+        $address=$request->address;
+        $photo=$request->file('photo');
+        Image::make($photo)->resize(350,350);
+        $image=base64_encode(file_get_contents($photo));
+        $user = Auth::user();
+        $user->name= $name;
+        $user->email=$email;
+        $user->save();
+        $profile = Profile::where('user_id',$user->id)->first();
+        $profile->phone=$phone;
+        $profile->address=$address;
+        $profile->name=$name;
+        $profile->photo=$image;
+        $profile->save();
+        return view('profile');
     }
 
 }
