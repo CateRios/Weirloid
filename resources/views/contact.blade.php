@@ -53,7 +53,7 @@
                 @endif
 
                 <!-- Formulario -->
-                    <form method="POST" action="#">
+                    <form method="POST" action="contact/email">
                         @csrf
 
                         <div class="row">

@@ -20,8 +20,6 @@ Auth::routes();
 Route::get('/login/{social}','Auth\LoginController@socialLogin')->where('social','twitter|facebook|linkedin|google|github|bitbucket');
 Route::get('/login/{social}/callback','Auth\LoginController@handleProviderCallback')->where('social','twitter|facebook|linkedin|google|github|bitbucket');
 
-Route::post('password/update', 'Auth\ResetPasswordController@reset')->name('password.update');
-
 // Routas a las que sólo pueden entrar los usuarios autenticados
 Route::group(['middleware' => 'auth'], function () {
     //Perfil
@@ -110,5 +108,18 @@ Route::get('aboutUs', function(){
 Route::get('contact', function(){
     return view('contact');
 });
+
+/* ================= FUNCIONES ================= */
+
+//Recuperar contraseña
+Route::get('forgotPassword', function() {
+    return view('auth.forgotPassword');
+});
+
+// Actualizar contraseña
+Route::post('password/update', 'Auth\ResetPasswordController@reset')->name('password.update');
+
+// Enviar email a Weirloid
+Route::post('contact/email', 'Contact_controller@sendEmail');
 
 
