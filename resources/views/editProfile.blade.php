@@ -19,7 +19,7 @@
 <!-- Header -->
 @include("general.header")
 
-<form method="post" action='setProfile'>
+<form method="post" action='setProfile' enctype="multipart/form-data">
     {{ csrf_field() }}
     <article class="profile">
         <a id="border">

@@ -14,9 +14,12 @@ class profileController extends Controller
 
         // Obtenemos el usuario actual
         $user = Auth::user();
-        $profile = Profile::where('user_id',$user->id)->first();
-        $name = $profile->name;
-
+        if(Profile::where('user_id',$user->id)->exists()) {
+            $profile = Profile::where('user_id', $user->id)->first();
+            $name = $profile->name;
+        }else{
+            $name = $user->name;
+        }
         return $name;
     }
     static function getAddress(){
@@ -24,8 +27,12 @@ class profileController extends Controller
         // Obtenemos el usuario actual
         $user = Auth::user();
         //Obtenemos su perfil
-        $profile = Profile::where('user_id',$user->id)->first();
-        $address = $profile->address;
+        if(Profile::where('user_id',$user->id)->exists()){
+            $profile = Profile::where('user_id',$user->id)->first();
+            $address = $profile->address;
+        }else{
+            $address = "";
+        }
         return $address;
     }
     static function getPhone(){
@@ -33,8 +40,12 @@ class profileController extends Controller
         // Obtenemos el usuario actual
         $user = Auth::user();
         //Obtenemos su perfil
-        $profile = Profile::where('user_id',$user->id)->first();
-        $phone = $profile->phone;
+        if(Profile::where('user_id',$user->id)->exists()) {
+            $profile = Profile::where('user_id', $user->id)->first();
+            $phone = $profile->phone;
+        }else{
+            $phone="";
+        }
         return $phone;
     }
     static function getEmail(){
@@ -49,14 +60,16 @@ class profileController extends Controller
 
         // Obtenemos el usuario actual
         $user = Auth::user();
-        $profile = Profile::where('user_id',$user->id)->first();
-        if($profile->photo != null){
-            $photo=base64_decode($profile->photo);
-        }
-        elseif($profile->photo == null) {
+        if(Profile::where('user_id',$user->id)->exists()) {
+            $profile = Profile::where('user_id', $user->id)->first();
+            if ($profile->photo != null) {
+                $photo = base64_decode($profile->photo);
+            } elseif ($profile->photo == null) {
+                $photo = asset('img/dummy_user_picture.jpg');
+            }
+        }else{
             $photo = asset('img/dummy_user_picture.jpg');
         }
-
         return $photo;
     }
     public function setProfile(Request $request){
@@ -65,21 +78,33 @@ class profileController extends Controller
         $phone=$request->phone;
         $address=$request->address;
         $photo=$request->file('photo');
-        if($photo==null){
-            echo " es null";
-        }
-        $imageResize=Image::make($photo)->resize(300,300);
-        $image=base64_encode($imageResize->encode('data-url')->encoded);
         $user = Auth::user();
         $user->name= $name;
         $user->email=$email;
         $user->save();
+        if(Profile::where('user_id',$user->id)->exists()){
         $profile = Profile::where('user_id',$user->id)->first();
-        $profile->phone=$phone;
-        $profile->address=$address;
-        $profile->name=$name;
-        $profile->photo=$image;
+        }
+        else {
+            $profile = new Profile();
+            $profile->user_id = $user->id;
+        }
+        if($phone!=null){
+            $profile->phone=$phone;
+        }
+        if($address!=null){
+            $profile->address=$address;
+        }
+        if($name!=null) {
+            $profile->name = $name;
+        }
+        if($photo!=null) {
+            $imageResize = Image::make($photo)->resize(300, 300);
+            $image = base64_encode($imageResize->encode('data-url')->encoded);
+            $profile->photo = $image;
+        }
         $profile->save();
+
         return view('profile');
     }
 
