@@ -58,7 +58,7 @@ Route::group(['middleware' => 'auth'], function () {
 
 //Catálogo
 
-Route::get('/popsCatalog', 'popsCatalogController@popsCatalog');
+Route::get('/popsCatalog', 'PopsCatalogController@popsCatalog');
 
 Route::get('mangaCatalog', function(){
     return view('mangaCatalog');

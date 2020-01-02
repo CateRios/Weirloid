@@ -39,11 +39,13 @@
             $score = $item->score;
             $description = $item->description;
             $stock = $item->stock;
+            $img =base64_decode($item->image);
+
         ?>
 
             <!-- Product Card -->
             <div class="card productCard">
-                <img class="card-img-top productCard-image" id="<?=$id?>" src="{{base64_decode(<?=$item->image?>)}}" alt="<?=$name?>">
+                <img class="card-img-top productCard-image" id="<?=$id?>" src="<?=$img?>" alt="<?=$name?>">
                 <div class="productCard-price">
                     <h4 class="card-title"><?=$price?>€</h4>
                 </div>

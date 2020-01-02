@@ -24,7 +24,7 @@
        <span class="search-icon"><i class="fas fa-search"></i></span>
    </form>
  
-   @include('partials.cart')
+   {{App\Http\Controllers\ShoppingCartController::showCartOnNavBar()}}
    
 </div> 
 

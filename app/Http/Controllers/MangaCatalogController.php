@@ -7,19 +7,15 @@ use Illuminate\Support\Facades\DB;
 use App\Product;
 use Intervention\Image\ImageManagerStatic as Image;
 
-class popsCatalogController extends Controller
+class MangaCatalogController extends Controller
 {
-    public function popsCatalog(){
-        return view('popsCatalog');
+    public function mangaCatalog(){
+        return view('mangaCatalog');
     }
     
-    public function redirect(){
-        return redirect('/popsCatalog');
-    }
-
     public static function showProducts(){
 
-        $products= Product::where('class', "Figuras y Pop's")->get();
+        $products= Product::where('class', "Manga y cómics")->get();
 
         foreach($products as $item){
             $id =$item->id;

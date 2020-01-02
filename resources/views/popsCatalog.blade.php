@@ -150,7 +150,7 @@
                     <!-- List of products -->
                     <div class="productsBackground">
                         <div class="card-columns productList">
-                            @include('partials.popList');
+                            {{\App\Http\Controllers\PopsCatalogController::showProducts()}}
                         </div>
                     </div>
             </div>

@@ -143,6 +143,7 @@
             </div>
 
             <!-- All Products -->
+            <!-- All Products -->
             <div class="section" id="section-div">
 
                 <!-- Header-->
@@ -150,25 +151,8 @@
 
                     <!-- List of products -->
                     <div class="productsBackground">
-
                         <div class="card-columns productList">
-                            <!-- Product Card -->
-                            <div class="card productCard">
-                                <img class="card-img-top productCard-image" src="{{asset('img/featured_product.jpg')}}" alt="Card image">
-                                <div class="productCard-price">
-                                    <h4 class="card-title">--- €</h4>
-                                </div>
-                                <div class="card-body">
-                                    <h6 class="card-subtitle mb-2 productCard-category">[Categoría]</h6>
-                                    <h5 class="card-title productCard-name">[Nombre del producto]</h5>
-
-                                    <span class="fa fa-star checked"></span>
-                                    <span class="fa fa-star checked"></span>
-                                    <span class="fa fa-star checked"></span>
-                                    <span class="fa fa-star"></span>
-                                    <span class="fa fa-star"></span>
-                                </div>
-                            </div>
+                            {{\App\Http\Controllers\MangaCatalogController::showProducts()}}
                         </div>
                     </div>
             </div>
