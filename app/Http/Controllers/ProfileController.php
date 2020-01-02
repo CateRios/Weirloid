@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Profile;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Validator;
 use Intervention\Image\ImageManagerStatic as Image;
 
 class profileController extends Controller
@@ -52,7 +53,6 @@ class profileController extends Controller
 
         // Obtenemos el usuario actual
         $user = Auth::user();
-
         $email = $user->email;
         return $email;
     }
@@ -72,15 +72,29 @@ class profileController extends Controller
         }
         return $photo;
     }
+    protected function validator(array $data)
+    {
+        return Validator::make($data, [
+            'email' => ['required', 'string', 'email', 'max:255'],
+        ]);
+    }
     public function setProfile(Request $request){
+        $data=$request->all();
         $name=$request->name;
         $email=$request->email;
         $phone=$request->phone;
         $address=$request->address;
         $photo=$request->file('photo');
         $user = Auth::user();
-        $user->name= $name;
-        $user->email=$email;
+        if($name!=null){
+            $user->name= $name;
+        }
+        if($email!=null){
+            if($this->validator($data)->fails()){
+            }else{
+                $user->email=$email;
+            }
+        }
         $user->save();
         if(Profile::where('user_id',$user->id)->exists()){
         $profile = Profile::where('user_id',$user->id)->first();
@@ -105,7 +119,7 @@ class profileController extends Controller
         }
         $profile->save();
 
-        return view('profile');
+        return redirect()->to('/profile');
     }
 
 }
