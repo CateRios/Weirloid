@@ -16,33 +16,28 @@ class ShoppingCartController extends Controller
 
         $id = $request->id;
         $quantity = $request->quantity;
-        $product = Product::find($id);
-        $name = $product->name;
-        $price = $product->price;
 
         if(session()->exists('cart')){
 
+            //Insert new product
             $cartProducts = session()->get('cart');
 
             if(array_key_exists($id, $cartProducts)){
-
                 $cartProducts[$id]['quantity'] = $quantity;
-
             }else{
-
-                $item = array('id' => $id,
-                'quantity' => $quantity);
-                $cartProducts[$id] = $item;
+                $test = array('id' => $id, 'quantity' => $quantity);
+                $cartProducts[$id] = $test;
             }
-
             session()->put('cart', $cartProducts);
 
         }else{
 
+            //Create products array
             $products = array();
-            $item = array('id' =>$id,
-            'quantity' => $quantity);
-            $product[$id] = $item;
+
+            //Insert product
+            $test = array('id' =>$id, 'quantity' => $quantity);
+            $products[$id] = $test;
 
             session(['cart' => $products]);
         }
@@ -51,35 +46,93 @@ class ShoppingCartController extends Controller
 
     }
 
-    public function getCartProducts(){
-
+    public static function getCartProducts(){
+        
         if(session()->exists('cart')){
 
             $cartProducts = session()->get('cart');
+
+            $totalPrice = 0;
 
             $HTMLProducts = "";
 
             foreach($cartProducts as $item){
 
-                $totalPrice = $cartProducts['price']* $cartProducts['quantity'];
+                    $products = Product::where('id', $item['id'])->get();
 
-                $name = $cartProducts['name'];
-                $quantity = $cartProducts['quantity'];
-                $price = $cartProducts['price'];
+                    foreach($products as $product){
 
-                echo "
-                <tr id='items'>
-                <td>$name</td>
-                <td>$quantity></td>
-                <td>$price €</td>
-                </tr>";
+                        $totalPrice = $totalPrice + $product->price * $item['quantity'];
+
+                        $name = $product->name;
+                        $quantity = $item['quantity'];
+                        $price = $product->price;
+
+                        echo "
+                        <tr id='items'>
+                        <td>$name</td>
+                        <td>$quantity</td>
+                        <td>$price €</td>
+                        </tr>";
+
+                    }
+                
             }
+
+            echo "
+            <tr>
+                <td></td>
+                <th id='column-name'>Total</th>
+                <td id='column-name'></td>
+            </tr>
+                <tr>
+                <td></td>
+                <td></td>
+                <td>$totalPrice €</td>
+            </tr>";
 
         }
 
     }
 
+    public static function showCartOnNavBar(){
+
+        if(session()->exists('cart')){
+
+            $cartProducts = session()->get('cart');
+            $items_number=count($cartProducts);
     
+            $totalPrice = 0;
+    
+            foreach($cartProducts as $item){
+    
+                    $products = Product::where('id', $item['id'])->get();
+    
+                    foreach($products as $product){
+    
+                        $totalPrice = $totalPrice + $product->price * $item['quantity'];
+    
+                    }
+                
+            }
+                   
+            echo "
+                <div class='cart'><a href='shoppingCart'>
+                                <p id='count'><i class='fas fa-shopping-cart'></i> $items_number ITEM:</p>
+                                <p id='total'>$totalPrice €</p>
+                        </a></div>
+                ";
+
+        }else{
+
+                echo "
+                <div class='cart'><a href='#'>
+                    <p id='count'><i class='fas fa-shopping-cart'></i> 0 ITEMS</p>
+                </a></div>";
+
+                
+        }
+    }
 
 }
 

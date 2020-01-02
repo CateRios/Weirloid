@@ -106,12 +106,6 @@
     margin-inline-start: 5%;
 }
 
-@media (max-width: 34em) {
-    .catalog-nav-bar .cart{
-        font-size: 5px;
-    }
-}
-
 .catalog-nav-bar .cart #count{
     font-weight: bold;
     

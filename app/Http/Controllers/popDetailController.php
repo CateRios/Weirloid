@@ -15,7 +15,9 @@ class popDetailController extends Controller
     
 
     public function showDetails($id){
+        
         $product = Product::find($id);
+
         return view('popDetail', ['item'=>$product]);
     }
 

@@ -52,54 +52,13 @@
 
 <?php
 
-    use App\Product;
+    use \App\Http\Controllers\ShoppingCartController;
 
-    if(session()->exists('cart')){
-
-        $cartProducts = session()->get('cart');
-
-        $HTMLProducts = "";
-
-        foreach($cartProducts as $item){
-
-                $products = Product::where('id', $cartProducts['id']->get());
-
-                foreach($products as $product){
-
-                    $totalPrice = $product->price * $cartProducts['quantity'];
-
-                    $name = $product->name;
-                    $quantity = $cartProducts['quantity'];
-                    $price = $product->price;
-
-                    echo "
-                    <tr id='items'>
-                    <td>$name</td>
-                    <td>$quantity></td>
-                    <td>$price €</td>
-                    Holi
-                    </tr>";
-
-                }
-            
-
-            
-            
-        }
-
-    } 
+    ShoppingCartController::getCartProducts();
 
 ?>
-    <tr>
-        <td></td>
-        <th id="column-name">Total</th>
-        <td id="column-name"></td>
-    </tr>
-    <tr>
-        <td></td>
-        <td></td>
-        <td>245€</td>
-    </tr>
+   
+    
     </table>
 
     @if(Auth::check())
