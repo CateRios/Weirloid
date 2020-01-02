@@ -24,10 +24,8 @@
        <span class="search-icon"><i class="fas fa-search"></i></span>
    </form>
  
-   <div class="cart"><a href="shoppingCart">
-       <p id="count"><i class="fas fa-shopping-cart"></i> 2 ITEMS:</p>
-       <p id="total">245€</p>
-   </a></div>
+   @include('partials.cart')
+   
 </div> 
 
 </nav>

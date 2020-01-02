@@ -32,8 +32,6 @@
 
         <?php
 
-            use Intervention\Image\ImageManagerStatic as Image;
-
             $id =$item->id;
             $name = $item->name;
             $price = $item->price;
@@ -41,20 +39,17 @@
             $score = $item->score;
             $description = $item->description;
             $stock = $item->stock;
-            //$img= $item->image;
-
-            $img = Image::make($item->image)->resize(300, 200);
         ?>
 
             <!-- Product Card -->
             <div class="card productCard">
-                <img class="card-img-top productCard-image" id="<?=$id?>" src="{{base64_decode(<?=$img?>)}}" alt="<?=$name?>">
+                <img class="card-img-top productCard-image" id="<?=$id?>" src="{{base64_decode(<?=$item->image?>)}}" alt="<?=$name?>">
                 <div class="productCard-price">
                     <h4 class="card-title"><?=$price?>€</h4>
                 </div>
                 <div class="card-body">
                     <h6 class="card-subtitle mb-2 productCard-category"><?=$category?></h6>
-                    <h5 class="card-title productCard-name"><?=$name?></h5>
+                    
 
                 <!--Stars-->
                     <?php
@@ -74,7 +69,8 @@
         <!-- Data -->
         <div class="section col-md-3">
 
-            
+            <form action='addProduct' method='post'>
+            {{ csrf_field() }}
             <section class="data-section">
                 <article>
                     <h1>Descripción</h1>
@@ -82,60 +78,19 @@
                 </article>
                 <article>
                     <h1>Cantidad</h1>
-                    <input type="number" value="1" id="quantity" min="1" max="<?=$stock?>" class="quantity-input"></button>
+                    <input type="number" value="1" name="quantity" min="1" max="<?=$stock?>" class="quantity-input"></button>
                 </article>
+                <input type="hidden" value="<?=$id?>" name="id">
             </section>
             <button type="submit" class="button-submit">
                 Lista de deseos <i class="fas fa-heart"></i> 
             </button>
-            <button type="submit" class="button-submit">
+            <button type="submit" class="button-submit" name="addToCart">
                 Añadir al carrito <i class="fas fa-shopping-cart"></i> 
             </button>
+            </form>
         </div>
     </section>
-
-
-    <!-- -Products -->
-    <section class="product-section">
-        <!-- New Products -->
-        <div class="section">
-
-            <!-- Header-->
-            <h2>Productos relacionados</h2>
-
-            <!-- List of products -->
-            <div class="productsBackground">
-                <div class="card-columns productList">
-                    <!-- Product Card -->
-                    <div class="card productCard">
-                        <img class="card-img-top productCard-image" src="{{asset('img/featured_product.jpg')}}" alt="Card image">
-                        <div class="productCard-price">
-                            <h4 class="card-title">--- €</h4>
-                        </div>
-                        <div class="card-body">
-                            <h6 class="card-subtitle mb-2 productCard-category">[Categoría]</h6>
-                            <h5 class="card-title productCard-name">[Nombre del producto]</h5>
-
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star"></span>
-                            <span class="fa fa-star"></span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-    </section>
-
-    @if(Auth::check())
-        <a href='paymentPlatform'><button><label>PAGAR AHORA</label></button></a>
-    @else
-        <div>
-            <a data-toggle='modal' data-target='#signModal'><button><label>PAGAR AHORA</label></button></a>
-            <!-- Sign In/Up Modal -->
-            @include('partials.signModal')
-        </div>
-    @endif
 
 <!-- Footer -->
 @include('general.footer')

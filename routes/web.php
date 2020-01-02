@@ -90,9 +90,9 @@ Route::get('clothesDetail', function(){
 
 //Carrito
 
-Route::get('shoppingCart', function(){
-    return view('shoppingCart');
-});
+Route::get('shoppingCart', 'ShoppingCartController@shoppingCart');
+
+Route::post('addProduct', 'ShoppingCartController@addToCart');
 
 // Servicios
 Route::get('services', function(){

@@ -14,6 +14,22 @@
     <!-- Scripts -->
     @include('general.scripts')
 
+    <script>
+
+        function signFormSend() {
+            var action = $("input[name=options]:checked").val()
+
+            if(action == 0) {
+                $('#signForm').attr('action', 'login');
+            } else {
+                $('#signForm').attr('action', 'register');
+            }
+
+            document.signForm.submit();
+        }
+
+    </script>
+
 </head>
 
 <body>
@@ -25,6 +41,7 @@
     @include('general.catalognav')
 
 <section class="shoppingCart">
+
     <h1>MI CARRITO</h1>
     <table>
     <tr id="column-name">
@@ -32,16 +49,47 @@
         <th>Cantidad</th>
         <th>Precio</th>
     </tr>
-    <tr id="items">
-        <td>Figura Flash Edición Limitada</td>
-        <td>1</td>
-        <td>150€</td>
-    </tr>
-    <tr id="items">
-        <td>Camiseta Flash  Edición Limitada</td>
-        <td>1</td>
-        <td>95€</td>
-    </tr>
+
+<?php
+
+    use App\Product;
+
+    if(session()->exists('cart')){
+
+        $cartProducts = session()->get('cart');
+
+        $HTMLProducts = "";
+
+        foreach($cartProducts as $item){
+
+                $products = Product::where('id', $cartProducts['id']->get());
+
+                foreach($products as $product){
+
+                    $totalPrice = $product->price * $cartProducts['quantity'];
+
+                    $name = $product->name;
+                    $quantity = $cartProducts['quantity'];
+                    $price = $product->price;
+
+                    echo "
+                    <tr id='items'>
+                    <td>$name</td>
+                    <td>$quantity></td>
+                    <td>$price €</td>
+                    Holi
+                    </tr>";
+
+                }
+            
+
+            
+            
+        }
+
+    } 
+
+?>
     <tr>
         <td></td>
         <th id="column-name">Total</th>
