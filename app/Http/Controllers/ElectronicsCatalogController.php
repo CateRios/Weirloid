@@ -7,15 +7,15 @@ use Illuminate\Support\Facades\DB;
 use App\Product;
 use Intervention\Image\ImageManagerStatic as Image;
 
-class MangaCatalogController extends Controller
+class ElectronicsCatalogController extends Controller
 {
-    public function mangaCatalog(){
-        return view('mangaCatalog');
+    public function electronicsCatalog(){
+        return view('electronicsCatalog');
     }
     
     public static function showProducts(){
 
-        $products= Product::where('class', "Manga y cómics")->get();
+        $products= Product::where('class', "Electrónica")->get();
 
         foreach($products as $item){
             $id =$item->id;
@@ -25,9 +25,10 @@ class MangaCatalogController extends Controller
             $score = $item->score;
             $img= base64_decode($item->image);
 
+
                echo" <!-- Product Card -->
                 <div class='card productCard'>
-                    <a href='mangaDetail$id'><img class='card-img-top productCard-image' src='$img' alt='$name'></a>
+                    <a href='electronicsDetail$id'><img class='card-img-top productCard-image' src='$img' alt='$name'></a>
                     <div class='productCard-price'>
                         <h4 class='card-title'>$price €</h4>
                     </div>

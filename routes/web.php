@@ -60,33 +60,21 @@ Route::group(['middleware' => 'auth'], function () {
 
 Route::get('/popsCatalog', 'PopsCatalogController@popsCatalog');
 
-Route::get('mangaCatalog', function(){
-    return view('mangaCatalog');
-});
+Route::get('mangaCatalog', 'MangaCatalogController@mangaCatalog');
 
-Route::get('electronicsCatalog', function(){
-    return view('electronicsCatalog');
-});
+Route::get('electronicsCatalog', 'ElectronicsCatalogController@electronicsCatalog');
 
-Route::get('clothesCatalog', function(){
-    return view('clothesCatalog');
-});
+Route::get('clothesCatalog', 'ClothesCatalogController@clothesCatalog');
 
 //Detalle producto
 
 Route::get('popDetail{id}', 'PopDetailController@showDetails');
 
-Route::get('mangaDetail', function(){
-    return view('mangaDetail');
-});
+Route::get('mangaDetail{id}', 'MangaDetailController@showDetails');
 
-Route::get('electronicsDetail', function(){
-    return view('electronicsDetail');
-});
+Route::get('electronicsDetail{id}', 'ElectronicsDetailController@showDetails');
 
-Route::get('clothesDetail', function(){
-    return view('clothesDetail');
-});
+Route::get('clothesDetail{id}', 'ClothesDetailController@showDetails');
 
 //Carrito
 
