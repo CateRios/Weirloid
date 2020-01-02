@@ -50,15 +50,15 @@
     <div class="carousel-inner" role="listbox">
         <div class="carousel-item active">
             <img class="d-block w-100 carouselImg" src="http://k31.kn3.net/taringa/E/2/E/7/8/9/jammfusy/F58.png"
-                 alt="First slide">
+                 alt="First slide" style="min-height: 650px">
         </div>
         <div class="carousel-item">
             <img class="d-block w-100 carouselImg" src="https://cdn.hobbyconsolas.com/sites/navi.axelspringer.es/public/styles/main_element/public/media/image/2019/08/funko-pops-exclusivos-son-casi-imposibles-conseguir.jpg?itok=rnSM1yOt"
-                 alt="Second slide">
+                 alt="Second slide" style="min-height: 650px">
         </div>
         <div class="carousel-item">
             <img class="d-block w-100 carouselImg" src="http://cdn5.upsocl.com/wp-content/uploads/2017/02/portada-257.jpg"
-                 alt="Third slide">
+                 alt="Third slide" style="min-height: 650px">
         </div>
     </div>
 
