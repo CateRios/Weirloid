@@ -54,6 +54,10 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('paymentPlatform',function (){
         return view('paymentPlatform');
     });
+    // route for processing payment
+    Route::post('paypal', 'PaymentController@payWithpaypal');
+// route for check status of the payment
+    Route::get('status', 'PaymentController@getPaymentStatus');
 });
 
 //Catálogo
