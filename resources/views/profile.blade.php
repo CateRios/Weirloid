@@ -51,7 +51,7 @@
     </article>
     <article id="personalData">
         <li><h1>Direcciones</h1></li>
-        <div id="direction">
+        <div id="address">
             <table>
                 <tr>
                     <td><i class="fas fa-home"></i></td>

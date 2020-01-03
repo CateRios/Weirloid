@@ -115,7 +115,7 @@ input#userImg{
 
     border-radius: 15px;
 }
-#direction #data{
+#address #data{
     font-family: 'Montserrat', sans-serif;
     font-style: normal;
     font-weight: 300;
@@ -130,7 +130,7 @@ input#userImg{
 
     border-radius: 15px;
 }
-#direction i{
+#address i{
     color: var(--pink);
     height: 50px;
     width: 50px;
