@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Product;
 use App\Profile;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -17,6 +18,14 @@ class Index_controller extends Controller
         $profile = Profile::where('user_id',$user->id)->first();
 
         return view('partials.userShortProfile')->with('profile', $profile);
+    }
+
+    static function getFeaturedProducts(){
+
+        // Obtenemos los productos destacados (Featured = 1)
+        $products = Product::where('featured', 1)->get();
+
+        return view('partials.products')->with('products', $products);
     }
 
 }
