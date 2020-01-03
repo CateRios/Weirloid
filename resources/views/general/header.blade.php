@@ -14,7 +14,7 @@
                     <a class="nav-link" id="headerLink1" href="/">Home</a>
                 </li>
                 <li class="nav-item cel">
-                    <a class="nav-link" id="headerLink2" href="#">Catálogo</a>
+                    <a class="nav-link" id="headerLink2" href="catalog">Catálogo</a>
                 </li>
                 <li class="nav-item cel">
                     <a class="nav-link" id="headerLink3" href="services">Servicios</a>

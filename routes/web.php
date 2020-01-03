@@ -61,6 +61,9 @@ Route::group(['middleware' => 'auth'], function () {
 });
 
 //Catálogo
+Route::get('catalog', function () {
+    return view('catalog');
+});
 
 Route::get('/popsCatalog', 'PopsCatalogController@popsCatalog');
 

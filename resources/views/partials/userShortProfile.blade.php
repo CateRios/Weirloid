@@ -15,7 +15,7 @@
 
         <img class='user_shortPhoto' id='user_photo' src='{{base64_decode($profile->photo)}}'>
 
-    @elseif($profile->image == null)
+    @elseif($profile->photo == null)
 
         <a class="user_shortName" id='name' href="profile"><?php echo $profile->name ?></a>
 
