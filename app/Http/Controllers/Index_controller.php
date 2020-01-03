@@ -6,6 +6,7 @@ use App\Product;
 use App\Profile;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Intervention\Image\ImageManagerStatic as Image;
 
 class Index_controller extends Controller
 {
@@ -23,7 +24,7 @@ class Index_controller extends Controller
     static function getFeaturedProducts(){
 
         // Obtenemos los productos destacados (Featured = 1)
-        $products = Product::where('featured', 1)->get();
+        $products = Product::where('featured', 1)->paginate(8);
 
         return view('partials.products')->with('products', $products);
     }
