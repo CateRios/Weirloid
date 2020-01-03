@@ -88,14 +88,11 @@
                 </article>
                 <article>
                     <h1>Modelo</h1>
-                    <?php 
-                    for($i=0;$i<strlen($model);$i++)
+                    <?php
+                    $model = explode(",", $model); 
+                    foreach($model as $tmp)
                     {
-                        if(strcmp($model[$i], ',')){
-                            $tmp = $model[$i];
-                            echo "<label class='radio' id='model'>$tmp<input type='radio' name='size' value='$tmp'><span class='checkmark'></span></label>";
-                        }
-                        
+                        echo "<label class='radio' id='model'>$tmp<input type='radio' name='size' value='$tmp'><span class='checkmark'></span></label>";
                     }?>
                 </article>
                 <article>

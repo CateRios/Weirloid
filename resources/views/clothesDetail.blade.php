@@ -89,13 +89,10 @@
                 <article>
                     <h1>Talla</h1>
                     <?php 
-                    for($i=0;$i<strlen($size);$i++)
+                    $size = explode(",", $size); 
+                    foreach($size as $tmp)
                     {
-                        if(strcmp($size[$i], ',')){
-                            $tmp = $size[$i];
                             echo "<label class='radio' id='size'>$tmp<input type='radio' name='size' value='$tmp'><span class='checkmark'></span></label>";
-                        }
-                        
                     }?>
                 </article>
                 <article>
