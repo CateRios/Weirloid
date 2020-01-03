@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Intervention\Image\ImageManagerStatic as Image;
 
-class profileController extends Controller
+class ProfileController extends Controller
 {
     static function getName(){
 
