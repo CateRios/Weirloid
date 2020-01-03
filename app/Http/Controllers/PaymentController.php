@@ -38,7 +38,7 @@ class PaymentController extends Controller
         $payer->setPaymentMethod('paypal');
 
         // Creamos la orden
-        $id_order = (new Orders_controller)->createOrder($request->get('amount'));
+        $id_order = (new Order_controller)->createOrder($request->get('amount'));
 
         $item_1 = new Item();
         $item_1->setName('Orden ID: '.$id_order) /** item name **/
