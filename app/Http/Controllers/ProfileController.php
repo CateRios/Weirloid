@@ -9,23 +9,29 @@ use Illuminate\Support\Facades\Auth;
 use Intervention\Image\ImageManagerStatic as Image;
 
 class ProfileController extends Controller
-{
-    static function getName(){
+{    static function getName(){
 
-        // Obtenemos el usuario actual
-        $user = Auth::user();
-        $profile = Profile::where('user_id',$user->id)->first();
+    // Obtenemos el usuario actual
+    $user = Auth::user();
+    if(Profile::where('user_id',$user->id)->exists()) {
+        $profile = Profile::where('user_id', $user->id)->first();
         $name = $profile->name;
-
-        return $name;
+    }else{
+        $name = $user->name;
     }
+    return $name;
+}
     static function getAddress(){
 
         // Obtenemos el usuario actual
         $user = Auth::user();
         //Obtenemos su perfil
-        $profile = Profile::where('user_id',$user->id)->first();
-        $address = $profile->address;
+        if(Profile::where('user_id',$user->id)->exists()){
+            $profile = Profile::where('user_id',$user->id)->first();
+            $address = $profile->address;
+        }else{
+            $address = "";
+        }
         return $address;
     }
     static function getPhone(){
@@ -33,15 +39,18 @@ class ProfileController extends Controller
         // Obtenemos el usuario actual
         $user = Auth::user();
         //Obtenemos su perfil
-        $profile = Profile::where('user_id',$user->id)->first();
-        $phone = $profile->phone;
+        if(Profile::where('user_id',$user->id)->exists()) {
+            $profile = Profile::where('user_id', $user->id)->first();
+            $phone = $profile->phone;
+        }else{
+            $phone="";
+        }
         return $phone;
     }
     static function getEmail(){
 
         // Obtenemos el usuario actual
         $user = Auth::user();
-
         $email = $user->email;
         return $email;
     }
@@ -49,35 +58,66 @@ class ProfileController extends Controller
 
         // Obtenemos el usuario actual
         $user = Auth::user();
-        $profile = Profile::where('user_id',$user->id)->first();
-        if($profile->photo != null){
-            $photo=base64_decode($profile->photo);
-        }
-        elseif($profile->photo == null) {
+        if(Profile::where('user_id',$user->id)->exists()) {
+            $profile = Profile::where('user_id', $user->id)->first();
+            if ($profile->photo != null) {
+                $photo = base64_decode($profile->photo);
+            } elseif ($profile->photo == null) {
+                $photo = asset('img/dummy_user_picture.jpg');
+            }
+        }else{
             $photo = asset('img/dummy_user_picture.jpg');
         }
-
         return $photo;
     }
+    protected function validator(array $data)
+    {
+        return Validator::make($data, [
+            'email' => ['required', 'string', 'email', 'max:255'],
+        ]);
+    }
     public function setProfile(Request $request){
+        $data=$request->all();
         $name=$request->name;
         $email=$request->email;
         $phone=$request->phone;
         $address=$request->address;
         $photo=$request->file('photo');
-        Image::make($photo)->resize(350,350);
-        $image=base64_encode(file_get_contents($photo));
         $user = Auth::user();
-        $user->name= $name;
-        $user->email=$email;
+        if($name!=null){
+            $user->name= $name;
+        }
+        if($email!=null){
+            if($this->validator($data)->fails()){
+            }else{
+                $user->email=$email;
+            }
+        }
         $user->save();
-        $profile = Profile::where('user_id',$user->id)->first();
-        $profile->phone=$phone;
-        $profile->address=$address;
-        $profile->name=$name;
-        $profile->photo=$image;
+        if(Profile::where('user_id',$user->id)->exists()){
+            $profile = Profile::where('user_id',$user->id)->first();
+        }
+        else {
+            $profile = new Profile();
+            $profile->user_id = $user->id;
+        }
+        if($phone!=null){
+            $profile->phone=$phone;
+        }
+        if($address!=null){
+            $profile->address=$address;
+        }
+        if($name!=null) {
+            $profile->name = $name;
+        }
+        if($photo!=null) {
+            $imageResize = Image::make($photo)->resize(300, 300);
+            $image = base64_encode($imageResize->encode('data-url')->encoded);
+            $profile->photo = $image;
+        }
         $profile->save();
-        return view('profile');
+
+        return redirect()->to('/profile');
     }
 
 }

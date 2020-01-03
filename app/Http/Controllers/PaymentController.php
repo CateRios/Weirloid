@@ -22,13 +22,8 @@ use URL;
 class PaymentController extends Controller
 {
     private $_api_context;
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
+
+    public function __construct(){
         /** PayPal api context **/
         $paypal_conf = \Config::get('paypal');
         $this->_api_context = new ApiContext(new OAuthTokenCredential(
@@ -37,54 +32,62 @@ class PaymentController extends Controller
         );
         $this->_api_context->setConfig($paypal_conf['settings']);
     }
-    public function index()
-    {
-        return view('paywithpaypal');
-    }
-    public function payWithpaypal(Request $request)
-    {
+
+    public function payWithpaypal(Request $request){
         $payer = new Payer();
         $payer->setPaymentMethod('paypal');
+
+        // Creamos la orden
+        $id_order = (new Order_controller)->createOrder($request->get('amount'));
+
         $item_1 = new Item();
-        $item_1->setName('Item 1') /** item name **/
-        ->setCurrency('USD')
+        $item_1->setName('Orden ID: '.$id_order) /** item name **/
+        ->setCurrency('EUR')
             ->setQuantity(1)
             ->setPrice($request->get('amount')); /** unit price **/
+
         $item_list = new ItemList();
         $item_list->setItems(array($item_1));
+
         $amount = new Amount();
-        $amount->setCurrency('USD')
+        $amount->setCurrency('EUR')
             ->setTotal($request->get('amount'));
+
         $transaction = new Transaction();
         $transaction->setAmount($amount)
             ->setItemList($item_list)
-            ->setDescription('Your transaction description');
+            ->setDescription('Order #'.$id_order);
+
         $redirect_urls = new RedirectUrls();
-        $redirect_urls->setReturnUrl(URL::to('status')) /** Specify return URL **/
-        ->setCancelUrl(URL::to('status'));
+        $redirect_urls->setReturnUrl(url('/status')) /** Specify return URL **/
+        ->setCancelUrl(url('/status'));
+
         $payment = new Payment();
         $payment->setIntent('Sale')
             ->setPayer($payer)
             ->setRedirectUrls($redirect_urls)
             ->setTransactions(array($transaction));
         /** dd($payment->create($this->_api_context));exit; **/
+
         try {
             $payment->create($this->_api_context);
         } catch (\PayPal\Exception\PPConnectionException $ex) {
             if (\Config::get('app.debug')) {
                 \Session::put('error', 'Connection timeout');
-                return Redirect::to('/');
+                return Redirect::route('paywithpaypal');
             } else {
                 \Session::put('error', 'Some error occur, sorry for inconvenient');
-                return Redirect::to('/');
+                return Redirect::route('paywithpaypal');
             }
         }
+
         foreach ($payment->getLinks() as $link) {
             if ($link->getRel() == 'approval_url') {
                 $redirect_url = $link->getHref();
                 break;
             }
         }
+
         /** add payment ID to session **/
         Session::put('paypal_payment_id', $payment->getId());
         if (isset($redirect_url)) {
@@ -92,28 +95,72 @@ class PaymentController extends Controller
             return Redirect::away($redirect_url);
         }
         \Session::put('error', 'Unknown error occurred');
-        return Redirect::to('/');
+        return Redirect::route('paywithpaypal');
     }
-    public function getPaymentStatus()
-    {
+
+    public function getPaymentStatus(Request $request){
+
         /** Get the payment ID before session clear **/
         $payment_id = Session::get('paypal_payment_id');
+
         /** clear the session payment ID **/
         Session::forget('paypal_payment_id');
-        if (empty(Input::get('PayerID')) || empty(Input::get('token'))) {
+        if (empty($request->get('PayerID')) || empty($request->get('token'))) {
             \Session::put('error', 'Payment failed');
-            return Redirect::to('/');
+            return Redirect::route('/');
         }
+
         $payment = Payment::get($payment_id, $this->_api_context);
         $execution = new PaymentExecution();
-        $execution->setPayerId(Input::get('PayerID'));
+        $execution->setPayerId($request->get('PayerID'));
+
         /**Execute the payment **/
         $result = $payment->execute($execution, $this->_api_context);
         if ($result->getState() == 'approved') {
             \Session::put('success', 'Payment success');
-            return Redirect::to('/');
+
+            // Obtenemos el ID de la orden
+            $transactions =  $payment->getTransactions();
+            $description = $transactions[0]->getDescription();
+            $id_order = intval(preg_replace('/[^0-9]+/', '', $description), 10);
+
+            // Cambiamos el estado de la orden
+            $order = Order::where('id',$id_order)->first();
+            $order->state = "Paid";
+            $order->save();
+
+            // Obtenemos todos los datos para la transacción
+            $amount = $transactions[0]->getAmount();
+            $total = $amount->getTotal();
+            $currency =  $amount->getCurrency();
+            $user_email = session('userEmail');
+
+            // Creamos la transacción
+            $trans = new Transaccion;
+            $trans->id_order = $id_order;
+            $trans->amount = $total;
+            $trans->currency = $currency;
+            $trans->payer_email = $user_email;
+            $trans->save();
+
+            // Decrementamos el stock
+            (new Products_controller())->decreaseStock();
+
+            // Eliminamos la variable de carrito
+            session()->forget('shoppingCart');
+
+            return redirect()->to('/userProducts');
         }
         \Session::put('error', 'Payment failed');
-        return Redirect::to('/');
+
+        // Obtenemos el ID de la orden
+        $transactions =  $payment->getTransactions();
+        $description = $transactions[0]->getDescription();
+        $id_order = intval(preg_replace('/[^0-9]+/', '', $description), 10);
+
+        Order::where('id', $id_order)->delete();
+
+        return redirect()->to('/userProducts');
     }
+
 }

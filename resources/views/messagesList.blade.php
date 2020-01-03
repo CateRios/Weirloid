@@ -22,19 +22,12 @@ if(isset($_GET['pagina'])){
     $pagina = 1;
 }
 $empieza = ($pagina -1 ) * $por_pagina;
-//Conectar con la db
-/*$host = "localhost";
-$database = "weirloid";
-$user = "root";
-$pass = "";
-
-$connection = mysqli_connect($host, $user, $pass, $database);
-if (mysqli_connect_errno()) {
-    die(mysqli_connect_error()); //die=exit
-}*/
 ?>
     <!-- Header -->
     @include("general.header")
+<section>
+    <a href="newMessage"> <button class="newMessageButton"><label>Nuevo mensaje</label></button></a>
+</section>
     <article class="messagesList">
         <section id="message">
             <article onclick="">
@@ -45,11 +38,6 @@ if (mysqli_connect_errno()) {
         <section class="paginacion">
             <ul>
                 <?php
-                /*$sql ="SELECT * FROM ";
-                $result = mysqli_query($connection, $sql);
-
-                $total_registros= mysqli_num_rows($result);
-                $total_paginas= ceil($total_registros/$por_pagina);*/
                 $total_paginas=1;
                 echo "<li><a href='messagesList?pagina=1'>".'Primera '."</a></li>";
                 for($i=1;$i<=$total_paginas;$i++){
@@ -59,6 +47,7 @@ if (mysqli_connect_errno()) {
                 ?>
             </ul>
         </section>
+
     </article>
     <!-- Footer -->
     @include('general.footer')
