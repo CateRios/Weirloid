@@ -5,3 +5,19 @@
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
 <script type="text/javascript" src="{{asset('js/header.js')}}"></script>
+
+<script>
+
+    function signFormSend() {
+        var action = $("input[name=options]:checked").val()
+
+        if(action == 0) {
+            $('#signForm').attr('action', 'login');
+        } else {
+            $('#signForm').attr('action', 'register');
+        }
+
+        document.signForm.submit();
+    }
+
+</script>

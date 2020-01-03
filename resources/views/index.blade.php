@@ -15,22 +15,6 @@
     <!-- Scripts -->
     @include('general.scripts')
 
-    <script>
-
-        function signFormSend() {
-            var action = $("input[name=options]:checked").val()
-
-            if(action == 0) {
-                $('#signForm').attr('action', 'login');
-            } else {
-                $('#signForm').attr('action', 'register');
-            }
-
-            document.signForm.submit();
-        }
-
-    </script>
-
 </head>
 
 <body>
