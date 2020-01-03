@@ -66,13 +66,13 @@ class profileController extends Controller
         $address=$request->address;
         $photo=$request->file('photo');
         Image::make($photo)->resize(350,350);
-        $image=base64_encode(file_get_contents($photo));
+        $image=base64_encode($photo);
         $user = Auth::user();
         $user->name= $name;
         $user->email=$email;
         $user->save();
         $profile = Profile::where('user_id',$user->id)->first();
-        $profile->phone=$phone;
+        $profile->phone= $phone;
         $profile->address=$address;
         $profile->name=$name;
         $profile->photo=$image;
