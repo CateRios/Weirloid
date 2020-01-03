@@ -37,6 +37,10 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('messagesList',function (){
         return view('messagesList');
     });
+    Route::get('newMessage',function(){
+        return view('newMessage');
+    });
+    Route::post('createMessage','MessagesController@createMessage');
 
     Route::get('messageDetail',function (){
         return view('messageDetail');
@@ -50,7 +54,7 @@ Route::group(['middleware' => 'auth'], function () {
         return view('orderDetail');
     });
 
-//Pago
+    //Pago
     Route::get('paymentPlatform',function (){
         return view('paymentPlatform');
     });
