@@ -15,7 +15,12 @@ class ProfileController extends Controller
         // Obtenemos el usuario actual
         $user = Auth::user();
         $profile = Profile::where('user_id',$user->id)->first();
-        $name = $profile->name;
+        if($profile!=null){
+            $name = $profile->name;
+        }else{
+            $name = $user->name;
+        }
+
 
         return $name;
     }
@@ -25,7 +30,12 @@ class ProfileController extends Controller
         $user = Auth::user();
         //Obtenemos su perfil
         $profile = Profile::where('user_id',$user->id)->first();
-        $address = $profile->address;
+        if($profile!=null){
+            $address = $profile->address;
+        }else{
+            $address = "";
+        }
+
         return $address;
     }
     static function getPhone(){
@@ -34,14 +44,18 @@ class ProfileController extends Controller
         $user = Auth::user();
         //Obtenemos su perfil
         $profile = Profile::where('user_id',$user->id)->first();
-        $phone = $profile->phone;
+        if($profile!=null){
+            $phone = $profile->phone;
+        }else{
+            $phone = "";
+        }
+
         return $phone;
     }
     static function getEmail(){
 
         // Obtenemos el usuario actual
         $user = Auth::user();
-
         $email = $user->email;
         return $email;
     }
@@ -50,13 +64,16 @@ class ProfileController extends Controller
         // Obtenemos el usuario actual
         $user = Auth::user();
         $profile = Profile::where('user_id',$user->id)->first();
+        if($profile!=null){
         if($profile->photo != null){
             $photo=base64_decode($profile->photo);
-        }
-        elseif($profile->photo == null) {
+        }else{
             $photo = asset('img/dummy_user_picture.jpg');
         }
-
+        }
+        else {
+            $photo = asset('img/dummy_user_picture.jpg');
+        }
         return $photo;
     }
     public function setProfile(Request $request){
