@@ -3,7 +3,7 @@
 /* =============== NAV =============== */
 
 .catalog-nav-bar{
-    background-color: var(--orange);
+    background-color: var(--ivory);
     font-family: 'Montserrat', sans-serif;
     font-size: 80%;
     text-transform: uppercase;
@@ -104,12 +104,6 @@
 
 .catalog-nav-bar .cart{
     margin-inline-start: 5%;
-}
-
-@media (max-width: 34em) {
-    .catalog-nav-bar .cart{
-        font-size: 5px;
-    }
 }
 
 .catalog-nav-bar .cart #count{

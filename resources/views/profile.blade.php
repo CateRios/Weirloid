@@ -22,7 +22,7 @@
 <a href="editProfile"> <button class="editProfileButton">
         <label><i class="fas fa-pencil-alt"></i> EDITAR PERFIL </label></button></a>
 <article class="profile">
-    <a id="border"><img id="userImg" src="{{\App\Http\Controllers\profileController::getPhoto()}}"></a>
+    <a id="border"><img id="userImg" src="{{\App\Http\Controllers\ProfileController::getPhoto()}}"></a>
 </article>
 <article class="buttons">
     <li>

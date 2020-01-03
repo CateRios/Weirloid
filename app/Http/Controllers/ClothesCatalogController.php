@@ -7,19 +7,15 @@ use Illuminate\Support\Facades\DB;
 use App\Product;
 use Intervention\Image\ImageManagerStatic as Image;
 
-class popsCatalogController extends Controller
+class ClothesCatalogController extends Controller
 {
-    public function popsCatalog(){
-        return view('popsCatalog');
+    public function clothesCatalog(){
+        return view('clothesCatalog');
     }
     
-    public function redirect(){
-        return redirect('/popsCatalog');
-    }
-
     public static function showProducts(){
 
-        $products= Product::where('class', "Figuras y Pop's")->get();
+        $products= Product::where('class', "Ropa")->get();
 
         foreach($products as $item){
             $id =$item->id;
@@ -29,9 +25,10 @@ class popsCatalogController extends Controller
             $score = $item->score;
             $img= base64_decode($item->image);
 
+
                echo" <!-- Product Card -->
                 <div class='card productCard'>
-                    <a href='popDetail$id'><img class='card-img-top productCard-image' src='$img' alt='$name'></a>
+                    <a href='clothesDetail$id'><img class='card-img-top productCard-image' src='$img' alt='$name'></a>
                     <div class='productCard-price'>
                         <h4 class='card-title'>$price €</h4>
                     </div>

@@ -19,11 +19,12 @@
 <!-- Header -->
 @include("general.header")
 
-<form method="post" action='setProfile'>
+<form method="post" action='setProfile' enctype="multipart/form-data">
     {{ csrf_field() }}
     <article class="profile">
         <a id="border">
-            <input type="file" id="userImg" name="photo" value=""></a>
+            <input type="file" id="userImg" name="photo">
+        </a>
     </article>
     <article class="userInfo">
         <input id=nameP type="text" name="name" value="{{\App\Http\Controllers\ProfileController::getName()}}">

@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Product;
 
-class popDetailController extends Controller
+class MangaDetailController extends Controller
 {
     public function popDetail(){
         return view('popDetail');
@@ -18,7 +18,7 @@ class popDetailController extends Controller
         
         $product = Product::find($id);
 
-        return view('popDetail', ['item'=>$product]);
+        return view('mangaDetail', ['item'=>$product]);
     }
 
 

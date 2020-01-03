@@ -11,6 +11,25 @@
     <link rel="stylesheet" href="{{ asset('css/index.css') }}" />
     <link rel="stylesheet" href="{{ asset('css/catalog.css') }}" />
 
+    <!-- Scripts -->
+    @include('general.scripts')
+
+    <script>
+
+        function signFormSend() {
+            var action = $("input[name=options]:checked").val()
+
+            if(action == 0) {
+                $('#signForm').attr('action', 'login');
+            } else {
+                $('#signForm').attr('action', 'register');
+            }
+
+            document.signForm.submit();
+        }
+
+    </script>
+
 </head>
 
 <body>
@@ -18,30 +37,11 @@
     <!-- Header -->
         @include("general.header")
     
-    <!-- Categories navbar-->    
-    <nav class="catalog-nav-bar">
-        <ul>
-            <?php //mantener link como acivo -> jquery?>
-            <li><a href="popsCatalog" class="pops" name="navpops">Figuras y Pop's</a></li>
-            <li><a href="mangaCatalog" class="manga">Manga y cómics</a></li>
-            <li><a a href="electronicsCatalog" class="electronics">Electrónica</a></li>
-            <li><a a href="clothesCatalog" class="clothes">Ropa</a></li>
-        </ul>
+    <!--Nav bar -->
+    @include('general.catalognav')
 
-        <ul>
-            <li><a href="">Ofertas</a></li>
-            <li><a href="">Top Ventas</a></li>
-        </ul>
+<section class="shoppingCart">
 
-        <form>
-            <input type="search" name="search" value="  Escribe aquí...">
-        </form>
-
-
-        <?php //el carrito de las narices ?>
-    </nav>
-
-<section class="cart">
     <h1>MI CARRITO</h1>
     <table>
     <tr id="column-name">
@@ -49,28 +49,28 @@
         <th>Cantidad</th>
         <th>Precio</th>
     </tr>
-    <tr id="items">
-        <td>Figura Flash Edición Limitada</td>
-        <td>1</td>
-        <td>150€</td>
-    </tr>
-    <tr id="items">
-        <td>Camiseta Flash  Edición Limitada</td>
-        <td>1</td>
-        <td>95€</td>
-    </tr>
-    <tr>
-        <td></td>
-        <th id="column-name">Total</th>
-        <td id="column-name"></td>
-    </tr>
-    <tr>
-        <td></td>
-        <td></td>
-        <td>245€</td>
-    </tr>
+
+<?php
+
+    use \App\Http\Controllers\ShoppingCartController;
+
+    ShoppingCartController::getCartProducts();
+
+?>
+   
+    
     </table>
-    <button><label>PAGAR AHORA</label></button>
+
+    @if(Auth::check())
+        <a href='paymentPlatform'><button><label>PAGAR AHORA</label></button></a>
+    @else
+        <div>
+            <a data-toggle='modal' data-target='#signModal'><button><label>PAGAR AHORA</label></button></a>
+            <!-- Sign In/Up Modal -->
+            @include('partials.signModal')
+        </div>
+    @endif
+    
 </section>
 
 <!-- Footer -->

@@ -64,31 +64,8 @@
     <!-- Header -->
     @include('general.header')
     
-    <!-- Categories navbar-->    
-    <nav class="catalog-nav-bar">
-        <ul>
-            <?php //mantener link como acivo -> jquery?>
-            <li><a href="popsCatalog" class="pops">Figuras y Pop's</a></li>
-            <li><a href="mangaCatalog" class="manga">Manga y cómics</a></li>
-            <li><a a href="electronicsCatalog" class="electronics">Electrónica</a></li>
-            <li><a a href="clothesCatalog" class="clothes">Ropa</a></li>
-        </ul>
-
-        <ul>
-            <li><a href="">Ofertas</a></li>
-            <li><a href="">Top Ventas</a></li>
-        </ul>
-
-        <form>
-            <input type="search" name="search" placeholder="  Escribe aquí...">
-            <span class="search-icon"><i class="fas fa-search"></i></span>
-        </form>
-
-        <ul class="cart"><a href="shoppingCart">
-            <li id="count"><i class="fas fa-shopping-cart"></i> 2 ITEMS:</li>
-            <li>245€</li>
-        </a></ul>
-    </nav>
+    <!--Nav bar -->
+    @include('general.catalognav')
 
     <div class="row">
     <!-- Filters -->
@@ -166,6 +143,7 @@
             </div>
 
             <!-- All Products -->
+            <!-- All Products -->
             <div class="section" id="section-div">
 
                 <!-- Header-->
@@ -173,25 +151,8 @@
 
                     <!-- List of products -->
                     <div class="productsBackground">
-
                         <div class="card-columns productList">
-                            <!-- Product Card -->
-                            <div class="card productCard">
-                                <img class="card-img-top productCard-image" src="{{asset('img/featured_product.jpg')}}" alt="Card image">
-                                <div class="productCard-price">
-                                    <h4 class="card-title">--- €</h4>
-                                </div>
-                                <div class="card-body">
-                                    <h6 class="card-subtitle mb-2 productCard-category">[Categoría]</h6>
-                                    <h5 class="card-title productCard-name">[Nombre del producto]</h5>
-
-                                    <span class="fa fa-star checked"></span>
-                                    <span class="fa fa-star checked"></span>
-                                    <span class="fa fa-star checked"></span>
-                                    <span class="fa fa-star"></span>
-                                    <span class="fa fa-star"></span>
-                                </div>
-                            </div>
+                            {{\App\Http\Controllers\MangaCatalogController::showProducts()}}
                         </div>
                     </div>
             </div>
