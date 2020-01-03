@@ -22,7 +22,8 @@
     <h1>Resumen del pedido</h1>
     <section class="cart">
         <form class="w3-container w3-display-middle w3-card-4 w3-padding-16" method="POST" id="payment-form"
-              action="{!! URL::to('paypal') !!}">
+              action='paypal'>
+            {{ csrf_field() }}
         <table>
             <tr>
                 <th id="column-name">Total</th>
@@ -33,7 +34,7 @@
                 <td>245€</td>
             </tr>
         </table>
-            <input type="hidden" value="245">
+            <input type="hidden" value="245" name="amount">
             <input type="submit" class="button" value="PAGO SEGURO CON PAYPAL">
         </form>
     </section>
