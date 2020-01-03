@@ -42,9 +42,7 @@ Route::group(['middleware' => 'auth'], function () {
     });
     Route::post('createMessage','MessagesController@createMessage');
 
-    Route::get('messageDetail',function (){
-        return view('messageDetail');
-    });
+    Route::get('messageDetail{id}', 'MessagesController@showDetails');
 
 //Pedidos
     Route::get('ordersList',function (){

@@ -17,24 +17,38 @@
 
 <!-- Header -->
 @include("general.header")
+<?php
+$title = $item->title;
+$content = $item->content;
+
+?>
 <article class="messagesList">
     <section id="message">
         <article onclick="">
-            <h1>Remitente mensaje</h1>
-            <h2>Asunto mensaje</h2>
+            <h1>Asunto: <?=$title?></h1>
         </article>
     </section>
     <br>
     <section id="messageContent">
         <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed eiusmod tempor incidunt ut labore et dolore
-            magna
-            enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquid ex ea commodi consequat.
-            Quis aute iure reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-            Excepteur sint obcaecat cupiditat non proident, sunt in culpa qui officia deserunt mollit anim id est
-            laborum.
+            Mensaje:
+            <?=$content?>
         </p>
     </section>
+    <br>
+    <?php
+    if($item->answer != null){
+        $answer=$item->answer
+    ?>
+    <section id="messageContent">
+        <p>
+            Respuesta:
+            <?=$answer?>
+        </p>
+    </section>
+    <?php
+    }
+    ?>
 </article>
 <!-- Footer -->
 @include('general.footer')
