@@ -23,7 +23,7 @@ class popsCatalogController extends Controller
             $score = $item->score;
             $img= base64_decode($item->image);
 
-               $HTMLProducts = $HTMLProducts. " <!-- Product Card -->
+               $HTMLProducts = $HTMLProducts . " <!-- Product Card -->
                 <div class='card productCard'>
                     <a href='popDetail$id'><img class='card-img-top productCard-image' src='$img' alt='$name'></a>
                     <div class='productCard-price'>
@@ -91,7 +91,7 @@ class popsCatalogController extends Controller
             $score = $item->score;
             $img= base64_decode($item->image);
 
-               $HTMLFilteredProducts = $HTMLFilteredProducts. " <!-- Product Card -->
+               $HTMLFilteredProducts = $HTMLFilteredProducts . " <!-- Product Card -->
                 <div class='card productCard'>
                     <a href='popDetail$id'><img class='card-img-top productCard-image' src='$img' alt='$name'></a>
                     <div class='productCard-price'>
