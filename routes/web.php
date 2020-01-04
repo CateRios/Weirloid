@@ -48,9 +48,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('ordersList',function (){
         return view('ordersList');
     });
-    Route::get('orderDetail',function (){
-        return view('orderDetail');
-    });
+    Route::get('orderDetail{id}', 'OrdersListController@callDetails');
 
     //Pago
     Route::get('paymentPlatform',function (){
