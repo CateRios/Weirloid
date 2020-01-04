@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Input;
 use PayPal\Api\Amount;
 use PayPal\Api\Item;
@@ -18,6 +19,8 @@ use PayPal\Rest\ApiContext;
 use Redirect;
 use Session;
 use URL;
+use App\Order;
+use App\Transaccion;
 
 class PaymentController extends Controller
 {
@@ -133,7 +136,8 @@ class PaymentController extends Controller
             $amount = $transactions[0]->getAmount();
             $total = $amount->getTotal();
             $currency =  $amount->getCurrency();
-            $user_email = session('userEmail');
+            $user = Auth::user();
+            $user_email = $user->email;
 
             // Creamos la transacción
             $trans = new Transaccion;
@@ -144,12 +148,12 @@ class PaymentController extends Controller
             $trans->save();
 
             // Decrementamos el stock
-            (new Products_controller())->decreaseStock();
+            //(new Products_controller())->decreaseStock();
 
             // Eliminamos la variable de carrito
-            session()->forget('shoppingCart');
+            session()->forget('cart');
 
-            return redirect()->to('/userProducts');
+            return redirect()->to('/catalog');
         }
         \Session::put('error', 'Payment failed');
 

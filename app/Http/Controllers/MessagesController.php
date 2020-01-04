@@ -29,6 +29,11 @@ class MessagesController extends Controller
         foreach ($messages as $item) {
             $id = $item->id;
             $title = $item->title;
+            if($item->answer==null){
+                $response="No respondido aún";
+            }else{
+                $response="Respondido";
+            }
 
 
             echo " <!-- Message Card -->
@@ -36,6 +41,7 @@ class MessagesController extends Controller
                 <section id='message'>
                 <article>
                     <h1>$title</h1>
+                    <h2>$response</h2>
                     </article>";
 
 

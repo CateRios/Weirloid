@@ -4,15 +4,17 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Order;
+use Illuminate\Support\Facades\Auth;
 
 class Order_Controller extends Controller
 {
     function createOrder($amount){
         // Miramos si existe la variable sesión
-        if (session()->exists('shoppingCart')) {
+        //if (session()->exists('cart')) {
 
             // Obtenemos el ID del usuario
-            $user = (new Users_controller())->getUser();
+            $user = Auth::user();
             $id_user = $user->id;
 
             // Insertamos la orden
@@ -31,8 +33,9 @@ class Order_Controller extends Controller
                 (new Orders_detail_controller)->createOrderDetail($id_order);
             }
 
+
             return $id_order;
-        }
+        //}
     }
 
     static function getAllOrders(){

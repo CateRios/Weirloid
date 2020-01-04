@@ -11,7 +11,7 @@ class ShoppingCartController extends Controller
     public function shoppingCart(){
         return view('shoppingCart');
     }
-    
+
     public function addToCart(Request $request){
 
         $id = $request->id;
@@ -47,7 +47,7 @@ class ShoppingCartController extends Controller
     }
 
     public static function getCartProducts(){
-        
+
         if(session()->exists('cart')){
 
             $cartProducts = session()->get('cart');
@@ -76,7 +76,7 @@ class ShoppingCartController extends Controller
                         </tr>";
 
                     }
-                
+
             }
 
             echo "
@@ -101,21 +101,21 @@ class ShoppingCartController extends Controller
 
             $cartProducts = session()->get('cart');
             $items_number=count($cartProducts);
-    
+
             $totalPrice = 0;
-    
+
             foreach($cartProducts as $item){
-    
+
                     $products = Product::where('id', $item['id'])->get();
-    
+
                     foreach($products as $product){
-    
+
                         $totalPrice = $totalPrice + $product->price * $item['quantity'];
-    
+
                     }
-                
+
             }
-                   
+
             echo "
                 <div class='cart'><a href='shoppingCart'>
                                 <p id='count'><i class='fas fa-shopping-cart'></i> $items_number ITEMS:</p>
@@ -130,9 +130,10 @@ class ShoppingCartController extends Controller
                     <p id='count'><i class='fas fa-shopping-cart'></i> 0 ITEMS</p>
                 </a></div>";
 
-                
+
         }
     }
+
 
 }
 

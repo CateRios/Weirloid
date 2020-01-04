@@ -34,7 +34,7 @@
                 <td>245€</td>
             </tr>
         </table>
-            <input type="hidden" value="245" name="amount">
+            <input type="hidden" value="1.5" name="amount">
             <input type="submit" class="button" value="PAGO SEGURO CON PAYPAL">
         </form>
     </section>
