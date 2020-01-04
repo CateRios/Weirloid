@@ -40,7 +40,9 @@
                     <!-- Email y contraseña -->
                     <input type="email" class="form-control input-myform" id="email" name="email" placeholder="name@example.com" pattern="^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$" required>
                     <input type="password" class="form-control input-myform" id="password" name="password" placeholder="Contraseña" minlength="8" maxlength="15" pattern="^(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{8,16}$+" required>
-                    <br>
+
+                    <p class = "termsAndPolicies">Al crear una cuenta estás aceptando el <a href="#">Acepto los términos y condiciones de Weirloid.test</a> y <a href="#">Política de Privacidad</a></p>
+
                     <button class="myform-button" type="button" onclick="signFormSend()">Enviar</button>
 
                 </form>

@@ -199,6 +199,13 @@
     box-shadow:0 0 0 .2rem rgba(236, 0, 140, 0.34);
 }
 
+.termsAndPolicies {
+    padding: 10% 0 1% 0;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 60%;
+    color: gray;
+}
+
 .myform-button {
     color: var(--white);
     font-family: 'Monserrat', sans-serif;
