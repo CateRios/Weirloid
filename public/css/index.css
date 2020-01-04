@@ -80,7 +80,23 @@
     color: orange;
 }
 
-@media only screen and (min-width: 992px) {
+@media (min-width: 585px) {
+    .card-columns {
+        -webkit-column-count: 2;
+        -moz-column-count: 2;
+        column-count: 2;
+    }
+}
+
+@media (min-width: 865px) {
+    .card-columns {
+        -webkit-column-count: 3;
+        -moz-column-count: 3;
+        column-count: 3;
+    }
+}
+
+@media (min-width: 1163px) {
     .card-columns {
         -webkit-column-count: 4;
         -moz-column-count: 4;
@@ -88,10 +104,4 @@
     }
 }
 
-@media only screen and (min-width: 1200px) {
-    .card-columns {
-        -webkit-column-count: 4;
-        -moz-column-count: 4;
-        column-count: 4;
-    }
-}
+
