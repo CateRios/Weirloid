@@ -10,10 +10,10 @@
 <div class="collapse navbar-collapse dual-nav" id="collapsibleNavbar">
    <ul class="navbar-nav">
        <?php //mantener link como acivo -> jquery?>
-       <li class="nav-item cel"><a href="popsCatalog" class="pops nav-link" name="navpops">Figuras y Pop's</a></li>
+       <li class="nav-item cel"><a id="navLink1" href="popsCatalog" class="pops nav-link" name="navpops">Figuras y Pop's</a></li>
        <li class="nav-item cel"><a href="mangaCatalog" class="manga nav-link">Manga y cómics</a></li>
-       <li class="nav-item cel"><a a href="electronicsCatalog" class="electronics nav-link">Electrónica</a></li>
-       <li class="nav-item cel"> <a a href="clothesCatalog" class="clothes nav-link">Ropa</a></li>
+       <li class="nav-item cel"><a href="electronicsCatalog" class="electronics nav-link">Electrónica</a></li>
+       <li class="nav-item cel"> <a href="clothesCatalog" class="clothes nav-link">Ropa</a></li>
    
        <li class="nav-item cel"><a class="nav-link" href="#">Ofertas</a></li>
        <li class="nav-item cel"><a class="nav-link" href="#">Top Ventas</a></li>

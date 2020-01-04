@@ -67,13 +67,15 @@ Route::get('catalog', function () {
     return view('catalog');
 });
 
-Route::get('/popsCatalog', 'PopsCatalogController@popsCatalog');
+Route::get('/popsCatalog', 'PopsCatalogController@showProducts');
 
 Route::get('mangaCatalog', 'MangaCatalogController@mangaCatalog');
 
 Route::get('electronicsCatalog', 'ElectronicsCatalogController@electronicsCatalog');
 
 Route::get('clothesCatalog', 'ClothesCatalogController@clothesCatalog');
+
+Route::post('/submitFilters', 'PopsCatalogController@filterProducts');
 
 //Detalle producto
 

@@ -20,10 +20,13 @@
             $( "#slider-range" ).slider({
             range: true,
             min: 0,
-            max: 320,
+            max: 300,
             step: 5,
-            values: [20, 300],
+            values: [0, 300],
             slide: function( event, ui ) {
+                $("#minPrice").val(ui.values[ 0 ]);
+                $("#maxPrice").val(ui.values[ 1 ]);
+
             var delay = function() {
                 var handleIndex = $(ui.handle).index();
                 var label = handleIndex == 1 ? "#min" : "#max";
@@ -34,9 +37,10 @@
                     offset: "0, 0"
                     });
                 };
-                    
+
                     // wait for the ui.handle to set its position
-                    setTimeout(delay, 5);
+                    setTimeout(delay, 100);
+                    $('form').submit();
             }
             });
 
@@ -56,6 +60,17 @@
 
         });
   </script>
+
+  <script>
+
+    $(document).ready(function() { 
+    $('input').change(function(){
+        $('form').submit();
+    });
+    });
+
+  </script>
+
     
 </head>
 
@@ -71,7 +86,8 @@
     <!-- Filters -->
     <section class="filters col-md-3">
         <div id="title"><h4>Filtrar por</h4></div>
-        <form>
+        <form name='form' id='form' action='submitFilters' method='post' enctype="multipart/form-data">
+        {{ csrf_field() }}
         <!-- Type -->
          <section>   
             <p>Tipo</p>
@@ -96,16 +112,18 @@
         <div id="slider-range"></div>
         <div id="min"></div>
         <div id="max"></div>
+        <input type="hidden" value="0" name="minPrice" id="minPrice">
+        <input type="hidden" value="300" name="maxPrice" id="maxPrice">
         </section>
 
-        <!-- Assets -->
+        <!-- score -->
         <section>
             <p>Valoración</p>
-            <label class="radio">1 estrella o más<input type="radio" name="assets" value="1"><span class="checkmark"></span></label><br>
-            <label class="radio">2 estrellas o más<input type="radio" name="assets" value="2"><span class="checkmark"></span></label><br>
-            <label class="radio">3 estrellas o más<input type="radio" name="assets" value="3"><span class="checkmark"></span></label><br>
-            <label class="radio">4 estrellas o más<input type="radio" name="assets" value="4"><span class="checkmark"></span></label><br>
-            <label class="radio">5 estrellas<input type="radio" name="assets" value="5"><span class="checkmark"></span></label><br>
+            <label class="radio">1 estrella o más<input type="radio" name="score" value="1"><span class="checkmark"></span></label><br>
+            <label class="radio">2 estrellas o más<input type="radio" name="score" value="2"><span class="checkmark"></span></label><br>
+            <label class="radio">3 estrellas o más<input type="radio" name="score" value="3"><span class="checkmark"></span></label><br>
+            <label class="radio">4 estrellas o más<input type="radio" name="score" value="4"><span class="checkmark"></span></label><br>
+            <label class="radio">5 estrellas<input type="radio" name="score" value="5"><span class="checkmark"></span></label><br>
         </section>
         </form>
     </section>
@@ -150,7 +168,9 @@
                     <!-- List of products -->
                     <div class="productsBackground">
                         <div class="card-columns productList">
-                            {{\App\Http\Controllers\PopsCatalogController::showProducts()}}
+                            <?php 
+                            echo $products; 
+                            ?>
                         </div>
                     </div>
             </div>

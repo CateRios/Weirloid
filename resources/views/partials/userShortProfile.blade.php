@@ -5,7 +5,7 @@
     <a class="user_shortName" id='name' href="profile">{{ Auth::user()->name }}</a>
 
     <!-- Imagen del usuario -->
-    <img class='user_shortPhoto' id='user_photo' src='{{URL::asset('img/dummy_user_picture.jpg')}}'>
+    <img class='user_shortPhoto' id='user_photo' src="{{URL::asset('img/dummy_user_picture.jpg')}}">
 
 @else
 
@@ -19,7 +19,7 @@
 
         <a class="user_shortName" id='name' href="profile"><?php echo $profile->name ?></a>
 
-        <img class='user_shortPhoto' id='user_photo' src='{{URL::asset('img/dummy_user_picture.jpg')}}'>
+        <img class='user_shortPhoto' id='user_photo' src="{{URL::asset('img/dummy_user_picture.jpg')}}">
 
     @endif
 
