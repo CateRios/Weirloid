@@ -26,6 +26,37 @@ class Index_controller extends Controller
         // Obtenemos los productos destacados (Featured = 1)
         $products = Product::where('featured', 1)->paginate(8);
 
+        foreach ($products as $product){
+
+            // Cambiamos el tamaño de la imagen
+            $product->image = Image::make($product->image)->resize(400,400)->encode('data-url')->encoded;
+
+            // Añadimos el color según la categoría
+            switch ($product->class){
+
+                case "Figuras y Pop's":
+                    $product['categoryColor'] = "#ED1C24";
+                    $product['categoryDetailLink'] = "http://weirloid.test/popDetail".$product->id;
+                    break;
+
+                case "Manga y Comics":
+                    $product['categoryColor'] = "#F99D1C";
+                    $product['categoryDetailLink'] = "http://weirloid.test/mangaDetail".$product->id;
+                    break;
+
+                case "Electrónica":
+                    $product['categoryColor'] = "#008FD5";
+                    $product['categoryDetailLink'] = "http://weirloid.test/electronicsDetail".$product->id;
+                    break;
+
+                case "Ropa":
+                    $product['categoryColor'] = "#802A90";
+                    $product['categoryDetailLink'] = "http://weirloid.test/clothesDetail".$product->id;
+                    break;
+
+            }
+        }
+
         return view('partials.products')->with('products', $products);
     }
 
