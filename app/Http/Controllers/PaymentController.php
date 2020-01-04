@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Input;
@@ -149,6 +150,7 @@ class PaymentController extends Controller
 
             // Decrementamos el stock
             //(new Products_controller())->decreaseStock();
+            $this->decreaseStock();
 
             // Eliminamos la variable de carrito
             session()->forget('cart');
@@ -166,5 +168,20 @@ class PaymentController extends Controller
 
         return redirect()->to('/userProducts');
     }
+    protected function decreaseStock(){
+        if(session()->exists('cart')) {
 
+            $cartProducts = session()->get('cart');
+            foreach ($cartProducts as $item) {
+
+                $products = Product::where('id', $item['id'])->get();
+
+                foreach ($products as $product) {
+                    $stock = $product->stock;
+                    $finalquantity = $stock - $item['quantity'];
+                    $product->stock = $finalquantity;
+                    $product->save;
+                }
+            }
+        }
 }

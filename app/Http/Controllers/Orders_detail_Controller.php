@@ -10,7 +10,7 @@ class Orders_detail_Controller extends Controller
 {
     function createOrderDetail($id_order){
         //Obtenemos el array de productos del carrito
-        /*$cartProducts = session()->get('cart');
+        $cartProducts = session()->get('cart');
 
         foreach ($cartProducts as $cartProduct){
 
@@ -23,7 +23,7 @@ class Orders_detail_Controller extends Controller
             $order_detail->discount = 0 ;
             $order_detail->save();
 
-        }*/
+        }
 
     }
 
