@@ -17,18 +17,19 @@ class ElectronicsCatalogController extends Controller
 
         $products= Product::where('class', "Electrónica")->get();
 
+        $HTMLProducts="";
+        
         foreach($products as $item){
             $id =$item->id;
-            $name = $item->name;
+            $name = substr($item->name, 0, 10) . '...';
             $price = $item->price;
             $category = $item->class;
             $score = $item->score;
             $img= base64_decode($item->image);
 
-
-               echo" <!-- Product Card -->
+               $HTMLProducts = $HTMLProducts. " <!-- Product Card -->
                 <div class='card productCard'>
-                    <a href='electronicsDetail$id'><img class='card-img-top productCard-image' src='$img' alt='$name'></a>
+                    <a href='popDetail$id'><img class='card-img-top productCard-image' src='$img' alt='$name'></a>
                     <div class='productCard-price'>
                         <h4 class='card-title'>$price €</h4>
                     </div>
@@ -39,17 +40,88 @@ class ElectronicsCatalogController extends Controller
 
                 $i=1;
                 for($i=1; $i <= $score; $i++){
-                    echo "<span class='fa fa-star checked'></span>";
+                    $HTMLProducts = $HTMLProducts. "<span class='fa fa-star checked'></span>";
                 }
                 while($i <=5){
-                    echo "<span class='fa fa-star'></span>";
+                    $HTMLProducts = $HTMLProducts. "<span class='fa fa-star'></span>";
                     $i++;
                 }
 
 
-                echo "</div></div>" ;
+                $HTMLProducts = $HTMLProducts."</div></div>" ;
         }
+
+        return view('electronicsCatalog', ['products' => $HTMLProducts]);
     }
+
+    public static function filterProducts(Request $request){
+
+        //Valores por defecto
+        $class="Electrónica";
+        $category= '%';
+        $type = '%';
+        $score = '1';
+        $minPrice = $request->minPrice;
+        $maxPrice = $request->maxPrice;
+
+        //Valores enviados por la vista
+        if($request->type != null){
+            $type = $request->type;
+        }
+        if($request->category != null){
+            $category = $request->category;
+        }
+        if($request->score != null){
+            $score = $request->score;
+        }
+
+        //Filtrar productos
+        $products = DB::table('product')
+        ->where('class', '=', $class)
+        ->where('type', 'like', $type)
+        ->where('category', 'like', $category)
+        ->where('score', '>=', $score)
+        ->where('price', '>', $minPrice)
+        ->where('price', '<', $maxPrice)
+        ->get();
+
+        $HTMLFilteredProducts="";
+
+        foreach($products as $item){
+            $id =$item->id;
+            $name = substr($item->name, 0, 10) . '...';
+            $price = $item->price;
+            $category = $item->class;
+            $score = $item->score;
+            $img= base64_decode($item->image);
+
+               $HTMLFilteredProducts = $HTMLFilteredProducts. " <!-- Product Card -->
+                <div class='card productCard'>
+                    <a href='popDetail$id'><img class='card-img-top productCard-image' src='$img' alt='$name'></a>
+                    <div class='productCard-price'>
+                        <h4 class='card-title'>$price €</h4>
+                    </div>
+                    <div class='card-body'>
+                        <h6 class='card-subtitle mb-2 productCard-category'>$category</h6>
+                        <h5 class='card-title productCard-name'>$name</h5>";
+
+
+                $i=1;
+                for($i=1; $i <= $score; $i++){
+                    $HTMLFilteredProducts = $HTMLFilteredProducts. "<span class='fa fa-star checked'></span>";
+                }
+                while($i <=5){
+                    $HTMLFilteredProducts = $HTMLFilteredProducts. "<span class='fa fa-star'></span>";
+                    $i++;
+                }
+
+
+                $HTMLFilteredProducts = $HTMLFilteredProducts. "</div></div>" ;
+        }
+
+        return  view('electronicsCatalog', ['products' => $HTMLFilteredProducts]);
+    }
+
 
     
 

@@ -69,13 +69,21 @@ Route::get('catalog', function () {
 
 Route::get('/popsCatalog', 'PopsCatalogController@showProducts');
 
-Route::get('mangaCatalog', 'MangaCatalogController@mangaCatalog');
+Route::get('mangaCatalog', 'MangaCatalogController@showProducts');
 
-Route::get('electronicsCatalog', 'ElectronicsCatalogController@electronicsCatalog');
+Route::get('electronicsCatalog', 'ElectronicsCatalogController@showProducts');
 
-Route::get('clothesCatalog', 'ClothesCatalogController@clothesCatalog');
+Route::get('clothesCatalog', 'ClothesCatalogController@showProducts');
 
-Route::post('/submitFilters', 'PopsCatalogController@filterProducts');
+//Filtros
+
+Route::post('/searchPops', 'PopsCatalogController@filterProducts');
+
+Route::post('/searchManga', 'MangaCatalogController@filterProducts');
+
+Route::post('/searchElectronics', 'ElectronicsCatalogController@filterProducts');
+
+Route::post('/searchClothes', 'ClothesCatalogController@filterProducts');
 
 //Detalle producto
 

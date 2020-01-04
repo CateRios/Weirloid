@@ -9,14 +9,6 @@ use Intervention\Image\ImageManagerStatic as Image;
 
 class popsCatalogController extends Controller
 {
-    public function popsCatalog(){
-        return view('popsCatalog');
-    }
-    
-    public function redirect(){
-        return redirect('/popsCatalog');
-    }
-
     public static function showProducts(){
 
         $products= Product::where('class', "Figuras y Pop's")->get();
@@ -25,7 +17,7 @@ class popsCatalogController extends Controller
         
         foreach($products as $item){
             $id =$item->id;
-            $name = $item->name;
+            $name = substr($item->name, 0, 10) . '...';
             $price = $item->price;
             $category = $item->class;
             $score = $item->score;
@@ -64,7 +56,7 @@ class popsCatalogController extends Controller
         $class="Figuras y Pop's";
         $category= '%';
         $type = '%';
-        $score = '%';
+        $score = '1';
         $minPrice = $request->minPrice;
         $maxPrice = $request->maxPrice;
 
@@ -84,7 +76,7 @@ class popsCatalogController extends Controller
         ->where('class', '=', $class)
         ->where('type', 'like', $type)
         ->where('category', 'like', $category)
-        ->where('score', 'like', $score)
+        ->where('score', '>=', $score)
         ->where('price', '>', $minPrice)
         ->where('price', '<', $maxPrice)
         ->get();
@@ -93,7 +85,7 @@ class popsCatalogController extends Controller
 
         foreach($products as $item){
             $id =$item->id;
-            $name = $item->name;
+            $name = substr($item->name, 0, 10) . '...';
             $price = $item->price;
             $category = $item->class;
             $score = $item->score;
@@ -123,7 +115,7 @@ class popsCatalogController extends Controller
                 $HTMLFilteredProducts = $HTMLFilteredProducts. "</div></div>" ;
         }
 
-        return view('popsCatalog', ['products' => $HTMLFilteredProducts]);
+        return  view('popsCatalog', ['products' => $HTMLFilteredProducts]);
     }
 
     

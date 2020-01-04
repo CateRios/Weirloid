@@ -14,48 +14,6 @@
 
     <!-- Scripts -->
     @include('general.scripts')
-
-    <script>
-        $( function() {
-            $( "#slider-range" ).slider({
-            range: true,
-            min: 0,
-            max: 320,
-            step: 5,
-            values: [20, 300],
-            slide: function( event, ui ) {
-            var delay = function() {
-                var handleIndex = $(ui.handle).index();
-                var label = handleIndex == 1 ? "#min" : "#max";
-                $(label).html(ui.value + "€").position({
-                    my: "center top",
-                    at: "center bottom",
-                    of: ui.handle,
-                    offset: "0, 0"
-                    });
-                };
-                    
-                    // wait for the ui.handle to set its position
-                    setTimeout(delay, 5);
-            }
-            });
-
-        $("#min").html($("#slider-range").slider("values", 0) + "€").position({
-            my: "center top",
-            at: "center bottom",
-            of: $("#slider-range span:eq(0)"),
-            offset: "0, 10"
-        });
-
-        $("#max").html($("#slider-range").slider("values", 1) + "€").position({
-            my: "center top",
-            at: "center bottom",
-            of: $("#slider-range span:eq(1)"),
-            offset: "0, 10"
-        });
-
-        });
-  </script>
     
 </head>
 
@@ -71,7 +29,8 @@
     <!-- Filters -->
     <section class="filters col-md-3">
         <div id="title"><h4>Filtrar por</h4></div>
-        <form>
+        <form name='form' id='filterForm' action='searchElectronics' method='post' enctype="multipart/form-data">
+        {{ csrf_field() }}
         <!-- Type -->
          <section>   
             <p>Tipo</p>
@@ -95,16 +54,18 @@
         <div id="slider-range"></div>
         <div id="min"></div>
         <div id="max"></div>
+        <input type="hidden" value="0" name="minPrice" id="minPrice">
+        <input type="hidden" value="300" name="maxPrice" id="maxPrice">
         </section>
 
-        <!-- Assets -->
+        <!-- Score -->
         <section>
             <p>Valoración</p>
-            <label class="radio">1 estrella o más<input type="radio" name="assets" value="1"><span class="checkmark"></span></label><br>
-            <label class="radio">2 estrellas o más<input type="radio" name="assets" value="2"><span class="checkmark"></span></label><br>
-            <label class="radio">3 estrellas o más<input type="radio" name="assets" value="3"><span class="checkmark"></span></label><br>
-            <label class="radio">4 estrellas o más<input type="radio" name="assets" value="4"><span class="checkmark"></span></label><br>
-            <label class="radio">5 estrellas<input type="radio" name="assets" value="5"><span class="checkmark"></span></label><br>
+            <label class="radio">1 estrella o más<input type="radio" name="score" value="1"><span class="checkmark"></span></label><br>
+            <label class="radio">2 estrellas o más<input type="radio" name="score" value="2"><span class="checkmark"></span></label><br>
+            <label class="radio">3 estrellas o más<input type="radio" name="score" value="3"><span class="checkmark"></span></label><br>
+            <label class="radio">4 estrellas o más<input type="radio" name="score" value="4"><span class="checkmark"></span></label><br>
+            <label class="radio">5 estrellas<input type="radio" name="score" value="5"><span class="checkmark"></span></label><br>
         </section>
         </form>
     </section>
@@ -150,7 +111,9 @@
                     <div class="productsBackground">
 
                         <div class="card-columns productList">
-                            {{\App\Http\Controllers\ElectronicsCatalogController::showProducts()}}  
+                            <?php 
+                                echo $products; 
+                            ?>  
                         </div>
                     </div>
             </div>

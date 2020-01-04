@@ -14,63 +14,6 @@
 
     <!-- Scripts -->
     @include('general.scripts')
-
-    <script>
-        $( function() {
-            $( "#slider-range" ).slider({
-            range: true,
-            min: 0,
-            max: 300,
-            step: 5,
-            values: [0, 300],
-            slide: function( event, ui ) {
-                $("#minPrice").val(ui.values[ 0 ]);
-                $("#maxPrice").val(ui.values[ 1 ]);
-
-            var delay = function() {
-                var handleIndex = $(ui.handle).index();
-                var label = handleIndex == 1 ? "#min" : "#max";
-                $(label).html(ui.value + "€").position({
-                    my: "center top",
-                    at: "center bottom",
-                    of: ui.handle,
-                    offset: "0, 0"
-                    });
-                };
-
-                    // wait for the ui.handle to set its position
-                    setTimeout(delay, 100);
-                    $('form').submit();
-            }
-            });
-
-        $("#min").html($("#slider-range").slider("values", 0) + "€").position({
-            my: "center top",
-            at: "center bottom",
-            of: $("#slider-range span:eq(0)"),
-            offset: "0, 10"
-        });
-
-        $("#max").html($("#slider-range").slider("values", 1) + "€").position({
-            my: "center top",
-            at: "center bottom",
-            of: $("#slider-range span:eq(1)"),
-            offset: "0, 10"
-        });
-
-        });
-  </script>
-
-  <script>
-
-    $(document).ready(function() { 
-    $('input').change(function(){
-        $('form').submit();
-    });
-    });
-
-  </script>
-
     
 </head>
 
@@ -86,7 +29,7 @@
     <!-- Filters -->
     <section class="filters col-md-3">
         <div id="title"><h4>Filtrar por</h4></div>
-        <form name='form' id='form' action='submitFilters' method='post' enctype="multipart/form-data">
+        <form name='form' id='filterForm' action='searchPops' method='post' enctype="multipart/form-data">
         {{ csrf_field() }}
         <!-- Type -->
          <section>   
@@ -167,7 +110,7 @@
 
                     <!-- List of products -->
                     <div class="productsBackground">
-                        <div class="card-columns productList">
+                        <div id="productsDiv" class="card-columns productList">
                             <?php 
                             echo $products; 
                             ?>
