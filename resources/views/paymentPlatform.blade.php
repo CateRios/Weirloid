@@ -31,10 +31,10 @@
             </tr>
             <tr>
                 <td></td>
-                <td>245€</td>
+                <td>{{\App\Http\Controllers\ShoppingCartController::getTotal()}} €</td>
             </tr>
         </table>
-            <input type="hidden" value="1.5" name="amount">
+            <input type="hidden" value="{{\App\Http\Controllers\ShoppingCartController::getTotal()}}" name="amount">
             <input type="submit" class="button" value="PAGO SEGURO CON PAYPAL">
         </form>
     </section>

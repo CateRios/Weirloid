@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Product;
+use App\Order_Detail;
 use Illuminate\Http\Request;
 
 class Orders_detail_Controller extends Controller
@@ -12,17 +13,21 @@ class Orders_detail_Controller extends Controller
         //Obtenemos el array de productos del carrito
         $cartProducts = session()->get('cart');
 
-        foreach ($cartProducts as $cartProduct){
+        foreach($cartProducts as $item){
 
-            $product = $cartProduct;
+            $products = Product::where('id', $item['id'])->get();
 
-            $order_detail = new Order_detail;
-            $order_detail->id_order = $id_order;
-            $order_detail->id_product = $product['id_product'];
-            $order_detail->quantity = $product['quantity'];
-            $order_detail->discount = 0 ;
-            $order_detail->save();
+            foreach($products as $product) {
 
+                $product = $product;
+
+                $order_detail = new Order_detail;
+                $order_detail->id_order = $id_order;
+                $order_detail->id_product = $product['id'];
+                $order_detail->quantity = $item['quantity'];
+                $order_detail->save();
+
+            }
         }
 
     }

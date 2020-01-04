@@ -134,7 +134,30 @@ class ShoppingCartController extends Controller
         }
     }
 
+    public static function getTotal()
+    {
+        if (session()->exists('cart')) {
 
+            $cartProducts = session()->get('cart');
+
+            $totalPrice = 0;
+
+
+            foreach ($cartProducts as $item) {
+
+                $products = Product::where('id', $item['id'])->get();
+
+                foreach ($products as $product) {
+
+                    $totalPrice = $totalPrice + $product->price * $item['quantity'];
+
+
+                }
+
+            }
+            return $totalPrice;
+        }
+    }
 }
 
 ?>

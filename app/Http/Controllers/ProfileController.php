@@ -88,10 +88,10 @@ class ProfileController extends Controller
             $user->name= $name;
         }
         if($email!=null){
-            if($this->validator($data)->fails()){
-            }else{
+            //if($this->validator($data)->fails()){
+            //}else{
                 $user->email=$email;
-            }
+            //}
         }
         $user->save();
         if(Profile::where('user_id',$user->id)->exists()){

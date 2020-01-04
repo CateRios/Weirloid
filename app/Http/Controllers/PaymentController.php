@@ -27,7 +27,8 @@ class PaymentController extends Controller
 {
     private $_api_context;
 
-    public function __construct(){
+    public function __construct()
+    {
         /** PayPal api context **/
         $paypal_conf = \Config::get('paypal');
         $this->_api_context = new ApiContext(new OAuthTokenCredential(
@@ -37,7 +38,8 @@ class PaymentController extends Controller
         $this->_api_context->setConfig($paypal_conf['settings']);
     }
 
-    public function payWithpaypal(Request $request){
+    public function payWithpaypal(Request $request)
+    {
         $payer = new Payer();
         $payer->setPaymentMethod('paypal');
 
@@ -45,10 +47,11 @@ class PaymentController extends Controller
         $id_order = (new Order_controller)->createOrder($request->get('amount'));
 
         $item_1 = new Item();
-        $item_1->setName('Orden ID: '.$id_order) /** item name **/
+        $item_1->setName('Orden ID: ' . $id_order)/** item name **/
         ->setCurrency('EUR')
             ->setQuantity(1)
-            ->setPrice($request->get('amount')); /** unit price **/
+            ->setPrice($request->get('amount'));
+        /** unit price **/
 
         $item_list = new ItemList();
         $item_list->setItems(array($item_1));
@@ -60,10 +63,10 @@ class PaymentController extends Controller
         $transaction = new Transaction();
         $transaction->setAmount($amount)
             ->setItemList($item_list)
-            ->setDescription('Order #'.$id_order);
+            ->setDescription('Order #' . $id_order);
 
         $redirect_urls = new RedirectUrls();
-        $redirect_urls->setReturnUrl(url('/status')) /** Specify return URL **/
+        $redirect_urls->setReturnUrl(url('/status'))/** Specify return URL **/
         ->setCancelUrl(url('/status'));
 
         $payment = new Payment();
@@ -102,7 +105,8 @@ class PaymentController extends Controller
         return Redirect::route('paywithpaypal');
     }
 
-    public function getPaymentStatus(Request $request){
+    public function getPaymentStatus(Request $request)
+    {
 
         /** Get the payment ID before session clear **/
         $payment_id = Session::get('paypal_payment_id');
@@ -124,19 +128,19 @@ class PaymentController extends Controller
             \Session::put('success', 'Payment success');
 
             // Obtenemos el ID de la orden
-            $transactions =  $payment->getTransactions();
+            $transactions = $payment->getTransactions();
             $description = $transactions[0]->getDescription();
             $id_order = intval(preg_replace('/[^0-9]+/', '', $description), 10);
 
             // Cambiamos el estado de la orden
-            $order = Order::where('id',$id_order)->first();
+            $order = Order::where('id', $id_order)->first();
             $order->state = "Paid";
             $order->save();
 
             // Obtenemos todos los datos para la transacción
             $amount = $transactions[0]->getAmount();
             $total = $amount->getTotal();
-            $currency =  $amount->getCurrency();
+            $currency = $amount->getCurrency();
             $user = Auth::user();
             $user_email = $user->email;
 
@@ -160,7 +164,7 @@ class PaymentController extends Controller
         \Session::put('error', 'Payment failed');
 
         // Obtenemos el ID de la orden
-        $transactions =  $payment->getTransactions();
+        $transactions = $payment->getTransactions();
         $description = $transactions[0]->getDescription();
         $id_order = intval(preg_replace('/[^0-9]+/', '', $description), 10);
 
@@ -168,8 +172,11 @@ class PaymentController extends Controller
 
         return redirect()->to('/userProducts');
     }
-    protected function decreaseStock(){
-        if(session()->exists('cart')) {
+
+
+    protected function decreaseStock()
+    {
+        if (session()->exists('cart')) {
 
             $cartProducts = session()->get('cart');
             foreach ($cartProducts as $item) {
@@ -180,8 +187,9 @@ class PaymentController extends Controller
                     $stock = $product->stock;
                     $finalquantity = $stock - $item['quantity'];
                     $product->stock = $finalquantity;
-                    $product->save;
+                    $product->save();
                 }
             }
         }
+    }
 }
