@@ -26,8 +26,8 @@
 </article>
 <article class="buttons">
     <li>
-        <button class="profileButton"><i class="fas fa-shopping-basket"></i><label>MIS PEDIDOS </label></button>
-        <button class="profileButton"><i class="far fa-comment-alt"></i><label>MENSAJES </label></button>
+        <a href='ordersList'><button class="profileButton"><i class="fas fa-shopping-basket"></i><label>MIS PEDIDOS </label></button></a>
+        <a href='messagesList'><button class="profileButton"><i class="far fa-comment-alt"></i><label>MENSAJES </label></button></a>
         <button class="profileButton"><i class="fas fa-heart"></i><label>FAVORITOS </label></button>
     </li>
 </article>
