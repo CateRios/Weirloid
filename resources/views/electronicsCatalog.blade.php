@@ -67,11 +67,13 @@
             <label class="radio">4 estrellas o más<input type="radio" name="score" value="4"><span class="checkmark"></span></label><br>
             <label class="radio">5 estrellas<input type="radio" name="score" value="5"><span class="checkmark"></span></label><br>
         </section>
+        <!--Apply filters-->
+        <section><input type='submit' name='submitFilters' value='Aplicar filtros'></section>
         </form>
     </section>
 
     <!-- -Products -->
-    <section class="catalog-products-section offset-md-1 col-md-8">
+    <section class="catalog-products-section col-md-9">
         <!-- New Products -->
         <div class="section">
 

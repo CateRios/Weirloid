@@ -59,41 +59,15 @@ class MangaCatalogController extends Controller
         ->where('price', '<', $maxPrice)
         ->get();
 
-        $HTMLFilteredProducts="";
+        foreach($products as $product){
 
-        foreach($products as $item){
-            $id =$item->id;
-            $name = substr($item->name, 0, 10) . '...';
-            $price = $item->price;
-            $category = $item->class;
-            $score = $item->score;
-            $img= base64_decode($item->image);
-
-               $HTMLFilteredProducts = $HTMLFilteredProducts. " <!-- Product Card -->
-                <div class='card productCard'>
-                    <a href='popDetail$id'><img class='card-img-top productCard-image' src='$img' alt='$name'></a>
-                    <div class='productCard-price'>
-                        <h4 class='card-title'>$price €</h4>
-                    </div>
-                    <div class='card-body'>
-                        <h6 class='card-subtitle mb-2 productCard-category'>$category</h6>
-                        <h5 class='card-title productCard-name'>$name</h5>";
-
-
-                $i=1;
-                for($i=1; $i <= $score; $i++){
-                    $HTMLFilteredProducts = $HTMLFilteredProducts. "<span class='fa fa-star checked'></span>";
-                }
-                while($i <=5){
-                    $HTMLFilteredProducts = $HTMLFilteredProducts. "<span class='fa fa-star'></span>";
-                    $i++;
-                }
-
-
-                $HTMLFilteredProducts = $HTMLFilteredProducts. "</div></div>" ;
+            // Cambiamos el tamaño de la imagen
+            $product->image = Image::make($product->image)->resize(400,400)->encode('data-url')->encoded;
+            $product->categoryColor = "#F99D1C";
+            $product->categoryDetailLink = "http://weirloid.test/mangaDetail".$product->id;
         }
 
-        return  view('mangaCatalog', ['products' => $HTMLFilteredProducts]);
+        return view('searchResults')->with('products', $products);
     }
 
 

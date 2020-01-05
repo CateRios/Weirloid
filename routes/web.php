@@ -61,11 +61,9 @@ Route::group(['middleware' => 'auth'], function () {
 });
 
 //Catálogo
-Route::get('catalog', function () {
-    return view('catalog');
-});
+Route::get('catalog', 'CatalogController@catalog');
 
-Route::get('/popsCatalog', 'PopsCatalogController@popsCatalog');
+Route::get('popsCatalog', 'PopsCatalogController@popsCatalog');
 
 Route::get('mangaCatalog', 'MangaCatalogController@mangaCatalog');
 
@@ -75,7 +73,9 @@ Route::get('clothesCatalog', 'ClothesCatalogController@clothesCatalog');
 
 //Filtros
 
-Route::post('/searchPops', 'PopsCatalogController@filterProducts');
+Route::post('searchCatalog', 'CatalogController@filterProducts');
+
+Route::post('searchPops', 'PopsCatalogController@filterProducts');
 
 Route::post('/searchManga', 'MangaCatalogController@filterProducts');
 

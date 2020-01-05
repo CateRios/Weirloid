@@ -47,7 +47,6 @@
 
                     // wait for the ui.handle to set its position
                     setTimeout(delay, 500);
-                    $('form').submit();
             }
             });
 
@@ -68,13 +67,3 @@
         });
   </script>
 
-  <script>
-
-    $(document).ready(function() { 
-    $('input').change(function(){
-        $('#filterForm').submit();
-    }
-    );
-    });
-
-  </script>
