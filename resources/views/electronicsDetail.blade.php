@@ -69,13 +69,16 @@
                     <h1>Descripción</h1>
                     <p>{{$product->description}}</p>
                 </article>
+                @if ($product->model !=null)
                 <article>
+                    
                     <h1>Modelo</h1>
                     <?php $product->model = explode(",", $product->model);
                     foreach($product->model as $tmp){
                         echo "<label class='radio' id='model'>$tmp<input type='radio' name='model' value='$tmp'><span class='checkmark'></span></label>";
                     }?>
                 </article>
+                @endif
                 <article>
                     <h1>Cantidad</h1>
                     @if ($product->stock >= 1)

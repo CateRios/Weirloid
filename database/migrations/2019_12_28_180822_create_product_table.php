@@ -26,7 +26,7 @@ class CreateProductTable extends Migration
             $table->integer('stock');
             $table->integer('score');
 
-            $table->string('model', 20)->nullable();
+            $table->string('model', 50)->nullable();
             $table->string('size', 20)->nullable();
 
             $table->longText('image');

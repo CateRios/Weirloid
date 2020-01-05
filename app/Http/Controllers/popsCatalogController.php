@@ -28,6 +28,25 @@ class popsCatalogController extends Controller
         return view('partials.products')->with('products', $products);
     }
 
+    public static function getNewProducts(){
+
+        $products= DB::table('product')
+        ->where('class','=', "Figuras y Pop's")
+        ->orderBy('created_at', 'DESC')
+        ->take(4)
+        ->get();
+        
+        foreach($products as $product){
+
+            // Cambiamos el tamaño de la imagen
+            $product->image = Image::make($product->image)->resize(400,400)->encode('data-url')->encoded;
+            $product->categoryColor = "#ED1C24";
+            $product->categoryDetailLink = "http://weirloid.test/popDetail".$product->id;
+        }
+
+        return view('partials.products')->with('products', $products);
+    }
+
     public static function filterProducts(Request $request){
 
         //Valores por defecto
