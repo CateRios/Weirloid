@@ -19,7 +19,7 @@
 <body>
 
     <!-- Header -->
-    include("general.header")
+    @include("general.header")
     
     <!--Nav bar -->
     @include('general.catalognav')

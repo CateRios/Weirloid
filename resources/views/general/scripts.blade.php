@@ -5,6 +5,7 @@
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
 <script type="text/javascript" src="{{asset('js/header.js')}}"></script>
+<script type="text/javascript" src="{{asset('js/navbar.js')}}"></script>
 
 <script>
 

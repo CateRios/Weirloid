@@ -117,7 +117,7 @@ class ShoppingCartController extends Controller
             }
 
             echo "
-                <div class='cart'><a href='shoppingCart'>
+                <div class='cart'><a id='navLink5' href='shoppingCart'>
                                 <p id='count'><i class='fas fa-shopping-cart'></i> $items_number ITEMS:</p>
                                 <p id='total'>$totalPrice €</p>
                         </a></div>
