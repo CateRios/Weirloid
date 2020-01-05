@@ -8,17 +8,12 @@ use App\Product;
 
 class ElectronicsDetailController extends Controller
 {
-    public function electronicssDetail(){
-        return view('electronicsDetail');
-    }
-
-    
-
     public function showDetails($id){
         
         $product = Product::find($id);
+        $product['categoryColor'] = "#008FD5";
 
-        return view('electronicsDetail', ['item'=>$product]);
+        return view('electronicsDetail', ['product'=>$product]);
     }
 
 

@@ -111,9 +111,7 @@
                     <!-- List of products -->
                     <div class="productsBackground">
                         <div id="productsDiv" class="card-columns productList">
-                            <?php 
-                            echo $products; 
-                            ?>
+                            {{\App\Http\Controllers\popsCatalogController::getProducts()}}
                         </div>
                     </div>
             </div>

@@ -13,45 +13,18 @@ class ElectronicsCatalogController extends Controller
         return view('electronicsCatalog');
     }
     
-    public static function showProducts(){
+    public static function getProducts(){
 
         $products= Product::where('class', "Electrónica")->get();
-
-        $HTMLProducts="";
         
-        foreach($products as $item){
-            $id =$item->id;
-            $name = substr($item->name, 0, 10) . '...';
-            $price = $item->price;
-            $category = $item->class;
-            $score = $item->score;
-            $img= base64_decode($item->image);
+        foreach($products as $product){
+           // Cambiamos el tamaño de la imagen
+           $product->image = Image::make($product->image)->resize(400,400)->encode('data-url')->encoded;
+           $product['categoryColor'] = "#008FD5";
+            $product['categoryDetailLink'] = "http://weirloid.test/electronicsDetail".$product->id;
+       }
 
-               $HTMLProducts = $HTMLProducts. " <!-- Product Card -->
-                <div class='card productCard'>
-                    <a href='popDetail$id'><img class='card-img-top productCard-image' src='$img' alt='$name'></a>
-                    <div class='productCard-price'>
-                        <h4 class='card-title'>$price €</h4>
-                    </div>
-                    <div class='card-body'>
-                        <h6 class='card-subtitle mb-2 productCard-category'>$category</h6>
-                        <h5 class='card-title productCard-name'>$name</h5>";
-
-
-                $i=1;
-                for($i=1; $i <= $score; $i++){
-                    $HTMLProducts = $HTMLProducts. "<span class='fa fa-star checked'></span>";
-                }
-                while($i <=5){
-                    $HTMLProducts = $HTMLProducts. "<span class='fa fa-star'></span>";
-                    $i++;
-                }
-
-
-                $HTMLProducts = $HTMLProducts."</div></div>" ;
-        }
-
-        return view('electronicsCatalog', ['products' => $HTMLProducts]);
+       return view('partials.products')->with('products', $products);
     }
 
     public static function filterProducts(Request $request){

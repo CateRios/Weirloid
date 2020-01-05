@@ -65,13 +65,13 @@ Route::get('catalog', function () {
     return view('catalog');
 });
 
-Route::get('/popsCatalog', 'PopsCatalogController@showProducts');
+Route::get('/popsCatalog', 'PopsCatalogController@popsCatalog');
 
-Route::get('mangaCatalog', 'MangaCatalogController@showProducts');
+Route::get('mangaCatalog', 'MangaCatalogController@mangaCatalog');
 
-Route::get('electronicsCatalog', 'ElectronicsCatalogController@showProducts');
+Route::get('electronicsCatalog', 'ElectronicsCatalogController@electronicsCatalog');
 
-Route::get('clothesCatalog', 'ClothesCatalogController@showProducts');
+Route::get('clothesCatalog', 'ClothesCatalogController@clothesCatalog');
 
 //Filtros
 

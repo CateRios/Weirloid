@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Product;
+use Intervention\Image\ImageManagerStatic as Image;
 
 class popDetailController extends Controller
 {
@@ -17,8 +18,10 @@ class popDetailController extends Controller
     public function showDetails($id){
         
         $product = Product::find($id);
+        $product->image = Image::make($product->image)->resize(400,400)->encode('data-url')->encoded;
+        $product['categoryColor'] = "#ED1C24";
 
-        return view('popDetail', ['item'=>$product]);
+        return view('popDetail', ['product'=>$product]);
     }
 
 

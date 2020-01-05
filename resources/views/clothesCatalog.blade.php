@@ -110,9 +110,7 @@
                     <!-- List of products -->
                     <div class="productsBackground">
                         <div class="card-columns productList">
-                            <?php 
-                            echo $products; 
-                            ?>
+                        {{\App\Http\Controllers\ClothesCatalogController::getProducts()}}
                         </div>
                     </div>
             </div>

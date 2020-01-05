@@ -113,9 +113,7 @@
                     <!-- List of products -->
                     <div class="productsBackground">
                         <div class="card-columns productList">
-                        <?php 
-                            echo $products; 
-                        ?>
+                        {{\App\Http\Controllers\MangaCatalogController::getProducts()}}
                         </div>
                     </div>
             </div>
