@@ -41,7 +41,7 @@ class Index_controller extends Controller
                         $product['categoryDetailLink'] = "http://weirloid.test/popDetail".$product->id;
                         break;
 
-                    case "Manga y Comics":
+                    case "Manga y cómics":
                         $product['categoryColor'] = "#F99D1C";
                         $product['categoryDetailLink'] = "http://weirloid.test/mangaDetail".$product->id;
                         break;
