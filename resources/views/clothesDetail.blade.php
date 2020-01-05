@@ -96,18 +96,30 @@
                     }?>
                 </article>
                 <article>
-                    <h1>Cantidad</h1>
-                    <input type="number" value="1" name="quantity" min="1" max="<?=$stock?>" class="quantity-input"></button>
+                <h1>Cantidad</h1>
+                    <?php
+                    if($stock >= 1){
+                        echo "<input type='number' value='1' name='quantity' min='1' max='$stock' class='quantity-input'></button>";
+                    }else{
+                        echo "<p>No hay stock suficiente</p>";
+                    }
+                    ?>
                 </article>
                 <input type="hidden" value="<?=$id?>" name="id">
             </section>
             <button type="submit" class="button-submit">
                 Lista de deseos <i class="fas fa-heart"></i> 
             </button>
-            <button type="submit" class="button-submit" name="addToCart">
-                Añadir al carrito <i class="fas fa-shopping-cart"></i> 
-            </button>
-            </form>
+
+            <?php
+                if($stock >= 1){
+                ?>
+                    <button type="submit" class="button-submit" name="addToCart">
+                        Añadir al carrito <i class="fas fa-shopping-cart"></i> 
+                    </button>
+                <?php
+                }
+            ?>
         </div>
     </section>
 
