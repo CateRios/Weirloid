@@ -15,7 +15,7 @@ class MangaCatalogController extends Controller
     
     public static function getProducts(){
 
-        $products= Product::where('class', "Manga y cómics")->get();
+        $products= Product::where('class', "Manga y cómics")->paginate(8);
 
         foreach($products as $product){
 
@@ -45,7 +45,7 @@ class MangaCatalogController extends Controller
             $product->categoryDetailLink = "http://weirloid.test/mangaDetail".$product->id;
         }
 
-        return view('partials.products')->with('products', $products);
+        return view('partials.newProducts')->with('products', $products);
     }
 
     public static function filterProducts(Request $request){
@@ -77,7 +77,7 @@ class MangaCatalogController extends Controller
         ->where('score', '>=', $score)
         ->where('price', '>', $minPrice)
         ->where('price', '<', $maxPrice)
-        ->get();
+        ->paginate(8);
 
         foreach($products as $product){
 

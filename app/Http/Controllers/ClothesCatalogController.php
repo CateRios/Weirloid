@@ -15,7 +15,7 @@ class ClothesCatalogController extends Controller
     
     public static function getProducts(){
 
-        $products= Product::where('class', "Ropa")->get();
+        $products= Product::where('class', "Ropa")->paginate(8);
 
         foreach($products as $product){
             
@@ -44,7 +44,7 @@ class ClothesCatalogController extends Controller
             $product->categoryDetailLink = "http://weirloid.test/clothesDetail".$product->id;
         }
 
-        return view('partials.products')->with('products', $products);
+        return view('partials.newProducts')->with('products', $products);
     }
 
     public static function filterProducts(Request $request){
@@ -76,7 +76,7 @@ class ClothesCatalogController extends Controller
         ->where('score', '>=', $score)
         ->where('price', '>', $minPrice)
         ->where('price', '<', $maxPrice)
-        ->get();
+        ->paginate(8);
 
         foreach($products as $product){
 

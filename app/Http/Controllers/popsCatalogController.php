@@ -15,7 +15,7 @@ class popsCatalogController extends Controller
 
     public static function getProducts(){
 
-        $products= Product::where('class', "Figuras y Pop's")->get();
+        $products= Product::where('class', "Figuras y Pop's")->paginate(8);
         
         foreach($products as $product){
 
@@ -44,7 +44,7 @@ class popsCatalogController extends Controller
             $product->categoryDetailLink = "http://weirloid.test/popDetail".$product->id;
         }
 
-        return view('partials.products')->with('products', $products);
+        return view('partials.newProducts')->with('products', $products);
     }
 
     public static function filterProducts(Request $request){
@@ -76,7 +76,7 @@ class popsCatalogController extends Controller
         ->where('score', '>=', $score)
         ->where('price', '>', $minPrice)
         ->where('price', '<', $maxPrice)
-        ->get();
+        ->paginate(8);;
 
         foreach($products as $product){
 

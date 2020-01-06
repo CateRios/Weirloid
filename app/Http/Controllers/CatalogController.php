@@ -15,7 +15,7 @@ class CatalogController extends Controller
 
     public static function getProducts(){
 
-        $products= Product::all();
+        $products= Product::where('class', 'like', '%')->paginate(8);
         
         foreach($products as $product){
 
@@ -68,7 +68,7 @@ class CatalogController extends Controller
         ->where('score', '>=', $score)
         ->where('price', '>', $minPrice)
         ->where('price', '<', $maxPrice)
-        ->get();
+        ->paginate(8);
 
         foreach($products as $product){
 

@@ -15,7 +15,7 @@ class ElectronicsCatalogController extends Controller
     
     public static function getProducts(){
 
-        $products= Product::where('class', "Electrónica")->get();
+        $products= Product::where('class', "Electrónica")->paginate(8);
         
         foreach($products as $product){
            // Cambiamos el tamaño de la imagen
@@ -43,7 +43,7 @@ class ElectronicsCatalogController extends Controller
             $product->categoryDetailLink = "http://weirloid.test/electronicsDetail".$product->id;
         }
 
-        return view('partials.products')->with('products', $products);
+        return view('partials.newProducts')->with('products', $products);
     }
 
     public static function filterProducts(Request $request){
@@ -75,7 +75,7 @@ class ElectronicsCatalogController extends Controller
         ->where('score', '>=', $score)
         ->where('price', '>', $minPrice)
         ->where('price', '<', $maxPrice)
-        ->get();
+        ->paginate(8);
 
         foreach($products as $product){
 
