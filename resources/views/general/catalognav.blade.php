@@ -1,4 +1,4 @@
-<!-- Categories navbar-->    
+<!-- Categories navbar-->
 <nav class="catalog-nav-bar navbar-expand-md">
 
 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".dual-nav">
@@ -14,19 +14,19 @@
        <li class="nav-item cel"><a id="navLink2" href="mangaCatalog" class="manga nav-link">Manga y cómics</a></li>
        <li class="nav-item cel"><a id="navLink3" href="electronicsCatalog" class="electronics nav-link">Electrónica</a></li>
        <li class="nav-item cel"> <a id="navLink4" href="clothesCatalog" class="clothes nav-link">Ropa</a></li>
-   
+
        <li class="nav-item cel"><a class="nav-link" href="#">Ofertas</a></li>
        <li class="nav-item cel"><a class="nav-link" href="#">Top Ventas</a></li>
    </ul>
- 
+
    <form>
-       <input type="search" name="search" placeholder="  Escribe aquí...">
        <span class="search-icon"><i class="fas fa-search"></i></span>
+       <input type="search" name="search" placeholder="  Escribe aquí...">
    </form>
- 
+
    {{App\Http\Controllers\ShoppingCartController::showCartOnNavBar()}}
-   
-</div> 
+
+</div>
 
 <script>activeLinkNav()</script>
 
