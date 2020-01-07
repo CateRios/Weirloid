@@ -69,10 +69,12 @@
                     <h1>Descripción</h1>
                     <p>{{$product->description}}</p>
                 </article>
+                @if( $product->author != null)
                 <article>
                     <h1>Autor</h1>
                     <p>{{$product->author}}</p>
                 </article>
+                @endif
                 <article>
                     <h1>Cantidad</h1>
                     @if ($product->stock >= 1)

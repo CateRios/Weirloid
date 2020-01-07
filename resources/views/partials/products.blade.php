@@ -24,3 +24,4 @@
 @endforeach
 
 {{$products->links()}}
+
