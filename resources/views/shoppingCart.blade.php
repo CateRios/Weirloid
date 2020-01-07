@@ -49,9 +49,7 @@
         <a href='paymentPlatform'><button><label>PAGAR AHORA</label></button></a>
     @else
         <div>
-            <a data-toggle='modal' data-target='#signModal'><button><label>PAGAR AHORA</label></button></a>
-            <!-- Sign In/Up Modal -->
-            @include('partials.signModal')
+            <a href='/'><button><label>INICIA SESIÓN O REGISTRATE</label></button></a>
         </div>
     @endif
     
