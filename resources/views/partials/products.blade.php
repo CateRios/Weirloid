@@ -23,5 +23,5 @@
 
 @endforeach
 
-{{$products->links()}}
+{{$products->links('general.paginator')}}
 
