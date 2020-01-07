@@ -35,21 +35,28 @@
         <img class="card-img-top" src="{{asset('img/cristina.png')}}" alt="Cristina">
         <div class="card-body contact-card-body">
             <h5 class="card-title">Cristina de las Nieves Montesdeoca Flores</h5>
-            <p class="card-text texto">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+            <p class="card-text texto">Nuestra pequeña linda mascota es una niña con muchas ideas de niña de 3 años a la que le encanta
+                el rosa, finge no ser una friki pero no tan al fondo se puede ver un anime o un drama coreano en una tarde y ella tan
+                contenta. En el trabajo ella ha sido la encargada de la creación del perfil y todas sus funciones ya que "la gente
+                puede elegir como se ve en una página web" y las funciones del pago.</p>
         </div>
     </div>
     <div class="card contact-card">
         <img class="card-img-top" src="{{asset('img/caterina.png')}}" alt="Caterina">
         <div class="card-body contact-card-body">
             <h5 class="card-title">Caterina Rios Bolaños</h5>
-            <p class="card-text texto">This card has supporting text below as a natural lead-in to additional content.</p>
+            <p class="card-text texto">Caterina es la mas friki de las tres no solo por la cantidad de animes que se puede ver si no
+            tambien porque el contenido de estos suelen ser demasiado random para el gusto de la gente normal. De cara al trabajo
+            realizado ella ha sido la encargada de la búsqueda de los objetos del catálogo y de la implementación de este.</p>
         </div>
     </div>
     <div class="card contact-card">
         <img class="card-img-top" src="{{asset('img/yguanira.png')}}" alt="Yguanira">
         <div class="card-body contact-card-body">
             <h5 class="card-title">Yguanira del Pino Vega Vega</h5>
-            <p class="card-text texto">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
+            <p class="card-text texto">La líder de los frikis que ha hecho que las otras dos nos introdujéramos en el mundo  friki con
+                animes que nos recomendaba poco a poco. Además es la creadora de la idea y de este diseño tan hermoso de la pagina web
+                junto con el proceso de inicio de sesión y la creación del usuario.</p>
         </div>
     </div>
 </div>
