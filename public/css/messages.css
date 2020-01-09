@@ -11,7 +11,8 @@
 }
 .messagesList{
     margin: 50px;
-    height: 600px;
+    min-height: 607px;
+    max-height: fit-content;
 }
 #message article{
     background-color: var(--white);
@@ -40,38 +41,6 @@
     margin-top: 20px;
     margin-left: 30px;
 }
-/* Paginacion*/
-.paginacion {
-    margin: 30px 0;
-}
-
-.paginacion ul {
-    list-style: none;
-    text-align: center;
-}
-
-.paginacion ul li {
-    display: inline-block;
-    margin-right: 10px;
-}
-
-.paginacion ul li a {
-    display: block;
-    padding: 10px 20px;
-    color: var(--white);
-    background: var(--pink);
-    text-decoration: none;
-}
-
-.paginacion ul li a:hover {
-    background: var(--white);
-    color: var(--pink);
-}
-
-.paginacion ul li .active {
-    background: var(--orange);
-    font-weight: bold;
-}
 #messageContent{
     padding: 20px;
     background: var(--ivory);
@@ -85,4 +54,29 @@
     line-height: 30px;
 
     color: #000000;
+}
+#newMessage{
+    width: 28%;
+    border-radius: 15px;
+    background: var(--ivory);
+    padding: 20px;
+    margin-left: 40%;
+}
+input[type="text"] {
+    width: 100%;
+    border-radius: 5px;
+    border-color: var(--pink);
+    margin: 1%;
+    font-family: 'Monserrat', sans-serif;
+}
+#content{
+    width: 100%;
+    border-radius: 5px;
+    border-color: var(--pink);
+    margin: 1%;
+    font-family: 'Monserrat', sans-serif;
+    height: 100px;
+}
+input.newMessageButton {
+    margin-left: 50%;
 }

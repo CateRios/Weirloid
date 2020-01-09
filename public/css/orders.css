@@ -2,7 +2,9 @@
 
 .ordersList{
     margin: 50px;
-    height: 600px;
+    min-height: 607px;
+    max-height: fit-content;
+
 }
 #order article{
     background-color: var(--white);

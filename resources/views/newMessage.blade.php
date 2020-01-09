@@ -21,13 +21,12 @@
 
     <form method="post" action='createMessage' enctype="multipart/form-data">
         {{ csrf_field() }}
-        <section id="message">
+            <section id="newMessage">
             <input type="text" name="title" placeholder="Asunto">
-        </section>
-        <br>
-        <section id="messageContent">
-            <input type="text" name="message" placeholder="Mensaje">
-        </section>
+
+                <textarea id="content" name="message" placeholder="Mensaje" cols="200" rows="6" required></textarea>
+
+            </section>
         <input type="submit" value="Enviar" class="newMessageButton">
     </form>
 </article>
