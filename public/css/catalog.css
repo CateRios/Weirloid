@@ -245,7 +245,7 @@
 
 /* =============== Products section =============== */
 .catalog-products-section{
-    margin: 0.5% 0% 3% 0%;
+    margin: 0.5% 0% 1.5% 0%;
     width: 100%;
     padding-bottom: 60px;
 }
@@ -277,4 +277,38 @@
         -moz-column-count: 4;
         column-count: 4;
     }
+}
+
+/* =============== PAGINATION =============== */
+.paginate {
+    position: absolute;
+    right: 50%;
+    left: 50%;
+    bottom: 0;
+}
+
+.paginate a {
+    border: none;
+    color: var(--pink);
+}
+
+.paginate a:hover {
+    color: var(--black);
+}
+
+.disabled{
+    background-color: whitesmoke;
+}
+
+.active {
+    font-weight: bolder;
+}
+
+.paginate i {
+    text-align: center;
+    margin-top: 15%;
+    background: -webkit-linear-gradient(left, var(--pink),var(--red),var(--orange),var(--blue),var(--purple));
+    background-size: 75% 100%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }

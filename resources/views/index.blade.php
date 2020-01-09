@@ -72,7 +72,7 @@
 </div>
 
 <!-- Featured Products -->
-<div class="section">
+<div class="section" style="margin-bottom: 9%;: ">
 
     <!-- Header-->
     <h2>Productos destacados</h2>
