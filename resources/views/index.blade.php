@@ -66,7 +66,7 @@
 
     <!--Button-->
     <div class="carousel-caption d-none d-md-block caption">
-        <a class="carouselButton" href="#" role="button">Empezar <i class="fa fa-angle-right" aria-hidden="true"></i></a>
+        <a class="carouselButton" href="catalog" role="button">Empezar <i class="fa fa-angle-right" aria-hidden="true"></i></a>
     </div>
 
 </div>

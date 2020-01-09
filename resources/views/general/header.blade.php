@@ -1,6 +1,6 @@
 <header class="header">
 
-    @if(\Illuminate\Support\Facades\Auth::user()->email == 'admin')
+    @if(Auth::check() && Auth::user()->email == 'admin')
 
         @include('general.adminTopNavBar')
 

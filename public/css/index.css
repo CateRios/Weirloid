@@ -28,6 +28,12 @@
     z-index: 2;
 }
 
+.carouselButton:hover {
+    text-decoration: none;
+    font-weight: bolder;
+    color: var(--white);
+}
+
 /* =============== FEATURED PRODUTCS =============== */
 .section {
     margin: 3% 0 3% 0;
@@ -52,6 +58,7 @@
 .productCard {
     font-family: 'Monserrat', sans-serif;
     font-size: 80%;
+    cursor: pointer;
 }
 
 .productCard-price h4{
