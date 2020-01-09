@@ -18,9 +18,12 @@
 
 <!-- Header -->
 @include("general.header")
-
+<article class="editAndLogOutButtons">
+<a href="editProfile"> <button class="editProfileButton">
+        <label><i class="fas fa-sign-out-alt"></i> CERRAR SESIÓN </label></button></a>
 <a href="editProfile"> <button class="editProfileButton">
         <label><i class="fas fa-pencil-alt"></i> EDITAR PERFIL </label></button></a>
+</article>
 <article class="profile">
     <a id="border"><img id="userImg" src="{{\App\Http\Controllers\ProfileController::getPhoto()}}"></a>
 </article>

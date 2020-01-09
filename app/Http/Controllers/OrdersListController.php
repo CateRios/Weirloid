@@ -15,7 +15,7 @@ class OrdersListController extends Controller
     {
 
         $user = Auth::user();
-        $orders = Order::where('id_user', $user->id)->get();
+        $orders = Order::where('id_user', $user->id)->where('state',"Paid")->get();
         foreach ($orders as $item) {
             $id = $item->id;
             $date = $item->created_at;
@@ -81,10 +81,9 @@ class OrdersListController extends Controller
             $idProduct = $item->id_product;
             $orderDetails = Product::where('id', $idProduct)->first();
             $name = $orderDetails->name;
-            $category = $orderDetails->category;
+            $category = $orderDetails->class;
             $price = $orderDetails->price;
             $image = $orderDetails->image;
-            $photo = base64_decode($image);
             ?>
             <!-- -Detail -->
             <section class="detail row">
@@ -92,7 +91,7 @@ class OrdersListController extends Controller
                 <div class="md-3">
                     <!-- Product Card -->
                     <div class="card productCard">
-                        <img class="card-img-top productCard-image" src="<?= $photo ?>"
+                        <img class="card-img-top productCard-image" src="<?= $image ?>"
                              alt="Card image">
                         <div class="card-body">
                             <h6 class="card-subtitle mb-2 productCard-category"><?= $category ?></h6>

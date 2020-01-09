@@ -41,7 +41,7 @@ input#userImg{
     background: var(--white);
 }
 #nameP{
-    margin-left: 35%;
+    margin-left: 40%;
 
     width: 373px;
     height: 60px;
@@ -52,7 +52,6 @@ input#userImg{
     line-height: 58px;
     display: flex;
     align-items: center;
-    text-align: right;
     text-transform: uppercase;
 
     color: var(--pink);
@@ -178,4 +177,8 @@ input#userImg{
     color: var(--white);
     text-transform: uppercase;
 }
-
+article.editAndLogOutButtons {
+    float: right;
+    margin-right: 10%;
+    margin-top: 5%;
+}
