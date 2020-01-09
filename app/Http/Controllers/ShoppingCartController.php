@@ -67,12 +67,14 @@ class ShoppingCartController extends Controller
                         $name = $product->name;
                         $quantity = $item['quantity'];
                         $price = $product->price;
+                        $id = $product->id;
 
                         echo "
                         <tr id='items'>
                         <td>$name</td>
                         <td>$quantity</td>
                         <td>$price €</td>
+                        <td><a href='deleteItem$id'><button type='button' class='button-delete' name='deleteProduct'><i class='fas fa-times'></i></button></a></td>
                         </tr>";
 
                     }
@@ -157,6 +159,24 @@ class ShoppingCartController extends Controller
             }
             return $totalPrice;
         }
+    }
+
+    public function deleteItem($id){
+        if(session()->exists('cart')){
+
+            $cartProducts = session()->get('cart');
+
+            foreach($cartProducts as $item){
+
+                if($item['id'] == $id){
+                    unset($cartProducts[$id]);
+                    session(['cart' => $cartProducts]);
+
+                    return redirect()->back(); 
+                }
+            }
+        }
+        
     }
 }
 

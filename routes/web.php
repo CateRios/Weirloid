@@ -101,6 +101,8 @@ Route::get('shoppingCart', 'ShoppingCartController@shoppingCart');
 
 Route::post('addProduct', 'ShoppingCartController@addToCart');
 
+Route::get('deleteItem{id}', 'ShoppingCartController@deleteItem');
+
 // Servicios
 Route::get('services', function(){
     return view('services');

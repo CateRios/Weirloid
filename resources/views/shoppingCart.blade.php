@@ -32,6 +32,7 @@
         <th>Artículo</th>
         <th>Cantidad</th>
         <th>Precio</th>
+        <th></th>
     </tr>
 
 <?php
@@ -46,10 +47,10 @@
     </table>
 
     @if(Auth::check())
-        <a href='paymentPlatform'><button><label>PAGAR AHORA</label></button></a>
+        <a href='paymentPlatform'><button class='button-pay'><label>PAGAR AHORA</label></button></a>
     @else
         <div>
-            <a href='/'><button><label>INICIA SESIÓN O REGISTRATE</label></button></a>
+            <a href='/'><button class='button-pay'><label>INICIA SESIÓN O REGISTRATE</label></button></a>
         </div>
     @endif
     

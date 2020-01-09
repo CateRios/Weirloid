@@ -44,7 +44,7 @@
 }
 
 
-.shoppingCart button {
+.shoppingCart .button-pay{
     background-color: var(--pink);
     border: none;
     color: var(--white);
@@ -56,4 +56,10 @@
     margin-left: 40%;
     margin-bottom: 3%;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 3px 10px 0 rgba(0,0,0,0.19);
-  }
+}
+
+.button-delete{
+background-color: none;
+border: none;
+color: var(--pink);
+}
