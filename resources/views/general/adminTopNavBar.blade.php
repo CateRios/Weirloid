@@ -34,7 +34,7 @@
             </li>
             <li class='nav-item cel' style="position: absolute; margin-top: 0.7%;right: 4%">
 
-                <a class="user_shortName" id='name' href="#">{{Auth::user()->name}}</a>
+                <a class="user_shortName" id='name' href="logout">{{Auth::user()->name}}</a>
 
             </li>
 

@@ -19,7 +19,7 @@
 <!-- Header -->
 @include("general.header")
 <article class="editAndLogOutButtons">
-<a href="editProfile"> <button class="editProfileButton">
+<a href="logout"> <button class="editProfileButton">
         <label><i class="fas fa-sign-out-alt"></i> CERRAR SESIÓN </label></button></a>
 <a href="editProfile"> <button class="editProfileButton">
         <label><i class="fas fa-pencil-alt"></i> EDITAR PERFIL </label></button></a>

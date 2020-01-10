@@ -120,5 +120,12 @@ class ProfileController extends Controller
         return redirect()->to('/profile');
     }
 
+    public function logout(){
+
+        // Cerramos la sesión
+        Auth::logout();
+
+        return redirect()->to('/');
+    }
 
 }

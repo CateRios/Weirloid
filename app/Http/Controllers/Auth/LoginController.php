@@ -61,14 +61,6 @@ class LoginController extends Controller
         }
     }
 
-    public function logout(){
-
-        // Cerramos la sesión
-        Auth::logout();
-
-        return redirect()->to('/');
-    }
-
     /**
      * Handle Social login request
      *

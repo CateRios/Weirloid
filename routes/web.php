@@ -27,6 +27,8 @@ Route::group(['middleware' => 'auth'], function () {
         return view('profile');
     });
 
+    Route::get('logout', ['uses' => 'ProfileController@logout']);
+
     Route::get('editProfile',function (){
         return view('editProfile');
     });
