@@ -20,7 +20,11 @@ class CatalogController extends Controller
         foreach($products as $product){
 
             // Cambiamos el tamaño de la imagen
-            $product->image = Image::make($product->image)->resize(400,400)->encode('data-url')->encoded;
+            if($product->modified != 0){ //Local
+                $product->image = base64_decode($product->image);
+            }else{ //Seed
+               $product->image = Image::make($product->image)->resize(400,400)->encode('data-url')->encoded; 
+            }
 
             // Añadimos el color según la categoría
              switch ($product->class){
@@ -73,7 +77,11 @@ class CatalogController extends Controller
         foreach($products as $product){
 
             // Cambiamos el tamaño de la imagen
-            $product->image = Image::make($product->image)->resize(400,400)->encode('data-url')->encoded;
+            if($product->modified != 0){ //Local
+                $product->image = base64_decode($product->image);
+            }else{ //Seed
+               $product->image = Image::make($product->image)->resize(400,400)->encode('data-url')->encoded; 
+            }
 
             switch ($product->class){
 

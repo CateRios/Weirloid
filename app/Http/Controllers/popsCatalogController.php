@@ -20,7 +20,11 @@ class popsCatalogController extends Controller
         foreach($products as $product){
 
             // Cambiamos el tamaño de la imagen
-            $product->image = Image::make($product->image)->resize(400,400)->encode('data-url')->encoded;
+            if($product->modified != 0){ //Local
+                $product->image = base64_decode($product->image);
+            }else{ //Seed
+               $product->image = Image::make($product->image)->resize(400,400)->encode('data-url')->encoded; 
+            }
             $product['categoryColor'] = "#ED1C24";
             $product['categoryDetailLink'] = "http://weirloid.test/popDetail".$product->id;
         }
@@ -39,7 +43,11 @@ class popsCatalogController extends Controller
         foreach($products as $product){
 
             // Cambiamos el tamaño de la imagen
-            $product->image = Image::make($product->image)->resize(400,400)->encode('data-url')->encoded;
+            if($product->modified != 0){ //Local
+                $product->image = base64_decode($product->image);
+            }else{ //Seed
+               $product->image = Image::make($product->image)->resize(400,400)->encode('data-url')->encoded; 
+            }
             $product->categoryColor = "#ED1C24";
             $product->categoryDetailLink = "http://weirloid.test/popDetail".$product->id;
         }
@@ -81,7 +89,11 @@ class popsCatalogController extends Controller
         foreach($products as $product){
 
             // Cambiamos el tamaño de la imagen
-            $product->image = Image::make($product->image)->resize(400,400)->encode('data-url')->encoded;
+            if($product->modified != 0){ //Local
+                $product->image = base64_decode($product->image);
+            }else{ //Seed
+               $product->image = Image::make($product->image)->resize(400,400)->encode('data-url')->encoded; 
+            }
             $product->categoryColor = "#ED1C24";
             $product->categoryDetailLink = "http://weirloid.test/popDetail".$product->id;
         }

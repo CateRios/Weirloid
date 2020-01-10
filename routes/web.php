@@ -122,6 +122,14 @@ Route::get('contact', function(){
 Route::get('adminUsersList', function(){
     return view('adminUsersList');
 });
+//Administrador
+Route::get('productList', 'ProductListController@productList');
+
+Route::get('editProduct{id}', 'ProductListController@editProduct');
+
+Route::get('deleteProduct{id}', 'ProductListController@deleteProduct');
+
+Route::post('saveProductChanges', 'ProductListController@saveProductChanges');
 
 /* ================= FUNCIONES ================= */
 

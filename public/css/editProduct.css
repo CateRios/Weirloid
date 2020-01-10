@@ -1,0 +1,48 @@
+@import "app.css";
+
+/* =============== Form =============== */
+
+.editProduct{
+    margin-top: 5%;
+    margin-left: 8%;
+    margin-right: 8%;
+    background-color: var(--ivory);
+    max-width: 100em;
+}
+
+.editProduct h1{
+    color: var(--pink);
+    text-align: center;
+    background-color: var(--white);
+    padding-bottom: 2%;
+}
+
+.editProduct button{
+    background-color: var(--pink);
+    border: none;
+    color: var(--white);
+    padding: 15px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 15px;
+    border-radius: 8px;
+    margin-left: 52%;
+    margin-bottom: 3%;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 3px 10px 0 rgba(0,0,0,0.19);
+}
+
+.inputImage{
+    width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
+}
+
+.inputImageLabel {
+    background-color: var(--pink);
+    color: var(--white);
+    cursor: pointer;
+}
+

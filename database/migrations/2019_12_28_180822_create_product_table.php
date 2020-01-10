@@ -31,6 +31,8 @@ class CreateProductTable extends Migration
 
             $table->longText('image');
 
+            $table->integer('modified')->default(0);
+
             $table->timestamps();
         });
     }
