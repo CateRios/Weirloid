@@ -13,7 +13,7 @@
        <li class="nav-item cel"><a id="navLink1" href="popsCatalog" class="pops nav-link">Figuras y Pop's</a></li>
        <li class="nav-item cel"><a id="navLink2" href="mangaCatalog" class="manga nav-link">Manga y cómics</a></li>
        <li class="nav-item cel"><a id="navLink3" href="electronicsCatalog" class="electronics nav-link">Electrónica</a></li>
-       <li class="nav-item cel"> <a id="navLink4" href="clothesCatalog" class="clothes nav-link">Ropa</a></li>
+       <li class="nav-item cel"> <a id="catalogNav4" href="clothesCatalog" class="clothes nav-link">Ropa</a></li>
 
        <li class="nav-item cel"><a class="nav-link" href="#">Ofertas</a></li>
        <li class="nav-item cel"><a class="nav-link" href="#">Top Ventas</a></li>

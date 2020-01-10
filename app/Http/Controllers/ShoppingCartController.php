@@ -167,11 +167,9 @@ class ShoppingCartController extends Controller
             $cartProducts = session()->get('cart');
 
             foreach($cartProducts as $item){
-
                 if($item['id'] == $id){
                     unset($cartProducts[$id]);
                     session(['cart' => $cartProducts]);
-
                     return redirect()->back(); 
                 }
             }

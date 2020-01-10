@@ -41,6 +41,11 @@
     color: var(--white);
 }
 
+.clothesActive{
+    background-color: var(--purple);
+    color: var(--white);
+}
+
 .catalog-nav-bar a.pops:hover{
     background-color: var(--red);
     color: var(--white);
@@ -64,11 +69,6 @@
 
 .catalog-nav-bar a.electronics:hover{
     background-color: var(--blue);
-    color: var(--white);
-}
-
-.catalog-nav-bar a.clothes:active{
-    background-color: var(--purple);
     color: var(--white);
 }
 

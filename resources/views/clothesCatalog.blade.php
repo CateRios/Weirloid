@@ -9,11 +9,28 @@
     <!-- Style -->
     <link rel="stylesheet" href="{{ asset('css/index.css') }}" />
     <link rel="stylesheet" href="{{ asset('css/catalog.css') }}" />
-    <link rel="stylesheet" href="/resources/demos/style.css"/>
+    <!--<link rel="stylesheet" href="/resources/demos/style.css"/>-->
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"/>
 
     <!-- Scripts -->
     @include('general.scripts')
+
+    <script>
+        var path = window.location.pathname;
+        var currentPage = path.split("/").pop();
+        console.log(path, currentPage);
+
+        switch(currentPage){
+            case 'clothesCatalog': 
+                var element = document.getElementById("catalogNav4");
+                element.className = element.className + " " + "clothesActive";
+                break;
+
+        //switch, 4 clases active
+    }
+        }
+    
+    </script>
 
 </head>
 
