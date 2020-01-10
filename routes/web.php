@@ -114,6 +114,11 @@ Route::get('contact', function(){
     return view('contact');
 });
 
+/* ================= ADMINISTRADOR ================= */
+Route::get('adminUsersList', function(){
+    return view('adminUsersList');
+});
+
 /* ================= FUNCIONES ================= */
 
 //Recuperar contraseña

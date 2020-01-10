@@ -1,0 +1,34 @@
+@import "app.css";
+
+/* =============== LIST =============== */
+.list {
+    margin: 2%;
+    background-color: var(--ivory);
+    padding: 1% 1%;
+    border: 4px solid var(--pink);
+    border-radius: 20px;
+}
+
+.avatarIcon {
+    left: 0;
+    font-size: 500%;
+    text-align: center;
+    margin-top: 15%;
+    background: -webkit-linear-gradient(left, var(--pink),var(--red),var(--orange),var(--blue),var(--purple));
+    background-size: 100% 100%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.data {
+    padding-left: 5%;
+}
+
+.name {
+    font-family: 'Mogra', sans-serif;
+    color: var(--pink);
+}
+
+.datum {
+    margin: 0;
+}

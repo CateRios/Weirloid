@@ -12,10 +12,10 @@
                 <a class="nav-link" id="headerLink1" href="/">Home</a>
             </li>
             <li class="nav-item cel">
-                <a class="nav-link" id="headerLink2" href="catalog">Catálogo</a>
+                <a class="nav-link" id="headerLink2" href="adminUsersList">Usuarios</a>
             </li>
             <li class="nav-item cel">
-                <a class="nav-link" id="headerLink3" href="services">Servicios</a>
+                <a class="nav-link" id="headerLink3" href="#">Productos</a>
             </li>
         </ul>
     </div>
@@ -27,12 +27,12 @@
     <div class="navbar-collapse collapse dual-nav order-3 order-md-3">
         <ul class="navbar-nav">
             <li class="nav-item cel">
-                <a class="nav-link header-nav" id="headerLink4" href="aboutUs">Sobre nosotros</a>
+                <a class="nav-link header-nav" id="headerLink4" href="#">Órdenes</a>
             </li>
             <li class="nav-item cel">
-                <a class="nav-link header-nav" id="headerLink5" href="contact">Contacto</a>
+                <a class="nav-link header-nav" id="headerLink5" href="#">Pedidos</a>
             </li>
-            <li class='nav-item cel' style="position: absolute; margin-top: 1%;right: 4%">
+            <li class='nav-item cel' style="position: absolute; margin-top: 0.7%;right: 4%">
 
                 <a class="user_shortName" id='name' href="#">{{Auth::user()->name}}</a>
 
