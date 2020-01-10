@@ -7,68 +7,15 @@ use Illuminate\Support\Facades\DB;
 use App\Product;
 use Intervention\Image\ImageManagerStatic as Image;
 
-class ProductListController extends Controller
+class AddProductController extends Controller
 {
-    public function productList(){
-        return view('productList');
+    public function addProduct(){
+        return view('addProduct');
     }
 
-    public static function getProductList(){
+    public function insertProductToDatabase(Request $request){
 
-        $products= Product::where('class', 'like', '%')->paginate(8);
-        
-        foreach($products as $product){
-
-            // Cambiamos el tamaño de la imagen
-            if($product->modified != 0){ //Local
-                $product->image = base64_decode($product->image);
-            }else{ //Seed
-               $product->image = Image::make($product->image)->resize(400,400)->encode('data-url')->encoded; 
-            }
-
-            switch ($product->class){
-
-                case "Figuras y Pop's":
-                    $product->categoryColor = "#ED1C24";
-                    break;
-
-                case "Manga y cómics":
-                    $product->categoryColor = "#F99D1C";
-                    break;
-
-                case "Electrónica":
-                    $product->categoryColor = "#008FD5";
-                    break;
-
-                case "Ropa":
-                    $product->categoryColor = "#802A90";
-                    break;
-
-            }
-        }
-
-        return view('partials.productList')->with('products', $products);
-    }
-    
-    public function editProduct($id){
-
-        $product = Product::find($id);
-
-        return view('editProduct', ['product' => $product]);
-
-    }
-
-    public function deleteProduct($id){
-
-        Product::where('id', $id)->delete();
-
-        return redirect()->back(); 
-        
-    }
-
-    public function saveProductChanges(Request $request){
-
-        $product = Product::find($request->productId);
+        $product = new Product();
 
         //Información recibida
         if($request->productName != null){
@@ -136,8 +83,6 @@ class ProductListController extends Controller
         return redirect()->to('productList');
         
     }
-
-
 
     
 

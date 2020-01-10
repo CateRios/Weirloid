@@ -27,26 +27,9 @@
     <div class="container-fluid">
 
     <div class="row">
-            <!-- Filters -->
-            <section class="filters col-md-2">
-                <div id="title"><h4>Filtrar por</h4></div>
-                <form name='form' id='filterForm' action='searchProductList' method='post' enctype="multipart/form-data">
-                {{ csrf_field() }}
-                <!-- Clase -->
-                    <section>
-                        <p>Clase</p>
-                        <label class="radio">Figuras y Pop's<input type="radio" name="class" value="Figuras y Pop's"><span class="checkmark"></span></label><br>
-                        <label class="radio">Manga y cómics<input type="radio" name="class" value="Manga y cómics"><span class="checkmark"></span></label><br>
-                        <label class="radio">Electrónica<input type="radio" name="class" value="Electrónica"><span class="checkmark"></span></label><br>
-                        <label class="radio">Ropa<input type="radio" name="class" value="Ropa"><span class="checkmark"></span></label><br>
-                    </section>
-                    <!--Apply filters-->
-                    <section><input type='submit' name='submitFilters' value='Aplicar filtros'></section>
-                </form>
-            </section>
 
             <!-- -Product List -->
-            <section class="catalog-products-section col-md-10">
+            <section class="catalog-products-section col-md-12">
                 <!-- New Products -->
                 <div class="section">
 

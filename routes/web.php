@@ -131,6 +131,10 @@ Route::get('deleteProduct{id}', 'ProductListController@deleteProduct');
 
 Route::post('saveProductChanges', 'ProductListController@saveProductChanges');
 
+Route::get('addProduct', 'AddProductController@addProduct');
+
+Route::post('insertProductToDatabase', 'AddProductController@insertProductToDatabase');
+
 /* ================= FUNCIONES ================= */
 
 //Recuperar contraseña
