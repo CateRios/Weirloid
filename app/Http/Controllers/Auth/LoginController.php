@@ -51,7 +51,12 @@ class LoginController extends Controller
             if (auth()->attempt(['email' => $data['email'], 'password' => $data['password']])) {
 
                 // Si nuestros datos son correctos mostramos la página de inicio
-                return redirect()->to('/');
+                if($data['email'] == 'admin'){
+                    return redirect()->to('/admin');
+                } else {
+                    return redirect()->to('/');
+                }
+
 
             } else {
                 session(['error_code' => 3]);

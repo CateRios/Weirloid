@@ -9,7 +9,7 @@
     <div class="navbar-collapse collapse dual-nav order-2 order-md-1 justify-content-end">
         <ul class="navbar-nav">
             <li class="nav-item cel">
-                <a class="nav-link" id="headerLink1" href="/">Home</a>
+                <a class="nav-link" id="headerLink1" href="admin">Home</a>
             </li>
             <li class="nav-item cel">
                 <a class="nav-link" id="headerLink2" href="adminUsersList">Usuarios</a>

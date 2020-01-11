@@ -24,6 +24,10 @@ Route::get('/login/{social}/callback','Auth\LoginController@handleProviderCallba
 Route::group(['middleware' => 'App\Http\Middleware\AdminMiddleware'], function()
 {
     /* ================= ADMINISTRADOR ================= */
+    Route::get('admin', function(){
+        return view('adminIndex');
+    });
+
     Route::get('adminUsersList', function(){
         return view('adminUsersList');
     });
