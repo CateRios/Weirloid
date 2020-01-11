@@ -20,6 +20,50 @@ Auth::routes();
 Route::get('/login/{social}','Auth\LoginController@socialLogin')->where('social','twitter|facebook|linkedin|google|github|bitbucket');
 Route::get('/login/{social}/callback','Auth\LoginController@handleProviderCallback')->where('social','twitter|facebook|linkedin|google|github|bitbucket');
 
+// Routas a las que sólo pueden entrar el admin
+Route::group(['middleware' => 'App\Http\Middleware\AdminMiddleware'], function()
+{
+    /* ================= ADMINISTRADOR ================= */
+    Route::get('adminUsersList', function(){
+        return view('adminUsersList');
+    });
+
+    Route::get('productList', 'ProductListController@productList');
+
+    Route::get('editProduct{id}', 'ProductListController@editProduct');
+
+    Route::get('deleteProduct{id}', 'ProductListController@deleteProduct');
+
+    Route::post('saveProductChanges', 'ProductListController@saveProductChanges');
+
+    Route::get('addProduct', 'AddProductController@addProduct');
+
+    Route::post('insertProductToDatabase', 'AddProductController@insertProductToDatabase');
+
+    //Mensajes Admin
+    Route::get('adminMessagesList',function (){
+        return view('adminMessagesList');
+    });
+
+    Route::get('adminMessageDetail{id}', 'AdminMessagesController@showDetails');
+    Route::post('answer','AdminMessagesController@createAnswer');
+
+    //Mensajes Admin
+    Route::get('adminMessagesList',function (){
+        return view('adminMessagesList');
+    });
+
+    Route::get('adminMessageDetail{id}', 'AdminMessagesController@showDetails');
+    Route::post('answer','AdminMessagesController@createAnswer');
+
+    //Ordenes Admin
+    Route::get('adminOrdersList',function (){
+        return view('adminOrdersList');
+    });
+    Route::get('orderDetail{id}', 'OrdersListController@callDetails');
+
+});
+
 // Routas a las que sólo pueden entrar los usuarios autenticados
 Route::group(['middleware' => 'auth'], function () {
     //Perfil
@@ -118,41 +162,6 @@ Route::get('contact', function(){
     return view('contact');
 });
 
-/* ================= ADMINISTRADOR ================= */
-Route::get('adminUsersList', function(){
-    return view('adminUsersList');
-});
-//Administrador
-Route::get('productList', 'ProductListController@productList');
-
-Route::get('editProduct{id}', 'ProductListController@editProduct');
-
-Route::get('deleteProduct{id}', 'ProductListController@deleteProduct');
-
-Route::post('saveProductChanges', 'ProductListController@saveProductChanges');
-
-Route::get('addProduct', 'AddProductController@addProduct');
-
-Route::post('insertProductToDatabase', 'AddProductController@insertProductToDatabase');
-
-//Mensajes Admin
-Route::get('adminMessagesList',function (){
-    return view('adminMessagesList');
-});
-Route::get('adminMessageDetail{id}', 'AdminMessagesController@showDetails');
-Route::post('answer','AdminMessagesController@createAnswer');
-//Mensajes Admin
-Route::get('adminMessagesList',function (){
-    return view('adminMessagesList');
-});
-Route::get('adminMessageDetail{id}', 'AdminMessagesController@showDetails');
-Route::post('answer','AdminMessagesController@createAnswer');
-
-//Ordenes Admin
-Route::get('adminOrdersList',function (){
-    return view('adminOrdersList');
-});
-Route::get('orderDetail{id}', 'OrdersListController@callDetails');
 /* ================= FUNCIONES ================= */
 
 //Recuperar contraseña
