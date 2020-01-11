@@ -15,7 +15,7 @@
                 <a class="nav-link" id="headerLink2" href="adminUsersList">Usuarios</a>
             </li>
             <li class="nav-item cel">
-                <a class="nav-link" id="headerLink3" href="#">Productos</a>
+                <a class="nav-link" id="headerLink3" href="productList">Productos</a>
             </li>
         </ul>
     </div>
