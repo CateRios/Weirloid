@@ -37,16 +37,20 @@ class MessagesController extends Controller
 
 
             echo " <!-- Message Card -->
-                <a href='messageDetail$id'>
+                
                 <section id='message'>
                 <article>
+                <a id='messageIcon'><i class=\"fas fa-envelope fa-5x\"></i></a>
+                <a href='messageDetail$id'>
                     <h1>$title</h1>
                     <h2>$response</h2>
+                    </a>
                     </article>";
 
 
-            echo "</section></a>";
+            echo "</section>";
         }
+
     }
     public function showDetails($id){
 
@@ -54,4 +58,5 @@ class MessagesController extends Controller
 
         return view('messageDetail', ['item'=>$message]);
     }
+
 }
