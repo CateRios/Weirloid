@@ -68,7 +68,13 @@
     font-weight: bolder;
     background-image: var(--rainbow);
 }
-
+a.rainbowCircle {
+    color: var(--white);
+    background: var(--rainbow);
+    border-radius: 360px;
+    margin-left: 2px;
+    width: 50px;
+}
 /* =============== FOOTER =============== */
 .footer {
     position: relative;

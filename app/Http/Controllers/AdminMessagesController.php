@@ -66,6 +66,8 @@ class AdminMessagesController extends Controller
 
         $noAnswerMessages = Message::where('answer', NULL)->get();
         $number = sizeof($noAnswerMessages);
-        return $number;
+        if($number!=0){
+            echo "<a class=\"rainbowCircle\" href=\"adminMessagesList\">$number</a>";
+        }
     }
 }

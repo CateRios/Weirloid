@@ -87,6 +87,7 @@
     color: orange;
 }
 
+
 @media (min-width: 585px) {
     .card-columns {
         -webkit-column-count: 2;
