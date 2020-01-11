@@ -141,6 +141,12 @@ Route::get('adminMessagesList',function (){
 });
 Route::get('adminMessageDetail{id}', 'AdminMessagesController@showDetails');
 Route::post('answer','AdminMessagesController@createAnswer');
+//Mensajes Admin
+Route::get('adminMessagesList',function (){
+    return view('adminMessagesList');
+});
+Route::get('adminMessageDetail{id}', 'AdminMessagesController@showDetails');
+Route::post('answer','AdminMessagesController@createAnswer');
 /* ================= FUNCIONES ================= */
 
 //Recuperar contraseña
