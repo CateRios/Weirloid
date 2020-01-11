@@ -7,7 +7,7 @@
             </div>
 
             <div class="col-md-11 data">
-                <h3 class="name">{{$user->name}}</h3>
+                <h3 class="name">{{$user->name}} (ID: {{$user->id}})</h3>
                 <p class="datum"><strong>Email: </strong>{{$user->email}} <br/>
                 <strong>Fecha de creación: </strong>{{$user->created_at}}&nbsp;&nbsp;&nbsp;<strong>Última actualización: </strong>{{$user->updated_at}}</p>
             </div>
