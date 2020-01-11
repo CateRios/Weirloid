@@ -27,10 +27,11 @@
     <div class="navbar-collapse collapse dual-nav order-3 order-md-3">
         <ul class="navbar-nav">
             <li class="nav-item cel">
-                <a class="nav-link header-nav" id="headerLink4" href="#">Órdenes</a>
+                <a class="nav-link header-nav" id="headerLink4" href="adminOrdersList">Órdenes</a>
             </li>
             <li class="nav-item cel">
-                <a class="nav-link header-nav" id="headerLink5" href="#">Pedidos</a>
+                <a class="nav-link header-nav" id="headerLink5" href="adminMessagesList">Mensajes</a>
+                {{\App\Http\Controllers\AdminMessagesController::getNumberNoAnswer()}}
             </li>
             <li class='nav-item cel' style="position: absolute; margin-top: 0.7%;right: 4%">
 
