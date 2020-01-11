@@ -46,6 +46,18 @@
     background: var(--ivory);
     border-radius: 15px;
 }
+#messageAnswer{
+    padding: 20px;
+    background: var(--ivory);
+    border-radius: 15px;
+}
+#messageAnswer form{
+    margin-left: 35%;
+}
+#messageAnswer textarea{
+    width: 45%;
+    border-radius: 15px;
+}
 #p{
     font-family: 'Montserrat', sans-serif;
     font-style: normal;

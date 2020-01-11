@@ -135,6 +135,12 @@ Route::get('addProduct', 'AddProductController@addProduct');
 
 Route::post('insertProductToDatabase', 'AddProductController@insertProductToDatabase');
 
+//Mensajes Admin
+Route::get('adminMessagesList',function (){
+    return view('adminMessagesList');
+});
+Route::get('adminMessageDetail{id}', 'AdminMessagesController@showDetails');
+Route::post('answer','AdminMessagesController@createAnswer');
 /* ================= FUNCIONES ================= */
 
 //Recuperar contraseña
@@ -147,5 +153,6 @@ Route::post('password/update', 'Auth\ResetPasswordController@reset')->name('pass
 
 // Enviar email a Weirloid
 Route::post('contact/email', 'Contact_controller@sendEmail');
+
 
 
