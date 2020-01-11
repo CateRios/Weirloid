@@ -10,10 +10,12 @@
     <title>Weirloid</title>
 
     <!-- Style -->
-    <link rel="stylesheet" href="{{ asset('css/index.css') }}" />
+    <link rel="stylesheet" href="{{ asset('css/adminIndex.css') }}" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.css" />
 
     <!-- Scripts -->
     @include('general.scripts')
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
 
 </head>
 
@@ -22,7 +24,7 @@
 <!-- Header -->
  @include('general.header')
 
-
+{{\App\Http\Controllers\AdminIndex_controller::getGraphic()}}
 
 <!-- Footer -->
  @include('general.footer')
