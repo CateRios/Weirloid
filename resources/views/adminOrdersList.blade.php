@@ -17,7 +17,7 @@
 <!-- Header -->
 @include("general.header")
 <article class="ordersList">
-    {{App\Http\Controllers\OrdersListController::getOrders()}}
+    {{App\Http\Controllers\AdminOrdersController::getOrders()}}
 </article>
 <!-- Footer -->
 @include('general.footer')

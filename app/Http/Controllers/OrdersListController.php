@@ -15,10 +15,11 @@ class OrdersListController extends Controller
     {
 
         $user = Auth::user();
-        $orders = Order::where('id_user', $user->id)->where('state',"Paid")->get();
+        $orders = Order::where('id_user', $user->id)->where('state', "Paid")->get();
         foreach ($orders as $item) {
             $id = $item->id;
             $date = $item->created_at;
+            $date = date_format($date, 'd/m/y');
             echo " <!-- Message Card -->
                 <a href='orderDetail$id'>
                 <section id='order'>
@@ -47,7 +48,12 @@ class OrdersListController extends Controller
         $id = $order->id;
         $date = $order->created_at;
         $total = $order->total;
-        //$date=$orderDetails->create_at;
+        $state = $order->state;
+        if($state=='Paid'){
+            $state="Pagado";
+        }else{
+            $state="Inpago";
+        }
         echo "    <!-- Data -->
     <div class=\"section floated\">
 
@@ -69,7 +75,13 @@ class OrdersListController extends Controller
             <article>
                 <h1>Total</h1>
                 <p>";
-            echo $total."€";
+        echo $total . "€";
+        echo "</p>
+            </article>
+            <article>
+                <h1>Estado</h1>
+                <p>";
+            echo $state;
         echo "</p>
             </article>
         </section>
