@@ -92,3 +92,8 @@ input[type="text"] {
 input.newMessageButton {
     margin-left: 50%;
 }
+#messageIcon{
+    float: right;
+    color: var(--pink);
+    margin-right: 20%;
+}

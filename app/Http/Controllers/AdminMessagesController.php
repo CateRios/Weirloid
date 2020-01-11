@@ -23,25 +23,29 @@ class AdminMessagesController extends Controller
             if ($item->answer == null) {
                 //$userId=$user->id;
                 echo " <!-- Message Card -->
-                <a href='adminMessageDetail$id'>
+                
                 <section id='message'>
                 <article>
+                <a id='messageIcon'><i class=\"fas fa-envelope fa-5x\"></i></a>
+                <a href='adminMessageDetail$id'>
                     <h1>$title</h1>
                     <h2>$userName</h2>
                     <h3>Pendiente</h3>
-                    </article>";
-                echo "</section></a>";
+                    </a>
+                </article>";
+                echo "</section>";
             } else {
                 echo " <!-- Message Card -->
-                <a href='adminMessageDetail$id'>
                 <section id='message'>
                 <article>
+                <a id='messageIcon'><i class=\"fas fa-envelope-open fa-5x\"></i></a>
+                    <a href='adminMessageDetail$id'>
                     <h1>$title</h1>
                     <h2>$userName</h2>
+                    </a>
                     </article>";
-                echo "</section></a>";
+                echo "</section>";
             }
-
         }
     }
     public function createAnswer(Request $request){
@@ -57,5 +61,11 @@ class AdminMessagesController extends Controller
         $message = Message::find($id);
 
         return view('adminMessageDetail', ['item'=>$message]);
+    }
+    public static function getNumberNoAnswer(){
+
+        $noAnswerMessages = Message::where('answer', NULL)->get();
+        $number = sizeof($noAnswerMessages);
+        return $number;
     }
 }
